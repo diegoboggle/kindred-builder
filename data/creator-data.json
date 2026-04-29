@@ -1,0 +1,4900 @@
+{
+  "clans": [
+    "Banu Haqim",
+    "Lasombra",
+    "Malkavian",
+    "Nosferatu",
+    "Toreador",
+    "Tremere",
+    "Ventrue"
+  ],
+  "generations": [
+    "duodécima",
+    "decimotercera",
+    "decimocuarta"
+  ],
+  "attributes": [
+    "Fuerza",
+    "Destreza",
+    "Resistencia",
+    "Carisma",
+    "Manipulación",
+    "Compostura",
+    "Inteligencia",
+    "Astucia",
+    "Resolución"
+  ],
+  "skills": [
+    "Academicismo",
+    "Armas de Fuego",
+    "Artesanía",
+    "Atletismo",
+    "Callejeo",
+    "Ciencias",
+    "Conducir",
+    "Consciencia",
+    "Etiqueta",
+    "Finanzas",
+    "Interpretación",
+    "Intimidación",
+    "Investigación",
+    "Latrocinio",
+    "Liderazgo",
+    "Medicina",
+    "Ocultismo",
+    "Pelea",
+    "Pelea con Armas",
+    "Perspicacia",
+    "Persuasión",
+    "Política",
+    "Sigilo",
+    "Subterfugio",
+    "Supervivencia",
+    "Tecnología",
+    "Trato con Animales"
+  ],
+  "specialRequiredSkills": [
+    "Academicismo",
+    "Artesanía",
+    "Ciencias",
+    "Interpretación"
+  ],
+  "malkavianPenaltyCategories": [
+    "Física",
+    "Social",
+    "Mental"
+  ],
+  "publicDeathOptions": [
+    "Saben que está muerto",
+    "Finge seguir vivo",
+    "No está claro"
+  ],
+  "clanInfo": {
+    "Banu Haqim": {
+      "description": "Jueces severos, ligados a la justicia y a la Sangre vampírica.",
+      "bane": "Si sacian Ansia alimentándose de otro vampiro, arriesgan Frenesí de hambre y posible Diablerie.",
+      "compulsion": "Deben castigar a quien actúe contra sus propias Convicciones o sufrir penalización.",
+      "disciplines": [
+        "Hechicería de Sangre",
+        "Celeridad",
+        "Ofuscación"
+      ]
+    },
+    "Lasombra": {
+      "description": "Sombras ambiciosas, sutiles y dispuestas a triunfar a cualquier coste.",
+      "bane": "Aparecen distorsionados en reflejos/grabaciones y sufren problemas con tecnología moderna.",
+      "compulsion": "Tras fallar una acción, quedan obsesionados hasta repetirla con éxito.",
+      "disciplines": [
+        "Dominación",
+        "Olvido",
+        "Potencia"
+      ]
+    },
+    "Malkavian": {
+      "description": "Vástagos de percepción fragmentada, capaces de ver verdades ocultas a costa de su estabilidad.",
+      "bane": "Su aflicción mental penaliza una categoría de reservas durante fallos bestiales o Compulsiones.",
+      "compulsion": "Perciben verdades distorsionadas y sufren penalizaciones a Destreza, Manipulación, Compostura, Astucia y Frenesí de terror.",
+      "disciplines": [
+        "Auspex",
+        "Dominación",
+        "Ofuscación"
+      ],
+      "requiredDetails": [
+        "Aflicción/trastorno",
+        "Categoría penalizada"
+      ]
+    },
+    "Nosferatu": {
+      "description": "Espías y recolectores de secretos, marcados físicamente por su maldición.",
+      "bane": "Reciben automáticamente el Defecto Repulsivo (••) y no pueden adquirir Méritos de Aspecto.",
+      "compulsion": "Deben obtener secretos privados y se niegan a revelar los propios salvo a cambio de algo mayor.",
+      "disciplines": [
+        "Animalismo",
+        "Ofuscación",
+        "Potencia"
+      ]
+    },
+    "Toreador": {
+      "description": "Divas, artistas y amantes obsesionados con la belleza y la emoción.",
+      "bane": "En entornos que consideran carentes de belleza sufren penalización al usar Disciplinas.",
+      "compulsion": "Quedan obsesionados con una sola cosa bella o significativa hasta dejar de percibirla o terminar la escena.",
+      "disciplines": [
+        "Auspex",
+        "Celeridad",
+        "Presencia"
+      ]
+    },
+    "Tremere": {
+      "description": "Brujos de Sangre, herederos de una tradición arcana quebrada por la caída de Viena.",
+      "bane": "No pueden vincular con Vínculo de Sangre a otros vampiros y requieren más ingestas para vincular mortales.",
+      "compulsion": "Nada inferior a lo excepcional les satisface; la repetición de intentos reduce la penalización.",
+      "disciplines": [
+        "Auspex",
+        "Dominación",
+        "Hechicería de Sangre"
+      ]
+    },
+    "Ventrue": {
+      "description": "Reyes y líderes, seleccionados entre mortales familiarizados con poder e influencia.",
+      "bane": "Deben elegir una preferencia alimentaria. Beber fuera de ella requiere Fuerza de Voluntad o no sacia Ansia.",
+      "compulsion": "Deben obligar a alguien a obedecer una orden no sobrenatural o sufrir penalización.",
+      "disciplines": [
+        "Dominación",
+        "Fortaleza",
+        "Presencia"
+      ],
+      "requiredDetails": [
+        "Preferencia alimentaria"
+      ]
+    }
+  },
+  "creatorSteps": [
+    {
+      "id": "welcome",
+      "label": "Inicio"
+    },
+    {
+      "id": "clan",
+      "label": "Sangre"
+    },
+    {
+      "id": "sire",
+      "label": "Sire"
+    },
+    {
+      "id": "identity",
+      "label": "Identidad"
+    },
+    {
+      "id": "predator",
+      "label": "Depredador"
+    },
+    {
+      "id": "attributes",
+      "label": "Atributos"
+    },
+    {
+      "id": "skills",
+      "label": "Habilidades"
+    },
+    {
+      "id": "disciplines",
+      "label": "Disciplinas"
+    },
+    {
+      "id": "advantages",
+      "label": "Méritos y Defectos"
+    },
+    {
+      "id": "convictions",
+      "label": "Convicciones"
+    },
+    {
+      "id": "profile",
+      "label": "Perfil"
+    },
+    {
+      "id": "summary",
+      "label": "Resumen"
+    }
+  ],
+  "predatorTypes": [
+    {
+      "name": "Gato callejero",
+      "description": "Quienes consideran que la violencia es la forma más rápida de conseguir lo que quieren pueden inclinarse hacia este estilo de caza. Los gatos callejeros se alimentan mediante fuerza bruta y ataques directos, tomando Sangre de quien pueden, cuando pueden. La Intimidación es una vía sencilla para hacer que sus víctimas se acobarden; también pueden recurrir a Dominación para impedir que informen del ataque o para enmascararlo como otra cosa.",
+      "suggestedPools": [
+        "Fuerza + Pelea para tomar Sangre por la fuerza o mediante amenazas.",
+        "Astucia + Callejeo para encontrar criminales, como si el personaje actuara como una figura justiciera."
+      ],
+      "disciplineChoices": [
+        "Celeridad",
+        "Potencia"
+      ],
+      "specialtyChoices": [
+        "Intimidación: Atracos",
+        "Pelea: Presas"
+      ],
+      "humanityMod": -1,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Contactos",
+          "dots": 3,
+          "traitId": "merit_contactos",
+          "detailDefault": "criminales"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_gato_callejero"
+    },
+    {
+      "name": "Bolsero",
+      "description": "A veces, la mejor Sangre no procede de un cuerpo vivo. Los bolseros son Vástagos que adoptan un enfoque que la mayoría no puede seguir: gracias a Garganta de Hierro (•••), pueden consumir Sangre preservada, desfraccionada o rancia, lo que les permite alimentarse de fuentes inusuales como bolsas de sangre o cadáveres. Tal vez trabajen en un hospital o banco de sangre, o quizá sepan lo suficiente del mercado negro para obtener su suministro. Los Ventrue no pueden escoger este tipo de Depredador.",
+      "suggestedPools": [
+        "Inteligencia + Callejeo para encontrar, conseguir acceso y comprar la mercancía."
+      ],
+      "disciplineChoices": [
+        "Hechicería de Sangre",
+        "Olvido",
+        "Ofuscación"
+      ],
+      "disciplineRestrictions": {
+        "Hechicería de Sangre": {
+          "clans": [
+            "Banu Haqim",
+            "Tremere"
+          ],
+          "note": "Sólo Tremere y Banu Haqim pueden elegir Hechicería de Sangre como disciplina de Bolsero."
+        },
+        "Olvido": {
+          "clans": [
+            "Hécata",
+            "Hecata"
+          ],
+          "note": "Sólo Hécata puede elegir Olvido como disciplina de Bolsero."
+        }
+      },
+      "specialtyChoices": [
+        "Latrocinio: Forzar cerraduras",
+        "Callejeo: Mercado negro"
+      ],
+      "humanityMod": 0,
+      "forbiddenClans": [
+        "Ventrue"
+      ],
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Garganta de Hierro",
+          "dots": 3,
+          "traitId": "merit_alimentacion_garganta_de_hierro"
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Enemigo",
+          "dots": 2,
+          "note": "Alguien cree que el vampiro le debe algo, o tiene otro motivo para darle caza.",
+          "traitId": "flaw_aliados_enemigo",
+          "detailDefault": "Alguien cree que el vampiro le debe algo, o tiene otro motivo para darle caza."
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_bolsero"
+    },
+    {
+      "name": "Sanguijuela de la Sangre",
+      "description": "Algunos Vástagos consideran que alimentarse de mortales es algo inherentemente incorrecto o repugnante, sin importar cómo lo justifiquen otros. Sanguijuela de la Sangre es un estilo de alimentación mal visto por muchos vampiros, lo que lo vuelve arriesgado salvo que el Vástago posea una posición de poder y pueda mantener bien guardado su pequeño secreto. Al rechazar la sangre mortal, se alimenta de la Vitae de otros vampiros, ya sea cazando a quienes son más débiles, coaccionándolos o aceptando Sangre como pago.",
+      "suggestedPools": [
+        "Se recomienda no abstraer este tipo de Depredador a una reserva de dados."
+      ],
+      "disciplineChoices": [
+        "Celeridad",
+        "Protean"
+      ],
+      "specialtyChoices": [
+        "Pelea: Vástagos",
+        "Sigilo: contra Vástagos"
+      ],
+      "humanityMod": -1,
+      "bloodPotencyMod": 1,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Exclusión de Presa",
+          "dots": 1,
+          "traitId": "flaw_alimentacion_exclusion_de_presa",
+          "detailDefault": "mortales"
+        }
+      ],
+      "pendingFlawChoice": {
+        "kind": "choiceGroup",
+        "type": "flaw",
+        "required": true,
+        "options": [
+          {
+            "kind": "fixedTrait",
+            "type": "flaw",
+            "name": "Secreto Oscuro",
+            "dots": 2,
+            "traitId": "flaw_fama_secreto_oscuro",
+            "detailDefault": "Diabolista"
+          },
+          {
+            "kind": "fixedTrait",
+            "type": "flaw",
+            "name": "Rechazado",
+            "dots": 2,
+            "traitId": "flaw_estatus_rechazado",
+            "detailRequired": true
+          }
+        ]
+      },
+      "id": "predator_sanguijuela_de_la_sangre"
+    },
+    {
+      "name": "Cleaver",
+      "description": "La Sangre más dulce puede proceder de quienes están más cerca. El cleaver se aprovecha de esa idea y toma Sangre de su propia familia y amistades cercanas, o incluso de personas cercanas a alguien más. Roba Sangre de sus víctimas en secreto mientras mantiene sus vínculos con ellas. Los cleavers llegan a extremos considerables para ocultar su condición a sus víctimas, aunque algunos optan por vías menos agradables. La Camarilla prohíbe tomar a una familia humana de este modo, pues supone una vulneración de la Mascarada en potencia.",
+      "suggestedPools": [
+        "Manipulación + Subterfugio para condicionar a las víctimas, socializar con ellas y alimentarse sin que se descubra la verdad."
+      ],
+      "disciplineChoices": [
+        "Dominación",
+        "Animalismo"
+      ],
+      "specialtyChoices": [
+        "Persuasión: Manipulación psicológica",
+        "Subterfugio: Encubrimientos"
+      ],
+      "humanityMod": 0,
+      "notes": [
+        "Este estilo de caza suele ser raro entre Ancillae o personajes más antiguos, debido al riesgo inherente o porque se vuelve insostenible con el tiempo."
+      ],
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Rebaño",
+          "dots": 2,
+          "traitId": "merit_rebano",
+          "detailRequired": true
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Secreto Oscuro",
+          "dots": 1,
+          "traitId": "flaw_fama_secreto_oscuro",
+          "detailDefault": "cleaver"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_cleaver"
+    },
+    {
+      "name": "Consensualista",
+      "description": "Obtener consentimiento es algo peligroso cuando se es un monstruo chupasangre, pero los consensualistas se las arreglan. Nunca se alimentan contra la voluntad libre de la víctima. En su lugar, fingen representar una campaña benéfica de donación de sangre, se presentan como alguien con una filia relacionada con la Sangre dentro de la comunidad kink, o admiten abiertamente ante sus víctimas lo que son y obtienen permiso para alimentarse. Para la Camarilla, este último método se considera una vulneración de la Mascarada; para un Anarquista filosófico, tal vez sea un riesgo aceptable.",
+      "suggestedPools": [
+        "Manipulación + Persuasión para tomar Sangre con consentimiento, bajo la apariencia de un procedimiento médico o una práctica kink mutua."
+      ],
+      "disciplineChoices": [
+        "Auspex",
+        "Fortaleza"
+      ],
+      "specialtyChoices": [
+        "Medicina: Flebotomía",
+        "Persuasión: recipientes"
+      ],
+      "humanityMod": 1,
+      "notes": [
+        "Este estilo de caza suele ser raro entre Ancillae o personajes más antiguos, debido al riesgo inherente o porque se vuelve insostenible con el tiempo."
+      ],
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Secreto Oscuro",
+          "dots": 1,
+          "traitId": "flaw_fama_secreto_oscuro",
+          "detailDefault": "Infractor de la Mascarada"
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Exclusión de Presa",
+          "dots": 1,
+          "traitId": "flaw_alimentacion_exclusion_de_presa",
+          "detailDefault": "sin consentimiento"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_consensualista"
+    },
+    {
+      "name": "Granjero",
+      "description": "Quizá este vampiro fue activista o trabajador humanitario en vida. Cualquiera que sea su razón, el granjero sólo se alimenta de animales como fuente primaria de Sangre. La Bestia puede roerlo con los espasmos del hambre, pero ha logrado evitar matar mortales salvo en alguna mala noche ocasional. Los Ventrue no pueden escoger este tipo de Depredador, y tampoco puede elegirse para personajes con Potencia de Sangre 3 o superior.",
+      "suggestedPools": [
+        "Compostura + Trato con Animales para encontrar y atrapar al animal elegido."
+      ],
+      "disciplineChoices": [
+        "Animalismo",
+        "Protean"
+      ],
+      "specialtyChoices": [
+        "Trato con Animales: animal concreto",
+        "Supervivencia: Caza"
+      ],
+      "humanityMod": 1,
+      "forbiddenClans": [
+        "Ventrue"
+      ],
+      "maxBloodPotency": 2,
+      "notes": [
+        "Este estilo de caza suele ser raro entre Ancillae o personajes más antiguos, debido al riesgo inherente o porque se vuelve insostenible con el tiempo."
+      ],
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Granjero",
+          "dots": 2,
+          "traitId": "flaw_alimentacion_granjero"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_granjero"
+    },
+    {
+      "name": "Osiris",
+      "description": "Por lo general, los osiris son celebridades dentro de la sociedad mortal. Músicos, escritores, sacerdotes e incluso líderes de culto pueden encontrar Sangre con facilidad aprovechando a quienes ya los rodean. Suelen alimentarse de sus fans o fieles, lo que les brinda fácil acceso a la Sangre, aunque los seguidores tienden a atraer sus propios problemas con las autoridades locales o cosas peores.",
+      "suggestedPools": [
+        "Manipulación + Subterfugio o Intimidación + Fama para alimentarse de admiradores devotos."
+      ],
+      "disciplineChoices": [
+        "Hechicería de Sangre",
+        "Presencia"
+      ],
+      "disciplineRestrictions": {
+        "Hechicería de Sangre": {
+          "clans": [
+            "Banu Haqim",
+            "Tremere"
+          ],
+          "note": "Sólo Tremere o Banu Haqim pueden elegir Hechicería de Sangre para Osiris."
+        }
+      },
+      "specialtyChoices": [
+        "Ocultismo: tradición concreta",
+        "Interpretación: campo de entretenimiento concreto"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "allocationGroup",
+          "type": "merit",
+          "totalDots": 3,
+          "allocationMode": "splitBetweenOptions",
+          "options": [
+            {
+              "name": "Fama",
+              "traitId": "merit_fama",
+              "detailRequired": true
+            },
+            {
+              "name": "Rebaño",
+              "traitId": "merit_rebano",
+              "detailRequired": true
+            }
+          ]
+        },
+        {
+          "kind": "allocationGroup",
+          "type": "flaw",
+          "totalDots": 2,
+          "allocationMode": "splitBetweenOptions",
+          "options": [
+            {
+              "name": "Enemigo",
+              "traitId": "flaw_aliados_enemigo",
+              "detailRequired": true
+            },
+            {
+              "name": "Defecto Mítico",
+              "selectionFilter": {
+                "scope": "character",
+                "type": "flaw",
+                "category": "Míticos"
+              },
+              "detailRequired": true,
+              "category": "Míticos"
+            }
+          ]
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_osiris"
+    },
+    {
+      "name": "Sandman",
+      "description": "Si la víctima nunca despierta durante la alimentación, entonces nunca ocurrió. El sandman prefiere cazar mortales dormidos antes que a cualquier otro objetivo. Usa el Sigilo o las Disciplinas para alimentarse de sus víctimas y rara vez lo sorprenden en el acto; cuando sucede, los problemas no tardan en aparecer. Tal vez fuera antisocial en vida, o quizá considere que la seducción o la violencia son demasiado para él y encuentre comodidad en el silencio de este estilo de alimentación.",
+      "suggestedPools": [
+        "Destreza + Sigilo para reconocer una localización, entrar por la fuerza y alimentarse sin dejar rastro."
+      ],
+      "disciplineChoices": [
+        "Auspex",
+        "Ofuscación"
+      ],
+      "specialtyChoices": [
+        "Medicina: Anestesia",
+        "Sigilo: Allanamiento"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Recursos",
+          "dots": 1,
+          "traitId": "merit_recursos",
+          "detailRequired": true
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_sandman"
+    },
+    {
+      "name": "Reina del ambiente",
+      "description": "De forma similar a los osiris, estos Vástagos encuentran comodidad en una subcultura concreta en lugar de dirigirse a un público amplio. Cazan dentro de una subcultura, o en torno a ella, a la que probablemente pertenecieron en su vida anterior. Sus víctimas los admiran por su estatus, y quienes sospechan lo que son suelen ser desacreditados. El ambiente puede ser cualquier cosa, desde cultura callejera hasta alta moda; el rasgo unificador es el uso de quienes los rodean.",
+      "suggestedPools": [
+        "Manipulación + Persuasión para alimentarse de quienes forman parte del subgrupo del Vástago, mediante condicionamiento y aislamiento para obtener Sangre, manipulación psicológica o silencio forzado."
+      ],
+      "disciplineChoices": [
+        "Dominación",
+        "Potencia"
+      ],
+      "specialtyChoices": [
+        "Etiqueta: ambiente concreto",
+        "Liderazgo: ambiente concreto",
+        "Callejeo: ambiente concreto"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Fama",
+          "dots": 1,
+          "traitId": "merit_fama",
+          "detailRequired": true
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Contactos",
+          "dots": 1,
+          "traitId": "merit_contactos",
+          "detailRequired": true
+        }
+      ],
+      "pendingFlawChoice": {
+        "kind": "choiceGroup",
+        "type": "flaw",
+        "required": true,
+        "options": [
+          {
+            "kind": "fixedTrait",
+            "type": "flaw",
+            "name": "Despreciado",
+            "dots": 1,
+            "traitId": "flaw_influencia_despreciado",
+            "detailDefault": "fuera de su subcultura"
+          },
+          {
+            "kind": "fixedTrait",
+            "type": "flaw",
+            "name": "Exclusión de Presa",
+            "dots": 1,
+            "traitId": "flaw_alimentacion_exclusion_de_presa",
+            "detailDefault": "subcultura distinta de la suya"
+          }
+        ]
+      },
+      "id": "predator_reina_del_ambiente"
+    },
+    {
+      "name": "Sirena",
+      "description": "Todo el mundo sabe que el sexo vende, y la sirena lo usa a su favor. Se alimenta casi exclusivamente fingiendo sexo o interés sexual, y emplea Disciplinas y seducción para apartar a una posible comida. Moverse por clubes y encuentros de una noche es una habilidad que domina. Por muy deseable que se sienta, en sus momentos más oscuros comprende que, en el mejor de los casos, su conducta es problemática y, en el peor, la de un agresor sexual serial.",
+      "suggestedPools": [
+        "Carisma + Subterfugio para alimentarse bajo la apariencia de actos sexuales."
+      ],
+      "disciplineChoices": [
+        "Fortaleza",
+        "Presencia"
+      ],
+      "specialtyChoices": [
+        "Persuasión: Seducción",
+        "Subterfugio: Seducción"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Bello",
+          "dots": 2,
+          "traitId": "merit_aspecto_bello"
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Enemigo",
+          "dots": 1,
+          "note": "Un amante despechado o una pareja celosa.",
+          "traitId": "flaw_aliados_enemigo",
+          "detailDefault": "Un amante despechado o una pareja celosa."
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_sirena"
+    },
+    {
+      "name": "Extorsionador",
+      "description": "En apariencia, los extorsionadores adquieren Sangre a cambio de servicios como protección, seguridad o vigilancia. Aunque a veces el servicio puede ser genuino, muchas otras se ofrece a partir de información fabricada para que el trato resulte mucho más atractivo.",
+      "suggestedPools": [
+        "Fuerza o Manipulación + Intimidación para alimentarse mediante coacción."
+      ],
+      "disciplineChoices": [
+        "Dominación",
+        "Potencia"
+      ],
+      "specialtyChoices": [
+        "Intimidación: Coacción",
+        "Latrocinio: Seguridad"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "allocationGroup",
+          "type": "merit",
+          "totalDots": 3,
+          "allocationMode": "splitBetweenOptions",
+          "options": [
+            {
+              "name": "Contactos",
+              "traitId": "merit_contactos",
+              "detailRequired": true
+            },
+            {
+              "name": "Recursos",
+              "traitId": "merit_recursos",
+              "detailRequired": true
+            }
+          ]
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Enemigo",
+          "dots": 2,
+          "note": "La policía, o una víctima que escapó de la extorsión del personaje y quiere vengarse.",
+          "traitId": "flaw_aliados_enemigo",
+          "detailDefault": "La policía, o una víctima que escapó de la extorsión del personaje y quiere vengarse."
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_extorsionador"
+    },
+    {
+      "name": "Ladrón de tumbas",
+      "description": "De forma similar a los bolseros, estos Vástagos entienden que no conviene desperdiciar buena Sangre, aunque otros no puedan consumirla. A menudo acaban desenterrando cadáveres o trabajando para funerarias con el fin de obtener cuerpos. Sin embargo, a pesar de lo que sugiere el nombre, prefieren alimentarse de dolientes en cementerios u hospitales. Este tipo de Depredador suele requerir un refugio u otras conexiones con una iglesia, hospital o morgue para conseguir los cuerpos.",
+      "suggestedPools": [
+        "Resolución + Medicina para rebuscar entre los muertos un cuerpo con Sangre.",
+        "Manipulación + Perspicacia para moverse entre mortales afligidos."
+      ],
+      "disciplineChoices": [
+        "Fortaleza",
+        "Olvido"
+      ],
+      "specialtyChoices": [
+        "Ocultismo: Rituales funerarios",
+        "Medicina: Cadáveres"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Garganta de Hierro",
+          "dots": 3,
+          "traitId": "merit_alimentacion_garganta_de_hierro"
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Refugio",
+          "dots": 1,
+          "traitId": "merit_refugio",
+          "detailRequired": true
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Depredador Manifiesto",
+          "dots": 2,
+          "traitId": "flaw_rebano_depredador_manifiesto"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_ladron_de_tumbas"
+    },
+    {
+      "name": "Asesino de carretera",
+      "description": "Estos Vástagos nunca permanecen demasiado tiempo en un mismo lugar y están siempre en movimiento, cazando a quienes no serán echadas de menos si desaparecen junto a la carretera. Los asesinos de carretera saben que el riesgo merece tanto la pena como la recompensa. Quizá el Vástago fue camionero en vida, o quizá encontró su destino junto a la carretera.",
+      "suggestedPools": [
+        "Destreza o Carisma + Conducir para alimentarse recogiendo a marginados sin otras opciones."
+      ],
+      "disciplineChoices": [
+        "Fortaleza",
+        "Protean"
+      ],
+      "specialtyChoices": [
+        "Supervivencia: la carretera",
+        "Investigación: jerga vampírica"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Rebaño",
+          "dots": 2,
+          "traitId": "merit_rebano",
+          "detailRequired": true
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Exclusión de Presa",
+          "dots": 1,
+          "traitId": "flaw_alimentacion_exclusion_de_presa",
+          "detailDefault": "locales"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_asesino_de_carretera"
+    },
+    {
+      "name": "Parca",
+      "description": "Este tipo de Depredador caza en hospicios, residencias asistidas y otros lugares donde viven personas próximas a la muerte. Las parcas están en constante movimiento para localizar nuevas víctimas cerca del final de sus vidas y alimentarse de ellas. Este estilo de caza también puede generar gusto por enfermedades concretas, lo que facilita identificarlas.",
+      "suggestedPools": [
+        "Inteligencia + Consciencia o Medicina para encontrar víctimas."
+      ],
+      "disciplineChoices": [
+        "Auspex",
+        "Olvido"
+      ],
+      "specialtyChoices": [
+        "Consciencia: Muerte",
+        "Latrocinio: Falsificación"
+      ],
+      "humanityMod": 1,
+      "automaticAwards": [
+        {
+          "kind": "choiceGroup",
+          "type": "merit",
+          "totalDots": 1,
+          "allocationMode": "chooseOne",
+          "options": [
+            {
+              "name": "Aliados",
+              "detailDefault": "comunidad médica",
+              "traitId": "merit_aliados"
+            },
+            {
+              "name": "Influencia",
+              "detailDefault": "comunidad médica",
+              "traitId": "merit_influencia"
+            }
+          ]
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "name": "Exclusión de Presa",
+          "dots": 1,
+          "traitId": "flaw_alimentacion_exclusion_de_presa",
+          "detailDefault": "mortales sanos"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_parca"
+    },
+    {
+      "name": "Montero",
+      "description": "Los monteros mantienen una tradición de aristócratas españoles que cazaban ciervos y usaban equipos para conducirlos hacia el cazador. Sus Criados dirigen a las víctimas hacia el vampiro para que éste se alimente. Esto no siempre adopta una forma tradicional: también puede presentarse como timos largos, flash mobs o persecuciones de bandas.",
+      "suggestedPools": [
+        "Inteligencia + Sigilo para representar la planificación experta de Criados bien entrenados.",
+        "Resolución + Sigilo para un plan bien ensayado y una espera paciente."
+      ],
+      "disciplineChoices": [
+        "Dominación",
+        "Ofuscación"
+      ],
+      "specialtyChoices": [
+        "Liderazgo: Manada de caza",
+        "Sigilo: Vigilancia"
+      ],
+      "humanityMod": -1,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Criados",
+          "dots": 2,
+          "traitId": "merit_criados"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_montero"
+    },
+    {
+      "name": "Perseguidor",
+      "description": "Este estilo es propio de quienes prefieren acechar a la víctima, aprender sus hábitos y rutinas, y determinar si su desaparición provocará alarma o no. El perseguidor ataca cuando llega el momento adecuado y cuando el hambre se encuentra en el equilibrio perfecto.",
+      "suggestedPools": [
+        "Inteligencia + Investigación para localizar y encontrar una víctima cuya ausencia nadie notará.",
+        "Resistencia + Sigilo para un acecho prolongado de víctimas urbanas desprevenidas."
+      ],
+      "disciplineChoices": [
+        "Animalismo",
+        "Auspex"
+      ],
+      "specialtyChoices": [
+        "Investigación: Perfilado",
+        "Sigilo: Seguimiento"
+      ],
+      "humanityMod": -1,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Sabueso de Sangre",
+          "dots": 1,
+          "traitId": "merit_alimentacion_sabueso_de_sangre"
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Contactos",
+          "dots": 1,
+          "note": "Habitantes moralmente flexibles del lugar donde el vampiro caza principalmente.",
+          "traitId": "merit_contactos",
+          "detailDefault": "Habitantes moralmente flexibles del lugar donde el vampiro caza principalmente."
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_perseguidor"
+    },
+    {
+      "name": "Trampa",
+      "description": "Al igual que una araña, este vampiro construye un nido y atrae a su presa al interior. Puede ser un parque de atracciones, una casa abandonada o un club subterráneo: la víctima acude a él. Allí, la trampa puede limitarse a jugar con su mente y aterrorizarla, encarcelarla para drenarla lentamente o beber en profundidad antes de enviarla de vuelta a casa.",
+      "suggestedPools": [
+        "Carisma + Sigilo para víctimas que entran esperando una noche de diversión.",
+        "Destreza + Sigilo para alimentarse de intrusos.",
+        "Astucia + Consciencia + puntos de Refugio para orientarse por el laberinto de la guarida."
+      ],
+      "disciplineChoices": [
+        "Protean",
+        "Ofuscación"
+      ],
+      "specialtyChoices": [
+        "Persuasión: Marketing",
+        "Sigilo: Emboscadas o trampas"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "fixedTrait",
+          "type": "merit",
+          "name": "Refugio",
+          "dots": 1,
+          "traitId": "merit_refugio",
+          "detailRequired": true
+        },
+        {
+          "kind": "choiceGroup",
+          "type": "merit",
+          "totalDots": 1,
+          "allocationMode": "chooseOne",
+          "options": [
+            {
+              "name": "Criados",
+              "traitId": "merit_criados"
+            },
+            {
+              "name": "Rebaño",
+              "traitId": "merit_rebano",
+              "detailRequired": true
+            },
+            {
+              "name": "Refugio",
+              "note": "punto adicional",
+              "traitId": "merit_refugio",
+              "detailDefault": "punto adicional"
+            }
+          ]
+        }
+      ],
+      "pendingFlawChoice": {
+        "kind": "choiceGroup",
+        "type": "flaw",
+        "required": true,
+        "options": [
+          {
+            "kind": "fixedTrait",
+            "type": "flaw",
+            "name": "Espeluznante",
+            "dots": 1,
+            "traitId": "flaw_refugio_espeluznante",
+            "detailRequired": true
+          },
+          {
+            "kind": "fixedTrait",
+            "type": "flaw",
+            "name": "Embrujado",
+            "dots": 1,
+            "traitId": "flaw_refugio_embrujado",
+            "detailRequired": true
+          }
+        ]
+      },
+      "id": "predator_trampa"
+    },
+    {
+      "name": "Recaudador de diezmos",
+      "description": "Estos Vástagos poseen poder suficiente para que otros Vástagos a su alrededor les paguen tributo en forma de recipientes especialmente seleccionados, entregados de manera regular o bajo petición. Los recipientes deben conservarse en condiciones razonables y devolverse; por lo demás, la Mascarada es problema de todos los demás.",
+      "suggestedPools": [],
+      "disciplineChoices": [
+        "Dominación",
+        "Presencia"
+      ],
+      "specialtyChoices": [
+        "Intimidación: Vástagos",
+        "Liderazgo: Vástagos"
+      ],
+      "humanityMod": 0,
+      "automaticAwards": [
+        {
+          "kind": "allocationGroup",
+          "type": "merit",
+          "scope": "mixed",
+          "name": "Estatus o Dominio",
+          "totalDots": 3,
+          "allocationMode": "chooseOne",
+          "options": [
+            {
+              "scope": "character",
+              "type": "merit",
+              "name": "Estatus",
+              "dots": 3,
+              "traitId": "merit_estatus"
+            },
+            {
+              "scope": "domain",
+              "type": "domain_trait",
+              "name": "Dominio",
+              "dots": 3,
+              "traitId": "domain_dominio",
+              "target": "character.domain.pool.grantedDots",
+              "spendPool": "domain",
+              "grantsDomainDots": true,
+              "spendingInstruction": "Añade estos puntos a character.domain.pool.grantedDots; luego deben gastarse en domainCatalog."
+            }
+          ]
+        },
+        {
+          "kind": "fixedTrait",
+          "type": "flaw",
+          "scope": "character",
+          "name": "Adversario",
+          "dots": 2,
+          "traitId": "flaw_mawla_adversario"
+        }
+      ],
+      "pendingFlawChoice": null,
+      "id": "predator_recaudador_de_diezmos"
+    }
+  ],
+  "advantagesCatalog": [
+    {
+      "name": "Lingüística",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Lingüística",
+      "description": "Cada punto de Lingüística permite al personaje leer, escribir y hablar con fluidez un idioma adicional, aparte de los dos que ya conoce por defecto: su lengua materna y la lengua del Dominio.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Qué idioma adicional conoces por cada punto?",
+      "detailPlaceholder": "Ej: mapudungun, inglés, francés, latín...",
+      "id": "merit_linguistica"
+    },
+    {
+      "name": "Analfabeto",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Lingüística",
+      "description": "El personaje no puede leer ni escribir, y sus Habilidades de Ciencias y Academicismo no pueden superar 1 punto.",
+      "id": "flaw_linguistica_analfabeto"
+    },
+    {
+      "name": "Bello",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "Añade un dado a las reservas Sociales relacionadas.",
+      "id": "merit_aspecto_bello"
+    },
+    {
+      "name": "Despampanante",
+      "dots": 4,
+      "dotOptions": [
+        4
+      ],
+      "dotsText": "••••",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "Añade dos dados a las reservas Sociales relacionadas.",
+      "id": "merit_aspecto_despampanante"
+    },
+    {
+      "name": "Semejanza con el Matusalén",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "•-••",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "El personaje tiene una apariencia sorprendentemente similar a la de un Matusalén. Gana un dado en las tiradas para impresionar, intimidar o atraer la atención de quienes reconozcan su rostro. También puede obtener otros beneficios, como Estatus o dados adicionales, al encontrarse con el Matusalén al que se parece.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_aspecto_semejanza_con_el_matusalen"
+    },
+    {
+      "name": "Rostro Famoso",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "El personaje parece alguien famoso y gana dos dados en pruebas Sociales cuando esto le beneficia. Sufre una penalización de dos dados cuando intenta ocultarse entre una multitud o evitar que lo reconozcan.",
+      "id": "merit_aspecto_rostro_famoso"
+    },
+    {
+      "name": "Ingenuo",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "El personaje parece inocente e irreprochable. Añade dos dados a las tiradas relacionadas con evitar sospechas o desviar culpas, a discreción del Narrador.",
+      "id": "merit_aspecto_ingenuo"
+    },
+    {
+      "name": "Rasgo Destacado",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "El personaje posee un rasgo raro y memorable, como un color de ojos inusual o una complexión poco común. Añade dos dados a las interacciones Sociales con desconocidos y sufre una penalización de un dado para disfrazarse.",
+      "id": "merit_aspecto_rasgo_destacado"
+    },
+    {
+      "name": "Trasnochar",
+      "dots": 2,
+      "dotOptions": [
+        2,
+        4
+      ],
+      "dotsText": "•• o ••••",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "Trata la Humanidad como un punto superior, hasta un máximo de 10, o como dos puntos superior si se adquiere a cuatro puntos, al usar Rubor de la Vida, comer, beber o mantener relaciones sexuales.",
+      "id": "merit_aspecto_trasnochar"
+    },
+    {
+      "name": "Chico de Escena",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Aspecto",
+      "description": "El estilo del personaje encarna una subcultura concreta. Añade un dado a todas las reservas Sociales apropiadas al tratar con esa subcultura.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_aspecto_chico_de_escena"
+    },
+    {
+      "name": "Feo",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Aspecto",
+      "description": "Pierde un dado de las reservas Sociales relacionadas.",
+      "id": "flaw_aspecto_feo"
+    },
+    {
+      "name": "Repulsivo",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Aspecto",
+      "description": "Pierde dos dados de las reservas Sociales relacionadas.",
+      "id": "flaw_aspecto_repulsivo"
+    },
+    {
+      "name": "Hedor",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Aspecto",
+      "description": "El aliento y el olor corporal del personaje son sobrenaturalmente nauseabundos. Pierde un dado en reservas Sociales de seducción y similares, y pierde dos dados en reservas de Sigilo salvo que se encuentre contra el viento.",
+      "id": "flaw_aspecto_hedor"
+    },
+    {
+      "name": "Transparente",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Aspecto",
+      "description": "El personaje es incapaz de mentir, ya sea por una expresión demasiado evidente o por un impulso intenso de decir la verdad. Pierde un dado en cualquier reserva que requiera Subterfugio y no puede adquirir puntos en Subterfugio.",
+      "id": "flaw_aspecto_transparente"
+    },
+    {
+      "name": "Rostro Inmutable",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Aspecto",
+      "description": "Trata la Humanidad como dos puntos inferior, con un mínimo de 0, al usar Rubor de la Vida, comer, beber o mantener relaciones sexuales.",
+      "id": "flaw_aspecto_rostro_inmutable"
+    },
+    {
+      "name": "Adicto Funcional",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Uso de Sustancias",
+      "description": "Añade un dado a una reserva Física, Social o Mental cuando la última alimentación incluyó la droga deseada por el personaje.",
+      "requiresDetail": true,
+      "detailPrompt": "¿A qué sustancia o tipo de sangre está ligada esta adicción?",
+      "detailPlaceholder": "Ej: cocaína, morfina, sangre con alcohol, estimulantes...",
+      "id": "merit_uso_de_sustancias_adicto_funcional"
+    },
+    {
+      "name": "Adicción",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Uso de Sustancias",
+      "description": "A menos que la acción tenga como objetivo obtener inmediatamente la droga elegida, el personaje pierde un dado en todas las reservas si su última alimentación no fue de una presa con dicha droga.",
+      "requiresDetail": true,
+      "detailPrompt": "¿A qué sustancia o tipo de sangre está ligada esta adicción?",
+      "detailPlaceholder": "Ej: cocaína, morfina, sangre con alcohol, estimulantes...",
+      "id": "flaw_uso_de_sustancias_adiccion"
+    },
+    {
+      "name": "Caso Perdido de Adicción",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Uso de Sustancias",
+      "description": "A menos que la acción tenga como objetivo obtener inmediatamente la droga elegida, el personaje pierde dos dados en todas las reservas si su última alimentación no fue de una presa con dicha droga.",
+      "requiresDetail": true,
+      "detailPrompt": "¿A qué sustancia o tipo de sangre está ligada esta adicción?",
+      "detailPlaceholder": "Ej: cocaína, morfina, sangre con alcohol, estimulantes...",
+      "id": "flaw_uso_de_sustancias_caso_perdido_de_adiccion"
+    },
+    {
+      "name": "Custodio de la Historia",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Defectos Arcaicos",
+      "description": "Otorga +1 a todas las pruebas relevantes de Habilidad relacionadas con un periodo elegido o con un personaje de la tradición de los Vástagos.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_defectos_arcaicos_custodio_de_la_historia"
+    },
+    {
+      "name": "Vivir en el Pasado",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Defectos Arcaicos",
+      "description": "El personaje no puede comprender la mentalidad de la sociedad moderna; una o más de sus Convicciones reflejan puntos de vista obsoletos.",
+      "id": "flaw_defectos_arcaicos_vivir_en_el_pasado"
+    },
+    {
+      "name": "Arcaico",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Defectos Arcaicos",
+      "description": "El personaje no puede usar ordenadores ni teléfonos móviles, y su puntuación de Tecnología siempre es 0.",
+      "id": "flaw_defectos_arcaicos_arcaico"
+    },
+    {
+      "name": "Fobia al Duelo",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Defectos Arcaicos",
+      "description": "Pierde un dado en todas las pruebas realizadas en presencia de un estímulo fóbico vinculado a una Piedra de Toque perdida de forma traumática.",
+      "id": "flaw_defectos_arcaicos_fobia_al_duelo"
+    },
+    {
+      "name": "Viejas Costumbres",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Defectos Arcaicos",
+      "description": "Todas sus Especialidades deben ser arcaicas.",
+      "id": "flaw_defectos_arcaicos_viejas_costumbres"
+    },
+    {
+      "name": "Resistencia al Vínculo",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Vínculos",
+      "description": "Añade un dado por nivel de este Mérito para resistir Vínculos de Sangre.",
+      "id": "merit_vinculos_resistencia_al_vinculo"
+    },
+    {
+      "name": "Vínculo Breve",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Vínculos",
+      "description": "Los Vínculos disminuyen en dos niveles cada mes si no se refuerzan.",
+      "id": "merit_vinculos_vinculo_breve"
+    },
+    {
+      "name": "Invinculable",
+      "dots": 5,
+      "dotOptions": [
+        5
+      ],
+      "dotsText": "•••••",
+      "type": "merit",
+      "category": "Vínculos",
+      "description": "El personaje no puede ser vinculado.",
+      "id": "merit_vinculos_invinculable"
+    },
+    {
+      "name": "Vínculos de Lealtad",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Vínculos",
+      "description": "Los poderes de Dominación del personaje no requieren contacto visual con quienes están vinculados a él. El personaje debe poseer Dominación para adquirir este Mérito.",
+      "id": "merit_vinculos_vinculos_de_lealtad"
+    },
+    {
+      "name": "Vínculo Duradero",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Vínculos",
+      "description": "Los Vínculos que crea el personaje duran más; sólo se debilitan cada dos meses.",
+      "id": "merit_vinculos_vinculo_duradero"
+    },
+    {
+      "name": "Yonqui del Vínculo",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Vínculos",
+      "description": "El Vínculo resulta más dulce para el personaje; pierde un dado al actuar contra Vínculos de Sangre.",
+      "id": "flaw_vinculos_yonqui_del_vinculo"
+    },
+    {
+      "name": "Vínculo Largo",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Vínculos",
+      "description": "Los Vínculos se desvanecen más lentamente y disminuyen en un nivel cada tres meses sin refuerzo.",
+      "id": "flaw_vinculos_vinculo_largo"
+    },
+    {
+      "name": "Esclavo Vinculado",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Vínculos",
+      "description": "El personaje queda vinculado instantáneamente a otro Vástago con sólo beber una vez, no tres.",
+      "id": "flaw_vinculos_esclavo_vinculado"
+    },
+    {
+      "name": "Dos Amos",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Sobrenatural",
+      "description": "El personaje está Vinculado por la Sangre a dos individuos al mismo tiempo.",
+      "id": "flaw_sobrenatural_dos_amos"
+    },
+    {
+      "name": "Sabueso de Sangre",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Alimentación",
+      "description": "Puede olfatear Resonancias sin probarlas.",
+      "id": "merit_alimentacion_sabueso_de_sangre"
+    },
+    {
+      "name": "Garganta de Hierro",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Alimentación",
+      "description": "Puede consumir sangre rancia, desfraccionada o de otro modo incomestible para otros vampiros.",
+      "id": "merit_alimentacion_garganta_de_hierro"
+    },
+    {
+      "name": "Reconocimiento de Recipientes",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Alimentación",
+      "description": "Con una prueba de Resolución + Consciencia a Dificultad 2, puede saber si un mortal ha sido alimentado recientemente. Una victoria crítica permite percibir si la alimentación es recurrente, lo que sugiere que podría tratarse de un miembro del Rebaño.",
+      "id": "merit_alimentacion_reconocimiento_de_recipientes"
+    },
+    {
+      "name": "Servicio al Paso",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Alimentación",
+      "description": "El personaje domina el arte de alimentarse en movimiento. Puede completar una caza de forma segura en cuestión de minutos aumentando la Dificultad en 1.",
+      "id": "merit_alimentacion_servicio_al_paso"
+    },
+    {
+      "name": "Exclusión de Presa",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "El personaje no puede alimentarse de un grupo concreto y recibe Máculas como si rompiera un Principio de Crónica cuando lo hace.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_alimentacion_exclusion_de_presa"
+    },
+    {
+      "name": "Sed de Matusalén",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "El Ansia sólo puede saciarse hasta 0 con sangre sobrenatural.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_alimentacion_sed_de_matusalen"
+    },
+    {
+      "name": "Granjero",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "Debe gastar 2 puntos de Fuerza de Voluntad para alimentarse de sangre humana. Los Ventrue no pueden adquirir este Defecto.",
+      "id": "flaw_alimentacion_granjero"
+    },
+    {
+      "name": "Organóvoro",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "Sólo sacia Ansia consumiendo carne y órganos humanos.",
+      "id": "flaw_alimentacion_organovoro"
+    },
+    {
+      "name": "Pinchavenas",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "Considera que alimentarse es algo personal y se esfuerza por alimentarse de víctimas desprevenidas, drogadas o inconscientes.",
+      "id": "flaw_alimentacion_pinchavenas"
+    },
+    {
+      "name": "Preferencia Obsoleta",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "Debe capturar mortales y obligarlos a ajustarse a la preferencia deseada, o gastar siempre 1 punto de Fuerza de Voluntad para alimentarse.",
+      "id": "flaw_alimentacion_preferencia_obsoleta"
+    },
+    {
+      "name": "Sensibilidad a la Resonancia",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "Una Resonancia concreta afecta gravemente al personaje y le provoca una Compulsión única.",
+      "id": "flaw_alimentacion_sensibilidad_a_la_resonancia"
+    },
+    {
+      "name": "Mímico de Resonancia",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "El personaje se ve influido y penalizado por los recuerdos de su víctima.",
+      "id": "flaw_alimentacion_mimico_de_resonancia"
+    },
+    {
+      "name": "Alimentador Descuidado",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Alimentación",
+      "description": "El patrón de sus ataques al alimentarse es lo bastante evidente como para identificarlo. Un ataque puede vincularse con ataques anteriores.",
+      "id": "flaw_alimentacion_alimentador_descuidado"
+    },
+    {
+      "name": "Comer Comida",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "Puede consumir comida, aunque no obtiene sustento de ella. Debe expulsarla antes de descansar durante el día.",
+      "id": "merit_miticos_comer_comida"
+    },
+    {
+      "name": "Ansia Fría y Muerta",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "Añade dos dados para resistir el Frenesí de Ansia.",
+      "id": "merit_miticos_ansia_fria_y_muerta"
+    },
+    {
+      "name": "Diablerie de Manada",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "El personaje siempre será quien tome el alma durante una Diablerie, salvo que elija lo contrario. Además, si ayuda a otro a consumir el alma, gana 5 puntos de experiencia para gastarlos de la misma manera que si hubiera cometido la Diablerie personalmente.",
+      "id": "merit_miticos_diablerie_de_manada"
+    },
+    {
+      "name": "Suerte del Diablo",
+      "dots": 4,
+      "dotOptions": [
+        4
+      ],
+      "dotsText": "••••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "Una vez por sesión, cuando ocurre una desgracia, puede redirigirla hacia alguien cercano para que la víctima cargue con las consecuencias.",
+      "id": "merit_miticos_suerte_del_diablo"
+    },
+    {
+      "name": "Modo Nocturno",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "El cuerpo del Vástago no revierte cada noche a su estado de muerte, lo que le permite conservar nuevos cortes de pelo y modificaciones corporales. Puede reparar estos cambios en cualquier momento como si fueran daño Agravado. No funciona en personajes con Potencia de Sangre superior a 1.",
+      "id": "merit_miticos_modo_nocturno"
+    },
+    {
+      "name": "Objeto de Poder",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "Objetos raros pero poderosos.\n•: Repite un dado por historia, excluyendo dados de Ansia.\n••: Gana un dado adicional a todas las pruebas de Rituales de nivel 1.\n•••: Recibe una advertencia premonitoria gratuita una vez por sesión cuando alguien vaya a causarle daño.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_miticos_objeto_de_poder"
+    },
+    {
+      "name": "Parásito de Líneas Ley",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "El personaje sigue antiguos caminos de poder al viajar. Tras pasar más de unas horas viajando a otra ciudad o lugar, niega la necesidad de realizar un control de Enardecimiento la noche siguiente.",
+      "id": "merit_miticos_parasito_de_lineas_ley"
+    },
+    {
+      "name": "Rubor Persistente",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Míticos",
+      "description": "Una única activación de Rubor de la Vida dura una semana.",
+      "id": "merit_miticos_rubor_persistente"
+    },
+    {
+      "name": "Daño Folclórico",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Sufre daño Agravado al tocar un objeto específico asociado al folclore vampírico como dañino; por ejemplo, la plata.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_miticos_dano_folclorico"
+    },
+    {
+      "name": "Tabú Folclórico",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Debe gastar Fuerza de Voluntad o alejarse de un objeto específico que los vampiros temen en la mitología; por ejemplo, símbolos sagrados.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_miticos_tabu_folclorico"
+    },
+    {
+      "name": "Estigmas",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Sangra por heridas en manos, pies y frente cuando está a Ansia 4.",
+      "id": "flaw_miticos_estigmas"
+    },
+    {
+      "name": "Carne de Estaca",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Si es estacado, sufre la Muerte Definitiva.",
+      "id": "flaw_miticos_carne_de_estaca"
+    },
+    {
+      "name": "Decadencia Famélica",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Cuando su Ansia es 3 o superior, su cuerpo se marchita y decae. Sufre una penalización de dos dados a pruebas Físicas e interacciones sociales con mortales; este Defecto puede poner en peligro la Mascarada.",
+      "id": "flaw_miticos_decadencia_famelica"
+    },
+    {
+      "name": "Maldito Dos Veces",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Sufre la Prohibición alternativa del Clan además de la Prohibición normal. El Narrador puede prohibir este Defecto si la segunda Prohibición no encaja con la crónica.",
+      "id": "flaw_miticos_maldito_dos_veces"
+    },
+    {
+      "name": "Atado a la Tierra",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Incapaz de abandonar la tierra. El personaje debe realizar una prueba de Frenesí de Terror a Dificultad 3 para subir a un barco o avión.",
+      "id": "flaw_miticos_atado_a_la_tierra"
+    },
+    {
+      "name": "Rubor Resistente",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Al realizar un control de Enardecimiento para activar Rubor de la Vida, tira dos veces y conserva el resultado más bajo.",
+      "id": "flaw_miticos_rubor_resistente"
+    },
+    {
+      "name": "Carne Cadavérica",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Míticos",
+      "description": "Incapaz de usar Rubor de la Vida.",
+      "id": "flaw_miticos_carne_cadaverica"
+    },
+    {
+      "name": "Voluntad Impía",
+      "dots": 2,
+      "dotOptions": [
+        2,
+        4
+      ],
+      "dotsText": "•• o ••••",
+      "type": "merit",
+      "category": "Psicológicos",
+      "description": "Con dos puntos, añade un dado a cualquier reserva al resistir o contender contra un individuo con Fe Verdadera cuando esté relacionado con su fe. El personaje también sufre un punto menos de daño de fuentes sagradas. Con cuatro puntos, añade dos dados y sufre dos puntos menos de daño.",
+      "id": "merit_psicologicos_voluntad_impia"
+    },
+    {
+      "name": "Fanatismo",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Psicológicos",
+      "description": "Por cada punto en este Mérito, una vez por sesión, cuando tenga éxito en una tirada normal relacionada o alineada con la Convicción del personaje, la convierte en un crítico conflictivo.",
+      "id": "merit_psicologicos_fanatismo"
+    },
+    {
+      "name": "Penitencia",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Psicológicos",
+      "description": "Una vez por sesión, sufre un punto de daño Superficial a la Salud autoinfligido a cambio de un punto de daño Superficial a la Fuerza de Voluntad.",
+      "id": "merit_psicologicos_penitencia"
+    },
+    {
+      "name": "Bestia Apaciguada",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Psicológicos",
+      "description": "Con un PNJ como obsesión, una vez por sesión puede ignorar un crítico bestial o conflictivo. Gana tres Máculas si esa persona muere.",
+      "id": "merit_psicologicos_bestia_apaciguada"
+    },
+    {
+      "name": "Amor Falso",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Psicológicos",
+      "description": "Con un PNJ como obsesión, en su presencia trata la Humanidad del personaje como un punto superior, máximo 10, para usar Rubor de la Vida, comer, beber o mantener relaciones sexuales. Gana tres Máculas si esa persona muere.",
+      "id": "merit_psicologicos_amor_falso"
+    },
+    {
+      "name": "Faro de Profanidad",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Psicológicos",
+      "description": "Los mortales con cualquier cantidad de Fe Verdadera pueden sentir tu presencia, sin importar su nivel de Fe Verdadera.",
+      "id": "flaw_psicologicos_faro_de_profanidad"
+    },
+    {
+      "name": "Crisis de Fe",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Psicológicos",
+      "description": "Siempre que se produzca un fallo bestial, sufre un punto de daño Superficial a la Fuerza de Voluntad además de los demás resultados.",
+      "id": "flaw_psicologicos_crisis_de_fe"
+    },
+    {
+      "name": "Horribles Cicatrices de Penitencia",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Psicológicos",
+      "description": "Este Defecto equivale a Repulsivo cuando el personaje se encuentra entre quienes no pertenecen al culto.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_psicologicos_horribles_cicatrices_de_penitencia"
+    },
+    {
+      "name": "Gusano Servil",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Psicológicos",
+      "description": "El personaje debe encontrar tiempo para flagelar su propia carne una vez por sesión y sufrir dos puntos de daño Superficial a la Salud; de lo contrario, sufrirá un punto de daño Agravado a la Fuerza de Voluntad en la siguiente sesión. No puede adquirirse junto con el Mérito Penitencia.",
+      "id": "flaw_psicologicos_gusano_servil"
+    },
+    {
+      "name": "Vector de Enfermedad",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Contagio",
+      "description": "Al alimentarse de un mortal enfermo, siempre contrae la enfermedad y la transmitirá al siguiente recipiente.",
+      "id": "flaw_contagio_vector_de_enfermedad"
+    },
+    {
+      "name": "Portador de Plaga",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "•-••",
+      "type": "flaw",
+      "category": "Contagio",
+      "description": "El Vástago porta una enfermedad que no puede eliminarse de su Vitae. A un punto, la enfermedad es menor pero deja rastros visibles; a dos puntos, puede ser potencialmente mortal si no se trata. Se transmite mediante la mordedura.",
+      "id": "flaw_contagio_portador_de_plaga"
+    },
+    {
+      "name": "Sentido Consanguíneo",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Lazos de Sangre",
+      "description": "Puedes detectar si otro Vástago pertenece a tu línea de sangre directa. Esto no revela su Generación.",
+      "id": "merit_lazos_de_sangre_sentido_consanguineo"
+    },
+    {
+      "name": "Influencia Consanguínea",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Lazos de Sangre",
+      "description": "Ganas un dado adicional al usar Disciplinas Mentales sobre un vampiro de tu propio Clan, o sobre un descendiente o ancestro directo. Ganas dos dados adicionales si está a menos de dos Generaciones de ti, como tu grandsire.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Dónde o sobre quién ejerces esta influencia?",
+      "detailPlaceholder": "Ej: municipalidad, escena artística, hospital, universidad...",
+      "id": "merit_lazos_de_sangre_influencia_consanguinea"
+    },
+    {
+      "name": "Pecados del Padre",
+      "dots": 2,
+      "dotOptions": [
+        2,
+        3
+      ],
+      "dotsText": "•• o •••",
+      "type": "merit",
+      "category": "Lazos de Sangre",
+      "description": "No muestras señales si cometes Diablerie sobre un descendiente o ancestro directo. A tres puntos, esto se extiende a todos los miembros de tu Clan.",
+      "id": "merit_lazos_de_sangre_pecados_del_padre"
+    },
+    {
+      "name": "Diabolista Evidente",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Diablerie",
+      "description": "Los poderes y Méritos capaces de detectar Diablerie siempre revelan pruebas de Diablerie, incluso si la prueba normalmente no mostrara información.",
+      "id": "flaw_diablerie_diabolista_evidente"
+    },
+    {
+      "name": "Prohibición Heredada",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Diablerie",
+      "description": "Obtienes la Prohibición de otro Clan además de la tuya. Los Tremere pueden usar este Defecto para obtener la Prohibición Salubri sin cometer Diablerie.",
+      "id": "flaw_diablerie_prohibicion_heredada"
+    },
+    {
+      "name": "Comprobar el Maletero",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Otros",
+      "description": "Acceso sencillo a una armería o alijo de herramientas. Ninguno de estos objetos puede superar el valor de algo a lo que tendría acceso un personaje con Recursos 2. Añade dos dados a tiradas de Preparación.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_otros_comprobar_el_maletero"
+    },
+    {
+      "name": "Trapicheador",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Otros",
+      "description": "Una vez por sesión puede hacerse con un objeto, información o acceso a un evento como si tuviera dos puntos en Recursos, Contactos o Influencia relacionados.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quiénes son estos contactos y qué consiguen?",
+      "detailPlaceholder": "Ej: camilleros, periodistas, vendedores del mercado negro...",
+      "id": "merit_otros_trapicheador"
+    },
+    {
+      "name": "Voluntad Templada",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Otros",
+      "description": "Siempre sabe cuándo alguien intenta usar Dominación o Presencia contra él. Una vez por sesión puede añadir dos dados adicionales a reservas de resistencia. Sólo pueden adquirirlo personajes sin puntos en Dominación ni Presencia.",
+      "id": "merit_otros_voluntad_templada"
+    },
+    {
+      "name": "Intocable",
+      "dots": 5,
+      "dotOptions": [
+        5
+      ],
+      "dotsText": "•••••",
+      "type": "merit",
+      "category": "Otros",
+      "description": "Una vez por historia, puede escapar de todo castigo oficial por un crimen que de otro modo implicaría su destrucción.",
+      "id": "merit_otros_intocable"
+    },
+    {
+      "name": "Místico del Vacío",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "• o ••",
+      "type": "merit",
+      "category": "Otros",
+      "description": "Elige un único poder de Olvido que no conozca. Cuenta como si conociera ese poder a efectos de cumplir prerrequisitos para aprender Ceremonias de Olvido. Los Hecata y Lasombra pueden elegir tres poderes de Olvido que no conozcan en lugar de uno.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_otros_mistico_del_vacio"
+    },
+    {
+      "name": "Hambre de Conocimiento",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Otros",
+      "description": "En la creación de personaje, elige un tema que el personaje desee estudiar. Cuando se encuentre con métodos para aprender sobre ello, debe realizar una tirada de Fuerza de Voluntad a Dificultad 3 para resistirse.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_otros_hambre_de_conocimiento"
+    },
+    {
+      "name": "Deudas de Prestación",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Otros",
+      "description": "Debe favores a otros Vástagos; incluso si los paga, los acreedores siguen ejerciendo poder sobre él. El Vástago propietario del favor conserva un dado adicional en combate Social contra quien se lo debe.",
+      "id": "flaw_otros_deudas_de_prestacion"
+    },
+    {
+      "name": "Atrevido",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Otros",
+      "description": "Cuando se enfrenta a una tentación arriesgada que nunca ha probado, sufre una penalización de dos dados a todas las acciones hasta que participe o termine la escena.",
+      "id": "flaw_otros_atrevido"
+    },
+    {
+      "name": "Timorato",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Otros",
+      "description": "Aunque sea consciente de que alguien intenta influir en él, no puede usar los sistemas de resistencia activa para evitar dichos intentos.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_otros_timorato"
+    },
+    {
+      "name": "Sangre Favorecida",
+      "dots": 4,
+      "dotOptions": [
+        4
+      ],
+      "dotsText": "••••",
+      "type": "merit",
+      "category": "Caitiff",
+      "description": "Puede comprar cualquier Disciplina aunque nunca haya probado la Vitae de otro vampiro que la posea. No puede adquirirse junto con el Defecto Sangre Embarrada.",
+      "id": "merit_caitiff_sangre_favorecida"
+    },
+    {
+      "name": "Marca de Caín",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Caitiff",
+      "description": "Gana dos dados adicionales en cualquier intento de intimidar o acosar a otros vampiros que crean en el mito de Caín. Quien intente cometer Diablerie sobre el Caitiff no puede añadir su Potencia de Sangre a la tirada, y fallar provoca un fallo bestial.",
+      "id": "merit_caitiff_marca_de_cain"
+    },
+    {
+      "name": "Sinsonte",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Caitiff",
+      "description": "Durante una noche, si ha bebido la Sangre de otro vampiro, el Caitiff puede usar una de las Disciplinas que ese vampiro posea. No puede ser de un nivel superior a la Disciplina más alta del Caitiff. Se tira como un poder normal, salvo que en poderes que requieren tirada el Caitiff usa el nivel de Disciplina del donante y los Atributos del Caitiff. Durante ese tiempo, el Caitiff sufre la Prohibición del donante con la misma Severidad de Prohibición, y sólo puede usar un poder de esta forma por noche.",
+      "id": "merit_caitiff_sinsonte"
+    },
+    {
+      "name": "Marcado por el Sol",
+      "dots": 5,
+      "dotOptions": [
+        5
+      ],
+      "dotsText": "•••••",
+      "type": "merit",
+      "category": "Caitiff",
+      "description": "En el primer turno de exposición a la luz solar no sufre daño a la Salud, recibe 1 punto de daño Agravado a la Fuerza de Voluntad y supera automáticamente el Frenesí de Terror. Durante el resto de la escena, todo el daño del sol se convierte en daño Superficial.",
+      "id": "merit_caitiff_marcado_por_el_sol"
+    },
+    {
+      "name": "Tío Colmillos",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Caitiff",
+      "description": "Tiene acceso sencillo a una coterie local de tres a cinco Sangre Débil y trata al grupo como Aliados, aunque sean no-muertos. No puede adquirirse junto con Liquidador.",
+      "id": "merit_caitiff_tio_colmillos"
+    },
+    {
+      "name": "Vitae Contaminante",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "Cualquier mortal al que Abrace o mate al alimentarse regresa como criatura en unas pocas noches.",
+      "id": "flaw_caitiff_vitae_contaminante"
+    },
+    {
+      "name": "Maldición de Clan",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "Sufre una Prohibición de Clan a elección, probablemente la de su Sire, con su severidad reducida a la mitad y redondeada hacia abajo, mínimo 1.",
+      "id": "flaw_caitiff_maldicion_de_clan"
+    },
+    {
+      "name": "Siervo de Deuda",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "Debe favores a un vampiro de alto Estatus; incluso si los paga, éste encontrará nuevas formas de tener ventaja sobre el Caitiff. El vampiro acreedor gana dos dados adicionales en combate Social contra el Caitiff frente a otros Vástagos. Negarse a pagar la deuda añade el Defecto Rechazado (••) y podría provocar una Caza de Sangre.",
+      "id": "flaw_caitiff_siervo_de_deuda"
+    },
+    {
+      "name": "Liquidador",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "Sufre una penalización de dos dados a todas sus reservas de Habilidades Sociales contra Sangre Débil, excepto en tiradas de Intimidación. No puede adquirirse junto con el Mérito Tío Colmillos.",
+      "id": "flaw_caitiff_liquidador"
+    },
+    {
+      "name": "Sangre Embarrada",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "Aunque posea la Disciplina, debe beber la Sangre de alguien que la tenga para poder comprar puntos. No puede adquirirse junto con Sangre Favorecida.",
+      "id": "flaw_caitiff_sangre_embarrada"
+    },
+    {
+      "name": "Presagio Andante",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "La videncia, la premonición y otras formas de adivinación del futuro señalan al Caitiff como origen de la desgracia. El funcionamiento exacto de este Defecto en juego queda en manos del Narrador.",
+      "id": "flaw_caitiff_presagio_andante"
+    },
+    {
+      "name": "Marcado por la Palabra",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Caitiff",
+      "description": "El cuerpo del Caitiff está cubierto, en algún grado, por textos antiguos de tradición vampírica. El alcance de este Defecto en juego queda en manos de jugadores y Narrador.",
+      "id": "flaw_caitiff_marcado_por_la_palabra"
+    },
+    {
+      "name": "Empatía Sanguínea",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Ghouls",
+      "description": "El Ghoul puede sentir si su regnant está en peligro o necesita su ayuda inmediata. Esto no permite comunicación telepática.",
+      "id": "merit_ghouls_empatia_sanguinea"
+    },
+    {
+      "name": "Aura Impropia",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Ghouls",
+      "description": "Su aura se ha vuelto indistinguible de la de un Vástago.",
+      "id": "merit_ghouls_aura_impropia"
+    },
+    {
+      "name": "Sangre Perniciosa",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "•-••",
+      "type": "flaw",
+      "category": "Ghouls",
+      "description": "El personaje experimenta la Prohibición de su primer Domitor; esto no cambia si obtiene un nuevo Domitor. El Domitor debe ser de Clan Lasombra, Malkavian, Ministerio, Nosferatu, Ravnos, Salubri o Toreador.",
+      "id": "flaw_ghouls_sangre_perniciosa"
+    },
+    {
+      "name": "Maldición de la Vieja",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Ghouls",
+      "description": "El personaje aparenta al menos una década más de la que realmente tiene, lo que reduce su medidor de Salud en uno.",
+      "id": "flaw_ghouls_maldicion_de_la_vieja"
+    },
+    {
+      "name": "Colmillos Inquietantes",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Ghouls",
+      "description": "Al haber desarrollado colmillos como los de un Vástago, el personaje sufre una penalización de un dado en reservas Sociales con mortales.",
+      "id": "flaw_ghouls_colmillos_inquietantes"
+    },
+    {
+      "name": "Textos Apócrifos",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Cultos",
+      "description": "El personaje posee escritos de uno de los líderes o figuras prominentes de la iglesia. En tiradas aplicables, gana dos dados a tiradas de Inteligencia. Como Defecto opcional de 1 punto asociado a este Mérito, el modificador de daño de Fuerza de Voluntad para combate social aumenta en 1.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_cultos_textos_apocrifos"
+    },
+    {
+      "name": "Artista Inspirado",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Cultos",
+      "description": "Al usar símbolos o mensajes del culto en su arte, impone una penalización de un dado a los espectadores para resistir tiradas Sociales de miembros del culto.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_cultos_artista_inspirado"
+    },
+    {
+      "name": "Predicador Itinerante",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Cultos",
+      "description": "Al haber difundido el mensaje del culto allá donde va, reduce en 1 la Dificultad de las tiradas para evitar a la Segunda Inquisición.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_cultos_predicador_itinerante"
+    },
+    {
+      "name": "Excomulgado",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "•-••",
+      "type": "flaw",
+      "category": "Cultos",
+      "description": "Ha hecho algo que provocó su expulsión. A un punto, resta dos dados a todas las tiradas relacionadas con el culto. A dos puntos, el culto busca activamente destruirlo de cualquier modo posible.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_cultos_excomulgado"
+    },
+    {
+      "name": "Sin Fe",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Cultos",
+      "description": "Pertenece al culto por beneficios, no por verdadera creencia. Pierde dos dados en tiradas relacionadas con el culto que usen Resolución o Compostura. No puede aprender Rituales, Ceremonias ni fichas de conocimientos superiores al nivel 2.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_cultos_sin_fe"
+    },
+    {
+      "name": "Recuerdos de los Caídos (Sangre Débil)",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Buscacenizas",
+      "description": "En tiradas de Alquimia de Sangre relacionadas con Ashe, un 10 obtenido cuenta como dos 10. Dos 10 obtenidos siguen contando como cuatro.",
+      "id": "merit_buscacenizas_recuerdos_de_los_caidos_sangre_debil"
+    },
+    {
+      "name": "Streamer",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Buscacenizas",
+      "description": "Una vez por historia, el personaje puede recurrir a su base de seguidores para que hagan algo sencillo y no violento por él.",
+      "id": "merit_buscacenizas_streamer"
+    },
+    {
+      "name": "Adicción a Ashe",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Buscacenizas",
+      "description": "Además de las reglas de Ashe en Cults of the Blood Gods, tras fallar una tirada de Alquimia de Sangre, sufre una penalización de dos dados a todas las acciones hasta el final de la sesión.",
+      "requiresDetail": true,
+      "detailPrompt": "¿A qué sustancia o tipo de sangre está ligada esta adicción?",
+      "detailPlaceholder": "Ej: cocaína, morfina, sangre con alcohol, estimulantes...",
+      "id": "flaw_buscacenizas_adiccion_a_ashe"
+    },
+    {
+      "name": "Jardinero",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Bahari",
+      "description": "Como miembro elegido de la fe, este Mérito equivale a Rebaño para la religión Bahari.",
+      "id": "merit_bahari_jardinero"
+    },
+    {
+      "name": "Canción de la Madre Oscura",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Bahari",
+      "description": "Añade tres dados a tiradas de Manipulación al convencer a otros de adorar a Lilith.",
+      "id": "merit_bahari_cancion_de_la_madre_oscura"
+    },
+    {
+      "name": "Resistente al Fuego",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Iglesia de Caín",
+      "description": "Durante el sueño diurno, convierte daño Agravado a la Salud por fuego en daño Superficial a la Salud igual a su Potencia de Sangre con un control de Enardecimiento en lugar de tres.",
+      "id": "merit_iglesia_de_cain_resistente_al_fuego"
+    },
+    {
+      "name": "Cisma (Lasombra)",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Iglesia de Caín",
+      "description": "Sufre una penalización de dos dados en tiradas Sociales con miembros de su culto.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_iglesia_de_cain_cisma_lasombra"
+    },
+    {
+      "name": "Vigilante",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Iglesia de Set",
+      "description": "El personaje sabe cuándo lo están observando, salvo que sea por medios sobrenaturales. Aun así debe tirar para saber quién lo observa y desde dónde.",
+      "id": "merit_iglesia_de_set_vigilante"
+    },
+    {
+      "name": "Apañador",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Iglesia de Set",
+      "description": "Una vez por historia, puede reclamar un favor o amenazar a un antiguo cliente.",
+      "id": "merit_iglesia_de_set_apanador"
+    },
+    {
+      "name": "Pasar a la Clandestinidad",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Iglesia de Set",
+      "description": "Añade dos dados a tiradas para evadir una persecución.",
+      "id": "merit_iglesia_de_set_pasar_a_la_clandestinidad"
+    },
+    {
+      "name": "Falsa Alarma",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Iglesia de Set",
+      "description": "Toda tirada fallida de Consciencia cuenta como fallo total.",
+      "id": "flaw_iglesia_de_set_falsa_alarma"
+    },
+    {
+      "name": "Susurros Insidiosos",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Culto de Shalim",
+      "description": "Al realizar una tirada Social para socavar una Convicción, un 10 obtenido cuenta como dos 10. Dos 10 obtenidos siguen contando como cuatro.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_culto_de_shalim_susurros_insidiosos"
+    },
+    {
+      "name": "Gematría",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Culto de Shalim",
+      "description": "Capacidad de comprender un cifrado codificado, lo que permite tanto cifrar como descifrar mensajes.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "merit_culto_de_shalim_gematria"
+    },
+    {
+      "name": "Vacío",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Culto de Shalim",
+      "description": "La gente intenta apartarse de la presencia inquietante del personaje. Resta dos dados a tiradas Sociales.",
+      "requiresDetail": true,
+      "detailPrompt": "Especifica el detalle elegido para este rasgo.",
+      "detailPlaceholder": "Describe el grupo, objeto, tema, persona, culto, lugar o condición concreta.",
+      "id": "flaw_culto_de_shalim_vacio"
+    },
+    {
+      "name": "Matatoros",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Misterios Mitraicos",
+      "description": "Durante pruebas extendidas, el personaje puede repetir hasta tres dados normales sin gastar Fuerza de Voluntad una vez por escena.",
+      "id": "merit_misterios_mitraicos_matatoros"
+    },
+    {
+      "name": "Negociador",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Misterios Mitraicos",
+      "description": "Reduce en 1 la Dificultad para evaluar una transacción.",
+      "id": "merit_misterios_mitraicos_negociador"
+    },
+    {
+      "name": "Iniciado Fallido",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Misterios Mitraicos",
+      "description": "El personaje vaciló durante el proceso de convertirse en miembro y se le asignó un guía que interrumpirá planes, ofrecerá instrucción o exigirá que demuestre su valía en cualquier momento.",
+      "id": "flaw_misterios_mitraicos_iniciado_fallido"
+    },
+    {
+      "name": "Gracia del Arcángel",
+      "dots": 3,
+      "dotOptions": [
+        3
+      ],
+      "dotsText": "•••",
+      "type": "merit",
+      "category": "Nephilim",
+      "description": "Sustituye la Habilidad Atletismo por Interpretación, o viceversa, cuando haga algo similar a ejercicio cardiovascular intenso.",
+      "id": "merit_nephilim_gracia_del_arcangel"
+    },
+    {
+      "name": "Añoranza",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Nephilim",
+      "description": "Echa de menos a su amo y debe gastar dos puntos de Fuerza de Voluntad para actuar contra sus deseos. TRASFONDOS Y MÉRITOS RELACIONADOS",
+      "id": "flaw_nephilim_anoranza"
+    },
+    {
+      "name": "Aliados",
+      "dots": 2,
+      "dotOptions": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "••-•••••",
+      "type": "merit",
+      "category": "Aliados",
+      "description": "Grupo de mortales que apoyan o ayudan al vampiro: familia, amigos u organización leal. Se construyen con Efectividad (•-••••) y Fiabilidad (•-•••), con un máximo total de 6 puntos. La Efectividad define lo competente que es el grupo en una tarea; la Fiabilidad determina lo dependible que es. El máximo se normaliza a 5 puntos para el creador.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quiénes son tus aliados y qué hacen por ti?",
+      "detailPlaceholder": "Ej: personal de urgencias, una junta vecinal, una banda local...",
+      "id": "merit_aliados"
+    },
+    {
+      "name": "Enemigo",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "flaw",
+      "category": "Aliados",
+      "description": "Lo opuesto a Aliados. Se valora dos puntos por debajo de su Efectividad.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quién es el enemigo y por qué va contra ti?",
+      "detailPlaceholder": "Ej: detective Herrera, una víctima que escapó, una banda rival...",
+      "id": "flaw_aliados_enemigo"
+    },
+    {
+      "name": "Contactos",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Contactos",
+      "description": "Mortales capaces de conseguir información, objetos u otras cosas valiosas para el personaje.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quiénes son estos contactos y qué consiguen?",
+      "detailPlaceholder": "Ej: camilleros, periodistas, vendedores del mercado negro...",
+      "id": "merit_contactos"
+    },
+    {
+      "name": "Fama",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Fama",
+      "description": "La fama mortal es un juego peligroso. El personaje pudo haber sido cantante pop, actriz u otra celebridad. El nivel de Fama puede restarse de pruebas contra fans o de caza. La desventaja es que la gente puede recordarlo, sobre todo si su rostro aparece en vallas publicitarias cercanas. La Fama también puede comprarse para aplicarse a la sociedad vampírica.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Por qué eres famoso/a y ante qué público?",
+      "detailPlaceholder": "Ej: músico local, streamer nocturno, celebridad de club...",
+      "id": "merit_fama"
+    },
+    {
+      "name": "Influencer",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Fama",
+      "description": "Requiere Fama ••+. La gente idolatra al personaje hasta el punto de tomar sus palabras como dogma. Una vez por historia, obtiene una puntuación equivalente de Influencia igual a su Fama menos uno sobre un grupo de fans o un ámbito relacionado.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Por qué eres famoso/a y ante qué público?",
+      "detailPlaceholder": "Ej: músico local, streamer nocturno, celebridad de club...",
+      "id": "merit_fama_influencer",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_fama",
+          "minDots": 2
+        }
+      ]
+    },
+    {
+      "name": "Fama Duradera",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Fama",
+      "description": "Requiere Fama •••+. El personaje es tan querido que la fama y el estrellato nunca lo abandonan. La Fama perdida durante la historia se recupera por completo al inicio de la siguiente historia.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Por qué eres famoso/a y ante qué público?",
+      "detailPlaceholder": "Ej: músico local, streamer nocturno, celebridad de club...",
+      "id": "merit_fama_fama_duradera",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_fama",
+          "minDots": 3
+        }
+      ]
+    },
+    {
+      "name": "Secreto Oscuro",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "flaw",
+      "category": "Fama",
+      "description": "Lo que ha hecho sigue siendo secreto, salvo para uno o dos enemigos muy motivados.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quién es el enemigo y por qué va contra ti?",
+      "detailPlaceholder": "Ej: detective Herrera, una víctima que escapó, una banda rival...",
+      "id": "flaw_fama_secreto_oscuro"
+    },
+    {
+      "name": "Infamia",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "flaw",
+      "category": "Fama",
+      "description": "Ha hecho algo atroz y otros lo saben.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Por qué eres famoso/a y ante qué público?",
+      "detailPlaceholder": "Ej: músico local, streamer nocturno, celebridad de club...",
+      "id": "flaw_fama_infamia"
+    },
+    {
+      "name": "Prohibido en",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "flaw",
+      "category": "Fama",
+      "description": "Ciudades pequeñas valen un punto; ciudades medianas, dos; ciudades grandes, tres.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Por qué eres famoso/a y ante qué público?",
+      "detailPlaceholder": "Ej: músico local, streamer nocturno, celebridad de club...",
+      "id": "flaw_fama_prohibido_en"
+    },
+    {
+      "name": "Influencia",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Influencia",
+      "description": "Tiene peso en comunidades mortales, ya sea político, por posición financiera y prestigio, o mediante manipulación. Por defecto, este Mérito sólo se aplica a un grupo o región específicos de la ciudad.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Dónde o sobre quién ejerces esta influencia?",
+      "detailPlaceholder": "Ej: municipalidad, escena artística, hospital, universidad...",
+      "id": "merit_influencia"
+    },
+    {
+      "name": "Despreciado",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Influencia",
+      "description": "Resta un dado a pruebas Sociales que involucren a grupos fuera de los seguidores leales del personaje.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Dónde o sobre quién ejerces esta influencia?",
+      "detailPlaceholder": "Ej: municipalidad, escena artística, hospital, universidad...",
+      "id": "flaw_influencia_despreciado"
+    },
+    {
+      "name": "Odiado",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Influencia",
+      "description": "Un grupo o región de la ciudad se esfuerza por destruir los planes del personaje.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Dónde o sobre quién ejerces esta influencia?",
+      "detailPlaceholder": "Ej: municipalidad, escena artística, hospital, universidad...",
+      "id": "flaw_influencia_odiado"
+    },
+    {
+      "name": "Refugio",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Un vampiro sin puntos de Refugio puede encontrar un lugar seguro para pasar la noche. Sin embargo, cada punto de Refugio lo vuelve más seguro y privado.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio",
+      "incompatibleWith": [
+        "flaw_refugio_sin_refugio"
+      ],
+      "aliases": [
+        "Haven"
+      ]
+    },
+    {
+      "name": "Arsenal Oculto",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Cada punto añade una pistola y un arma de fuego dentro del Refugio, ocultas con seguridad.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_arsenal_oculto",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Celda",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Permite mantener dos prisioneros en el interior. Cada punto adicional permite guardar el doble de prisioneros o añade +1 a los intentos de escapar. No disponible en Refugios de un punto.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_celda",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 2
+        }
+      ]
+    },
+    {
+      "name": "Vigilantes",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Cada punto proporciona 4 Mortales Medios y un Mortal Dotado para vigilar el Refugio.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_vigilantes",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Laboratorio",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Cada punto de este Mérito contribuye a las tiradas relacionadas con una Especialidad de Ciencias o Tecnología, o a reservas de Alquimia al usar Fixatio. No disponible en Refugios de un punto.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_laboratorio",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 2
+        }
+      ]
+    },
+    {
+      "name": "Biblioteca",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Cada punto contribuye a las tiradas de una Especialidad de Academicismo, Investigación u Ocultismo. Los Refugios pequeños están limitados a un punto.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_biblioteca",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Localización",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "El lugar donde se encuentra este Refugio concede +2 dados, o +2 a la Dificultad de enemigos, en tiradas relevantes procedentes de Chasse o de la puntuación básica de Refugio. Si esto no funciona, el jugador puede crear con el Narrador un beneficio personalizado. Por ejemplo, vivir en pleno centro permite obtener +2 dados a tiradas de Etiqueta para recoger rumores locales.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe la localización del Refugio y el beneficio asociado.",
+      "detailPlaceholder": "Ej: pleno centro, bajo una iglesia, junto a una morgue, zona industrial...",
+      "id": "merit_refugio_localizacion",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Lujo",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Rico y valioso, el Refugio está decorado con objetos y mobiliario de alta gama. Otorga +2 dados a pruebas Sociales cuando hay mortales en el Refugio. Sin al menos 3 puntos en Recursos, estos objetos son robados u obtenidos ilegalmente.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_lujo",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Puerta Trasera",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "El Refugio posee algún tipo de salida secreta que permite escapar con seguridad. Por cada punto de este Mérito, añade un dado a reservas de evasión o para escapar de vigilancia cerca del Refugio.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_puerta_trasera",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Sistema de Seguridad",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Por cada punto de este Mérito, añade un dado a reservas para resistir la entrada de invitados no deseados al Refugio.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_sistema_de_seguridad",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Quirófano",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Añade dos dados a reservas relevantes para pruebas apropiadas realizadas en el Refugio.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_quirofano",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Protección",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "El Refugio posee algún tipo de protección mágica que repele entidades sobrenaturales. Cada punto de este Mérito añade un dado a reservas para resistir escudriñamiento sobrenatural y cualquier otra cosa que el Narrador permita.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_proteccion",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Suelo Sagrado",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "El Refugio tiene importancia para el culto del personaje, lo que le permite llamar a un gran grupo de cultistas para protegerlo una vez por historia.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_suelo_sagrado",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Santuario",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Hay un santuario en el Refugio, que añade un beneficio equivalente a sus puntos para buscar, preparar u obtener ingredientes de Rituales o Ceremonias.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_santuario",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Negocio",
+      "dots": 2,
+      "dotOptions": [
+        2,
+        3
+      ],
+      "dotsText": "••-•••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "El Refugio se arrienda a un negocio o es gestionado como tal por el propio Vástago. Proporciona beneficios y desventajas, como una fuente constante de ingresos, pero también una presencia claramente registrada y conocida por las autoridades locales. Reduce en uno los puntos base del Refugio para reservas relacionadas con su privacidad y defensas contra intrusiones financieras o criminales, a elegir una. Los puntos de este Mérito equivalen aproximadamente a Recursos, pero no se acumulan con los Recursos existentes del personaje.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_negocio",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Furcus",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "El Refugio se ubica sobre venas de la tierra o un punto desgarrado del Velo. Cada punto de este Mérito añade un dado a reservas de Rituales o Ceremonias usadas en el furcus.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_furcus",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Taller Mecánico",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Cada punto de este Mérito añade un dado a la reserva para tiradas de Artesanía. También se aplica a otras pruebas relacionadas con construir, reparar o desarmar maquinaria o equipo.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_taller_mecanico",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Móvil",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Refugio móvil, como coche, furgoneta, barco, avión, etc. El tamaño equivale al número de puntos. Pueden usarse puntos de coterie para este Mérito.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_movil",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Blindado",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Requiere el Mérito Refugio Móvil. El Refugio Móvil tiene paneles, cerraduras, neumáticos y cristales reforzados. Puede soportar 10 puntos de daño, y se requieren impactos críticos para afectar de forma suficiente a los pasajeros.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_blindado",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        },
+        {
+          "type": "trait",
+          "traitId": "merit_refugio_movil",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "Armored"
+      ]
+    },
+    {
+      "name": "Alijo de Contrabandistas",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "•-••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Requiere el Mérito Refugio Móvil. Es un alijo secreto dentro del Refugio para ocultar contrabando. Cualquier registro para inspeccionar el Refugio se realiza con +2 de Dificultad. El tamaño del alijo equivale al número de puntos.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_alijo_de_contrabandistas",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        },
+        {
+          "type": "trait",
+          "traitId": "merit_refugio_movil",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "Smugglers Stash"
+      ]
+    },
+    {
+      "name": "Matrículas de Repuesto",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "merit",
+      "category": "Refugio",
+      "description": "Requiere el Mérito Refugio Móvil. Un conjunto adicional de matrículas, pegatinas y otros identificadores que pueden cambiarse en un turno para evitar todo salvo los registros más invasivos.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "merit_refugio_matriculas_de_repuesto",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        },
+        {
+          "type": "trait",
+          "traitId": "merit_refugio_movil",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "Spare Plates"
+      ]
+    },
+    {
+      "name": "Sin Refugio",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "El personaje debe realizar una prueba básica para encontrar un lugar seguro donde descansar.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_sin_refugio",
+      "incompatibleWith": [
+        "merit_refugio"
+      ],
+      "aliases": [
+        "No Haven"
+      ]
+    },
+    {
+      "name": "Espeluznante",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "Sufre una penalización de dos dados en reservas Sociales dentro del Refugio con mortales.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_espeluznante",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "Creepy"
+      ]
+    },
+    {
+      "name": "Embrujado",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "Una manifestación sobrenatural se está apoderando del Refugio.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_embrujado",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "Haunted"
+      ]
+    },
+    {
+      "name": "Comprometido",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "Este Refugio está en una lista de vigilancia y puede haber sido asaltado en algún momento.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_comprometido",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Compartido",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "• o ••",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "El Refugio no pertenece por completo al personaje, sino que se comparte con otros Vástagos o tiene un arrendador Vástago. Las coteries no necesitan adquirirlo, ya que sólo tendrán tantos problemas como generen mutuamente en juego.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_compartido",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Sobre Raíles",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "Requiere el Mérito Refugio Móvil. El movimiento del Refugio no está bajo control del jugador, como en un barco o tren con destinos programados y fijos.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_sobre_railes",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        },
+        {
+          "type": "trait",
+          "traitId": "merit_refugio_movil",
+          "minDots": 1
+        }
+      ],
+      "aliases": [
+        "On the Rails"
+      ]
+    },
+    {
+      "name": "Temperamental",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Refugio",
+      "description": "Requiere el Mérito Refugio Móvil. El vehículo es mecánicamente poco fiable. Toda prueba fallida de Conducir hace que el vehículo se detenga y requiera una reparación exitosa para volver a arrancar. El Defecto sigue al jugador incluso si cambia de vehículo, salvo que se elimine con experiencia.",
+      "requiresDetail": true,
+      "detailPrompt": "Describe el refugio o lugar asociado a este rasgo.",
+      "detailPlaceholder": "Ej: sótano de funeraria, departamento blindado, pieza tras un club...",
+      "id": "flaw_refugio_temperamental",
+      "requires": [
+        {
+          "type": "trait",
+          "traitId": "merit_refugio",
+          "minDots": 1
+        },
+        {
+          "type": "trait",
+          "traitId": "merit_refugio_movil",
+          "minDots": 1
+        }
+      ]
+    },
+    {
+      "name": "Rebaño",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Rebaño",
+      "description": "Grupo de recipientes de los que el personaje puede alimentarse sin preocupación, aunque son menos leales que los Criados. Cada semana pueden saciar libremente una cantidad de Ansia igual al valor en puntos del Rebaño, sin necesidad de tirada.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quiénes forman tu rebaño y cómo los mantienes cerca?",
+      "detailPlaceholder": "Ej: fans, familiares, pacientes, feligreses...",
+      "id": "merit_rebano",
+      "aliases": [
+        "Herd"
+      ]
+    },
+    {
+      "name": "Depredador Manifiesto",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Rebaño",
+      "description": "Una vibra depredadora elimina dos dados de cualquier reserva de caza, excepto acechar, perseguir y matar de forma Física. Pierde un dado en cualquier prueba Social destinada a calmar humanos. No puede mantener un Rebaño.",
+      "id": "flaw_rebano_depredador_manifiesto"
+    },
+    {
+      "name": "Máscara",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2
+      ],
+      "dotsText": "•-••",
+      "type": "merit",
+      "category": "Máscara",
+      "description": "Identidad falsa que permite al vampiro mantener su verdadero yo alejado de los ojos indiscretos de los mortales, incluyendo cuentas bancarias, certificado de nacimiento y todo lo que un vampiro pueda necesitar para hacerse pasar por humano.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Cuál es la identidad mortal o cobertura asociada?",
+      "detailPlaceholder": "Ej: nombre falso, profesión, documentos, rutina pública...",
+      "id": "merit_mascara"
+    },
+    {
+      "name": "Borrado",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Máscara",
+      "description": "Todo el pasado del personaje ha sido eliminado de todos los sistemas como si nunca hubiera existido. El personaje debe tener una Máscara de 2 puntos para adquirirlo.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Cuál es la identidad mortal o cobertura asociada?",
+      "detailPlaceholder": "Ej: nombre falso, profesión, documentos, rutina pública...",
+      "id": "merit_mascara_borrado"
+    },
+    {
+      "name": "Curtidor",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "merit",
+      "category": "Máscara",
+      "description": "Capacidad para crear u obtener Máscaras. Fabricar una Máscara lleva 3 días por punto. El personaje debe tener una Máscara de 2 puntos para adquirirlo.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Cuál es la identidad mortal o cobertura asociada?",
+      "detailPlaceholder": "Ej: nombre falso, profesión, documentos, rutina pública...",
+      "id": "merit_mascara_curtidor"
+    },
+    {
+      "name": "Cadáver Conocido",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Máscara",
+      "description": "La gente sabe que el vampiro murió recientemente y reacciona en consecuencia si lo ve.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Cuál es la identidad mortal o cobertura asociada?",
+      "detailPlaceholder": "Ej: nombre falso, profesión, documentos, rutina pública...",
+      "id": "flaw_mascara_cadaver_conocido"
+    },
+    {
+      "name": "Cuerpo Neutro Conocido",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Máscara",
+      "description": "El nombre, historia, contactos y otros datos del personaje figuran en varias bases de datos de agencias. La Inquisición puede reconocerlo como vampiro.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quiénes son estos contactos y qué consiguen?",
+      "detailPlaceholder": "Ej: camilleros, periodistas, vendedores del mercado negro...",
+      "id": "flaw_mascara_cuerpo_neutro_conocido"
+    },
+    {
+      "name": "Mawla",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Mawla",
+      "description": "Otro Vástago que lo ha tomado bajo su ala para guiarlo.",
+      "id": "merit_mawla"
+    },
+    {
+      "name": "Adversario",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•+",
+      "type": "flaw",
+      "category": "Mawla",
+      "description": "Otro Vástago que quizá apreciaba al personaje, pero ahora se esfuerza por arruinar su vida de cualquier forma. Se valora dos niveles por encima del valor de Mawla.",
+      "id": "flaw_mawla_adversario"
+    },
+    {
+      "name": "Amo Secreto",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Mawla",
+      "description": "Tu Mawla te asigna tareas que deben completarse en silencio. El personaje debe tener Mawla para adquirir este Defecto.",
+      "id": "flaw_mawla_amo_secreto"
+    },
+    {
+      "name": "Chiquillo Vergonzoso",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Mawla",
+      "description": "Abrazó a un chiquillo y lo abandonó.",
+      "id": "flaw_mawla_chiquillo_vergonzoso"
+    },
+    {
+      "name": "Piedra de Toque Abrazada por tus Enemigos",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Mawla",
+      "description": "Una antigua Piedra de Toque no murió ni cambió como persona: alguien la Abrazó. Es un único Neonato, pero tiene aliados y la confrontación conlleva riesgo de Máculas.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quién es el enemigo y por qué va contra ti?",
+      "detailPlaceholder": "Ej: detective Herrera, una víctima que escapó, una banda rival...",
+      "id": "flaw_mawla_piedra_de_toque_abrazada_por_tus_enemigos"
+    },
+    {
+      "name": "Recursos",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Recursos",
+      "description": "Flujo de dinero, ya sea de inversiones bursátiles, una herencia o trabajar como barista de noche.",
+      "requiresDetail": true,
+      "detailPrompt": "¿De dónde vienen estos recursos?",
+      "detailPlaceholder": "Ej: herencia, inversiones, negocio familiar, trabajos nocturnos...",
+      "id": "merit_recursos"
+    },
+    {
+      "name": "Indigente",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Recursos",
+      "description": "Sin dinero, sin hogar y sin valor monetario más allá de sí mismo.",
+      "id": "flaw_recursos_indigente"
+    },
+    {
+      "name": "Criados",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Criados",
+      "description": "Seguidores leales que obedecerán al personaje; a veces son Ghouls o están Vinculados por la Sangre.",
+      "id": "merit_criados"
+    },
+    {
+      "name": "Acosadores",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Criados",
+      "description": "Algo en el personaje tiende a atraer a otros que se apegan demasiado y no lo sueltan. Puede tratarse de un antiguo Criado o un ex amante; si se deshace de uno, pronto aparece otro.",
+      "id": "flaw_criados_acosadores"
+    },
+    {
+      "name": "Estatus",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dotsText": "•-•••••",
+      "type": "merit",
+      "category": "Estatus",
+      "description": "El personaje se ha hecho un nombre dentro de su Facción.",
+      "id": "merit_estatus"
+    },
+    {
+      "name": "Secretos Urbanos",
+      "dots": 1,
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "dotsText": "•-•••",
+      "type": "merit",
+      "category": "Estatus",
+      "description": "Otorga conocimiento sobre la estructura de poder de los Vástagos de la ciudad. Si el secreto trata de asuntos mortales, sólo sirve como explicación de Influencia. Esta información puede venderse a alto precio, pero su valor también reside en la protección: los implicados quizá no quieran que se venda y harán lo posible por mantener contento al personaje, al menos durante un tiempo. Sólo puede adquirirse un máximo de tres veces, cada una con un secreto distinto.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Dónde o sobre quién ejerces esta influencia?",
+      "detailPlaceholder": "Ej: municipalidad, escena artística, hospital, universidad...",
+      "id": "merit_estatus_secretos_urbanos"
+    },
+    {
+      "name": "Sospechoso",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Estatus",
+      "description": "Romper las reglas o escabullirse de una deuda ha atraído la ira de esta Secta. Si se mantiene fuera de la vista y de la mente, no ocurrirá nada hasta que vuelva a demostrar su valía; mientras tanto, sufre una penalización de dos dados a pruebas Sociales con las Facciones ofendidas.",
+      "id": "flaw_estatus_sospechoso"
+    },
+    {
+      "name": "Rechazado",
+      "dots": 2,
+      "dotOptions": [
+        2
+      ],
+      "dotsText": "••",
+      "type": "flaw",
+      "category": "Estatus",
+      "description": "Despreciado por una Secta tras cruzar una línea que nunca debió cruzarse; ahora sus miembros trabajan activamente contra él en cualquier oportunidad.",
+      "requiresDetail": true,
+      "detailPrompt": "¿Quién te desprecia u odia, y por qué?",
+      "detailPlaceholder": "Ej: un clan local, una subcultura, una institución mortal...",
+      "id": "flaw_estatus_rechazado"
+    },
+    {
+      "name": "Pretendiente Mortal",
+      "dots": 1,
+      "dotOptions": [
+        1
+      ],
+      "dotsText": "•",
+      "type": "flaw",
+      "category": "Estatus",
+      "description": "El personaje jugador se esfuerza por llevar una vida mortal, lo que inquieta a sus pares vampíricos. Sufre una penalización de dos dados a todas las pruebas Sociales contra vampiros dedicados específicamente a sostener la Mascarada.",
+      "id": "flaw_estatus_pretendiente_mortal"
+    }
+  ],
+  "convictionOptions": [
+    "No mataré a inocentes",
+    "Protegeré a los débiles",
+    "La lealtad es sagrada",
+    "Nunca traicionaré a quien confía en mí",
+    "Mi palabra es un juramento",
+    "Los niños son intocables",
+    "El conocimiento debe preservarse",
+    "La justicia debe prevalecer",
+    "No me convertiré en un monstruo",
+    "El arte está por encima de todo",
+    "La familia es primero",
+    "Los mortales merecen respeto",
+    "El poder exige responsabilidad",
+    "Cada vida tiene valor",
+    "La tradición debe respetarse",
+    "No abandonaré a mis aliados",
+    "La verdad importa más que la comodidad",
+    "Nadie debería sufrir por mi hambre",
+    "La ciudad merece orden",
+    "Siempre pagaré mis deudas"
+  ],
+  "relationOptions": [
+    "Familiar",
+    "Amigo",
+    "Conocido",
+    "Pareja",
+    "Ex pareja",
+    "Mentor",
+    "Aprendiz",
+    "Compañero de trabajo",
+    "Vecino",
+    "Aliado político",
+    "Contacto criminal",
+    "Contacto cercano",
+    "Protegido",
+    "Protector",
+    "Compañero de estudios",
+    "Confidente",
+    "Antiguo rival",
+    "Compañero de coterie",
+    "Cliente",
+    "Otro vínculo relevante"
+  ],
+  "disciplineCatalog": {
+    "sourceFile": "data/disciplinas_v5_catalogo.json",
+    "version": "discipline-db-v5-normalized-1",
+    "records": 402,
+    "countsByKind": {
+      "ceremony": 28,
+      "power": 209,
+      "ritual": 105,
+      "thin_blood_formula": 60
+    },
+    "errataRecords": 32,
+    "authoritative": true
+  },
+  "amalgamIndex": {
+    "sourceFile": "derived/amalgamas_v5_index_derivado.json",
+    "generatedFrom": "data/disciplinas_v5_catalogo.json records[].amalgamRequirement",
+    "entries": 56,
+    "authoritative": false
+  },
+  "$schema": "../schemas/creator-data.schema.json",
+  "schemaVersion": "creator-data-v2",
+  "sourceOfTruth": {
+    "creatorData": "data/creator-data.json",
+    "disciplineCatalog": "data/disciplinas_v5_catalogo.json",
+    "amalgamIndex": "derived/amalgamas_v5_index_derivado.json"
+  },
+  "automaticAwardModel": {
+    "version": "predator-awards-v2",
+    "awardKinds": [
+      "fixedTrait",
+      "choiceGroup",
+      "allocationGroup",
+      "domainGrant"
+    ],
+    "rules": [
+      "fixedTrait is applied directly as an automatic merit or flaw.",
+      "choiceGroup requires the player to choose exactly one option before the predator step is valid.",
+      "allocationGroup requires the player to distribute totalDots among listed options before the predator step is valid.",
+      "Predator automatic awards never count toward manual merit/flaw totals.",
+      "scope=domain grants or allocates points to character.domain and never to advantagesCatalog.",
+      "mixed allocationGroup may contain character options and domain options; each option must declare scope.",
+      "Domain/Dominio is not a character advantage and must not appear in advantagesCatalog."
+    ],
+    "normalizationRules": [
+      {
+        "id": "prey_exclusion_variants_use_detail_default",
+        "description": "Las variantes de Exclusión de Presa no son rasgos separados: usan traitId flaw_alimentacion_exclusion_de_presa, dots 1 y detailDefault para el grupo excluido."
+      }
+    ]
+  },
+  "advantagesCatalogModel": {
+    "idPolicy": "Los rasgos de ventajas y defectos usan IDs estables independientes del idioma visible.",
+    "displayPolicy": "La interfaz debe mostrar los nombres en español del catálogo.",
+    "relationshipFields": {
+      "requires": "Lista de prerrequisitos estructurados. Actualmente soporta type=trait, traitId y minDots.",
+      "incompatibleWith": "Lista de traitId incompatibles."
+    },
+    "sourceOfTruth": "Ventajas y Desventajas.txt para catálogo de Ventajas y Defectos.",
+    "domainPolicy": "Dominio queda fuera de advantagesCatalog y se modela en domainCatalog con scope=domain."
+  },
+  "domainCatalog": [
+    {
+      "id": "domain_dominio",
+      "scope": "domain",
+      "type": "traitGroup",
+      "name": "Dominio",
+      "nameEn": "Domain",
+      "category": "Dominio",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "description": "Área personal de caza y operación del personaje. Adaptación individual de la mecánica de Dominio originalmente asociada a coterías.",
+      "children": [
+        "domain_chasse",
+        "domain_lien",
+        "domain_portillon"
+      ],
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_chasse",
+      "scope": "domain",
+      "type": "domainTrait",
+      "name": "Chasse",
+      "nameEn": "Chasse",
+      "category": "Dominio",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "description": "Valor del área para la caza: riqueza, disponibilidad o vulnerabilidad de la sangre dentro del Dominio.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_lien",
+      "scope": "domain",
+      "type": "domainTrait",
+      "name": "Lien",
+      "nameEn": "Lien",
+      "category": "Dominio",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "description": "Grado de integración del personaje con la población local y capacidad para interactuar pacíficamente, localizar información o investigar dentro del Dominio.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_portillon",
+      "scope": "domain",
+      "type": "domainTrait",
+      "name": "Portillon",
+      "nameEn": "Portillon",
+      "category": "Dominio",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "description": "Seguridad del Dominio frente a intrusiones, vigilancia, amenazas externas o interrupciones.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_aliados",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Aliados",
+      "nameEn": "Aliados",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_aliados",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Aliados. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_contactos",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Contactos",
+      "nameEn": "Contactos",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_contactos",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Contactos. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_fama",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Fama",
+      "nameEn": "Fama",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_fama",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Fama. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_influencia",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Influencia",
+      "nameEn": "Influencia",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_influencia",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Influencia. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_refugio",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Refugio",
+      "nameEn": "Refugio",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_refugio",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Refugio. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_rebano",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Rebaño",
+      "nameEn": "Rebaño",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_rebano",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Rebaño. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_mawla",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Mawla",
+      "nameEn": "Mawla",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_mawla",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Mawla. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_recursos",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Recursos",
+      "nameEn": "Recursos",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_recursos",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Recursos. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_criados",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Criados",
+      "nameEn": "Criados",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_criados",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Criados. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_mascara",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Máscara",
+      "nameEn": "Máscara",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_mascara",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Máscara. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_estatus",
+      "scope": "domain",
+      "type": "domainBackground",
+      "name": "Estatus",
+      "nameEn": "Estatus",
+      "category": "Trasfondo de Dominio personal",
+      "sourceTraitId": "merit_estatus",
+      "sourceTraitType": "merit",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.backgrounds",
+      "notStoredIn": "character.advantages.merits",
+      "adaptedFrom": "coterie_background",
+      "description": "Versión de Dominio personal de Estatus. Usa el mismo significado mecánico base, pero se compra con puntos del pool de Dominio personal.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_aliados_enemigo",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Enemigo",
+      "nameEn": "Enemigo",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_aliados_enemigo",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Enemigo. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_fama_secreto_oscuro",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Secreto Oscuro",
+      "nameEn": "Secreto Oscuro",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_fama_secreto_oscuro",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Secreto Oscuro. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_fama_infamia",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Infamia",
+      "nameEn": "Infamia",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_fama_infamia",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Infamia. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_influencia_despreciado",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Despreciado",
+      "nameEn": "Despreciado",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_influencia_despreciado",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Despreciado. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_influencia_odiado",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Odiado",
+      "nameEn": "Odiado",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_influencia_odiado",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        2
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Odiado. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_refugio_sin_refugio",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Sin Refugio",
+      "nameEn": "Sin Refugio",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_refugio_sin_refugio",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Sin Refugio. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_refugio_espeluznante",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Espeluznante",
+      "nameEn": "Espeluznante",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_refugio_espeluznante",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Espeluznante. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_refugio_embrujado",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Embrujado",
+      "nameEn": "Embrujado",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_refugio_embrujado",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Embrujado. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_refugio_comprometido",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Comprometido",
+      "nameEn": "Comprometido",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_refugio_comprometido",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        2
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Comprometido. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_rebano_depredador_manifiesto",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Depredador Manifiesto",
+      "nameEn": "Depredador Manifiesto",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_rebano_depredador_manifiesto",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        2
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Depredador Manifiesto. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_mawla_adversario",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Adversario",
+      "nameEn": "Adversario",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_mawla_adversario",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Adversario. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_recursos_indigente",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Indigente",
+      "nameEn": "Indigente",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_recursos_indigente",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Indigente. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    },
+    {
+      "id": "domain_background_flaw_criados_acosadores",
+      "scope": "domain",
+      "type": "domainBackgroundFlaw",
+      "name": "Acosadores",
+      "nameEn": "Acosadores",
+      "category": "Defecto de Dominio personal",
+      "sourceTraitId": "flaw_criados_acosadores",
+      "sourceTraitType": "flaw",
+      "dotOptions": [
+        1
+      ],
+      "spendPool": "domain",
+      "addsToPool": "character.domain.pool.flawDots",
+      "purchaseScope": "domain",
+      "storeIn": "character.domain.flaws",
+      "notStoredIn": "character.advantages.flaws",
+      "adaptedFrom": "coterie_background_flaw",
+      "description": "Versión de Dominio personal de Acosadores. Al tomarse como defecto de Dominio, aumenta el pool de Dominio personal y no cuenta como defecto individual.",
+      "source": "Coterie Backgrounds.md"
+    }
+  ],
+  "domainCatalogModel": {
+    "version": "personal-domain-v1",
+    "sourceOfTruth": "Coterie Backgrounds.md, Coterie.md y Coterie-types.md",
+    "policy": [
+      "La plataforma no implementa coterías multijugador.",
+      "Dominio se modela como subsistema personal del personaje, no como ventaja individual.",
+      "Los puntos de Dominio sólo pueden gastarse en domainCatalog.",
+      "Las ventajas individuales no pueden comprarse con puntos de Dominio.",
+      "El contenido de cotería incompatible se conserva como disabledCoterieContent con status=disabled."
+    ],
+    "characterStatePath": "character.domain",
+    "supportsAdaptedBackgrounds": true,
+    "adaptedBackgroundType": "domainBackground",
+    "adaptedBackgroundFlawType": "domainBackgroundFlaw",
+    "spendingRule": "Los rasgos con scope=domain y spendPool=domain sólo se compran con character.domain.pool.",
+    "individualBackgroundDistinction": "Un trasfondo comprado como domainBackground debe guardarse en character.domain.backgrounds, no en character.advantages.merits."
+  },
+  "disabledCoterieContent": [
+    {
+      "id": "disabled_coterie_types",
+      "name": "Tipos de cotería",
+      "sourceFile": "Coterie-types.md",
+      "status": "disabled",
+      "disabledReason": "Inviable con el estilo de la crónica: la plataforma no usa grupos fijos ni creación colaborativa de coterías.",
+      "replacement": "Usar Dominio personal cuando una regla otorgue Dominio."
+    },
+    {
+      "id": "disabled_coterie_pool_collaborative_spending",
+      "name": "Reserva colaborativa de cotería",
+      "sourceFile": "Coterie Backgrounds.md",
+      "status": "disabled",
+      "disabledReason": "Inviable con el estilo de la crónica: no existe gasto colectivo ni consenso entre varios jugadores.",
+      "replacement": "Usar character.domain.pool como reserva individual de Dominio."
+    },
+    {
+      "id": "disabled_coterie_advantages",
+      "name": "Ventajas y defectos de cotería",
+      "sourceFile": "Coterie Backgrounds.md",
+      "status": "disabled",
+      "disabledReason": "Inviable con el estilo de la crónica salvo Dominio personal: sus efectos presuponen una cotería conocida o un grupo con recursos compartidos.",
+      "replacement": "No se habilitan en el creador individual. Si una regla requiere territorio, usar domainCatalog."
+    },
+    {
+      "id": "disabled_coterie_clan_merits",
+      "name": "Méritos de clan de cotería",
+      "sourceFile": "Coterie Backgrounds.md",
+      "status": "disabled",
+      "disabledReason": "Inviable con el estilo de la crónica: la mayoría de estos méritos presuponen compañeros de cotería o activaciones a favor de otro miembro.",
+      "replacement": "No se habilitan en el creador individual."
+    },
+    {
+      "id": "disabled_multi_member_coterie_membership",
+      "name": "Pertenencia a varias coterías o cambio de cotería",
+      "sourceFile": "Coterie.md",
+      "status": "disabled",
+      "disabledReason": "Inviable con el estilo de la crónica: la plataforma no modela membresía grupal persistente.",
+      "replacement": "El personaje conserva sólo su Dominio personal."
+    }
+  ],
+  "advantageBudgetModel": {
+    "manualMeritDotsDefault": 7,
+    "manualFlawDotsDefault": 2,
+    "contributedToDomainFormula": "sum(character.domain.contributions[dots] where source == \"characterAdvantages\")",
+    "availableMeritDotsFormula": "totalMeritDots - spentMeritDots - contributedToDomainDots",
+    "rule": "Los puntos de ventajas individuales aportados a Dominio personal se descuentan del presupuesto normal de Méritos y no pueden gastarse de nuevo en ventajas individuales."
+  },
+  "domainContributionModel": {
+    "allowedSources": [
+      "characterAdvantages"
+    ],
+    "requiredFields": [
+      "id",
+      "source",
+      "sourceBudget",
+      "dots",
+      "reason"
+    ],
+    "sourceBudgetValues": [
+      "advantages.meritDots"
+    ],
+    "targetPool": "character.domain.pool.contributedAdvantageDots",
+    "rule": "Cada contribución registra cuántos puntos de Méritos individuales se transfieren al pool de Dominio personal."
+  },
+  "attributeCreationModel": {
+    "initialDots": 2,
+    "minimumDots": 1,
+    "maximumDots": 5,
+    "requiredAttributeCount": 9,
+    "finalDistribution": [
+      4,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      1
+    ],
+    "sequenceLength": 5,
+    "sequenceMustContainUniqueAttributes": true,
+    "sequencePositionValues": [
+      4,
+      1,
+      3,
+      3,
+      3
+    ],
+    "unselectedAttributeValue": 2,
+    "validationMode": "exactFinalDistribution",
+    "notes": "La creación inicial usa attrSequence de 5 atributos modificados: posición 1 = 4, posición 2 = 1, posiciones 3-5 = 3; los demás quedan en 2."
+  },
+  "skillCreationModel": {
+    "initialDots": 0,
+    "minimumDots": 0,
+    "maximumDots": 4,
+    "requiredSkillCount": 27,
+    "finalDistribution": [
+      4,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sequenceLength": 10,
+    "sequenceMustContainUniqueSkills": true,
+    "sequencePositionValues": [
+      4,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "unselectedSkillValue": 0,
+    "validationMode": "exactFinalDistribution",
+    "specialtyRequiredSkills": [
+      "Academicismo",
+      "Artesanía",
+      "Ciencias",
+      "Interpretación"
+    ],
+    "freeSpecialtyRule": {
+      "required": true,
+      "skillMustBeTrained": true,
+      "nameMustBeNonEmpty": true,
+      "mustExistInSpecialtiesWithSource": "free",
+      "exactlyOneFreeSpecialty": true
+    },
+    "notes": "La creación inicial usa skillSequence de 10 habilidades: posición 1 = 4, posiciones 2-4 = 3, posiciones 5-7 = 2, posiciones 8-10 = 1; las demás quedan en 0. Todo personaje debe elegir una especialidad gratuita en una habilidad entrenada. Las especialidades por depredador y por otras fuentes sólo se aplican si la habilidad tiene al menos 1 punto. El total de especialidades de una habilidad no puede superar sus puntos.",
+    "specialtyRules": {
+      "skillMustBeKnown": true,
+      "skillMustBeTrained": true,
+      "nameMode": "freeText",
+      "nameMustBeNonEmpty": true,
+      "sourceRequired": true,
+      "sourceOptions": [
+        "free",
+        "predator",
+        "advantage",
+        "manual",
+        "other"
+      ],
+      "duplicateDetection": "normalizedExactBySkill",
+      "duplicateNormalization": [
+        "casefold",
+        "stripDiacritics",
+        "trim",
+        "collapseWhitespace"
+      ],
+      "maxSpecialtiesPerSkill": "skillDots",
+      "predatorSpecialtyRequiresTrainedSkill": true,
+      "semanticDuplicateDetection": false
+    }
+  },
+  "clanCatalog": [
+    {
+      "id": "clan_banu_haqim",
+      "name": "Banu Haqim"
+    },
+    {
+      "id": "clan_lasombra",
+      "name": "Lasombra"
+    },
+    {
+      "id": "clan_malkavian",
+      "name": "Malkavian"
+    },
+    {
+      "id": "clan_nosferatu",
+      "name": "Nosferatu"
+    },
+    {
+      "id": "clan_toreador",
+      "name": "Toreador"
+    },
+    {
+      "id": "clan_tremere",
+      "name": "Tremere"
+    },
+    {
+      "id": "clan_ventrue",
+      "name": "Ventrue"
+    }
+  ],
+  "generationCatalog": [
+    {
+      "id": "generation_duodecima",
+      "name": "duodécima"
+    },
+    {
+      "id": "generation_decimotercera",
+      "name": "decimotercera"
+    },
+    {
+      "id": "generation_decimocuarta",
+      "name": "decimocuarta"
+    }
+  ],
+  "characterStateModel": {
+    "status": "completeExportOnly",
+    "usesIdsForMajorSelections": true,
+    "requiredNarrativeFields": [
+      "name",
+      "concept",
+      "ambition",
+      "desire",
+      "convictions",
+      "touchstones",
+      "biography",
+      "appearance"
+    ],
+    "domainRequired": true,
+    "derivedDataIsPersisted": true,
+    "creationProgressIsUiMetadata": true,
+    "notes": [
+      "El estado exportable representa un personaje completo; los borradores internos de la app no deben exportarse con este schema.",
+      "Las selecciones principales se guardan por ID. Los nombres visibles se derivan desde los catálogos.",
+      "Dominio personal es obligatorio y parte con 1 punto base salvo que una regla posterior lo modifique."
+    ]
+  }
+}

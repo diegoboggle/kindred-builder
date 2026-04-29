@@ -1,0 +1,20 @@
+{
+  "records": 402,
+  "byKind": {
+    "ceremony": 28,
+    "power": 209,
+    "ritual": 105,
+    "thin_blood_formula": 60
+  },
+  "amalgamIndexEntries": 56,
+  "errataRecords": 32,
+  "untranslatedNameCandidates": [],
+  "untranslatedNameCandidatesCount": 0,
+  "notes": [
+    "Nombres de registros traducidos mediante Glosario V5 Ampliado y mapa curado de faltantes.",
+    "Los campos de texto largo conservan original en text.en y una versión text.es con terminología de glosario aplicada; para publicación editorial completa conviene revisión humana de estilo.",
+    "source.items es la fuente estructurada para mostrar referencias.",
+    "prerequisite conserva raw pero la validación debe usar logic/conditions.",
+    "El índice de amalgamas es derivado y trae checksum del catálogo."
+  ]
+}

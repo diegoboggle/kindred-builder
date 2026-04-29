@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://santiago-nocturno.local/schemas/amalgam-index.schema.json",
+  "title": "Derived Amalgam Index",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generated",
+    "sourceCatalog",
+    "sourceCatalogChecksum",
+    "entries"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "amalgam-index-v2"
+    },
+    "generated": {
+      "const": true
+    },
+    "sourceCatalog": {
+      "type": "string"
+    },
+    "sourceCatalogChecksum": {
+      "type": "object"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "requiredDiscipline",
+          "requiredLevel",
+          "recordId",
+          "recordName"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://santiago-nocturno.local/schemas/discipline-catalog.schema.json",
+  "title": "Santiago Nocturno Discipline Catalog",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "version",
+    "sourceOfTruth",
+    "policy",
+    "counts",
+    "checksum",
+    "records"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "discipline-catalog-v2"
+    },
+    "version": {
+      "type": "string"
+    },
+    "sourceOfTruth": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "counts": {
+      "type": "object"
+    },
+    "checksum": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "value"
+      ]
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/record"
+      }
+    }
+  },
+  "$defs": {
+    "localizedString": {
+      "type": "object",
+      "required": [
+        "en",
+        "es"
+      ],
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "es": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceItem": {
+      "type": "object",
+      "required": [
+        "book",
+        "bookEs",
+        "raw"
+      ],
+      "properties": {
+        "book": {
+          "type": "string"
+        },
+        "bookEs": {
+          "type": "string"
+        },
+        "page": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "prereq": {
+      "type": "object",
+      "required": [
+        "logic",
+        "conditions",
+        "raw"
+      ],
+      "properties": {
+        "logic": {
+          "enum": [
+            "none",
+            "single",
+            "allOf",
+            "anyOf"
+          ]
+        },
+        "raw": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conditions": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "record": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "discipline",
+        "level",
+        "name",
+        "text",
+        "source",
+        "prerequisite",
+        "errata",
+        "errataFields"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "kind": {
+          "enum": [
+            "power",
+            "ritual",
+            "ceremony",
+            "thin_blood_formula"
+          ]
+        },
+        "discipline": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "name": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "text": {
+          "type": "object",
+          "required": [
+            "en",
+            "es"
+          ]
+        },
+        "source": {
+          "type": "object",
+          "required": [
+            "raw",
+            "items"
+          ],
+          "properties": {
+            "raw": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/sourceItem"
+              }
+            }
+          }
+        },
+        "prerequisite": {
+          "$ref": "#/$defs/prereq"
+        },
+        "amalgamRequirement": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "discipline": {
+              "type": "string"
+            },
+            "level": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            }
+          },
+          "required": [
+            "discipline",
+            "level"
+          ]
+        },
+        "errata": {
+          "type": "boolean"
+        },
+        "errataFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "legacy": {
+          "type": "object"
+        },
+        "translationStatus": {
+          "enum": [
+            "translated",
+            "unchanged_proper_term",
+            "missing"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

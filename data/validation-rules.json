@@ -1,0 +1,631 @@
+{
+  "$schema": "../schemas/validation-rules.schema.json",
+  "schemaVersion": "validation-rules-v1",
+  "sourceOfTruth": {
+    "creatorData": "data/creator-data.json",
+    "disciplineCatalog": "data/disciplinas_v5_catalogo.json",
+    "domainPolicy": "data/creator-data.json#/domainCatalogModel"
+  },
+  "policy": {
+    "defaultSeverity": "error",
+    "allowedOrigins": [
+      "official",
+      "logical"
+    ],
+    "allRulesAreBlocking": true,
+    "notes": "Las reglas son inflexibles: toda infracción produce error bloqueante. Los puntos de Ventajas individuales pueden reasignarse hacia o desde Dominio personal durante la creación; mientras estén asignados a Dominio se descuentan del presupuesto individual. Los puntos nativos de Dominio personal no pueden salir de Dominio ni comprar Ventajas individuales."
+  },
+  "effectTypes": [
+    "forbidTrait",
+    "forbidTraitCategory",
+    "requireTrait",
+    "incompatibleTraitPair",
+    "skillMaximum",
+    "disciplineMaximum",
+    "requireDiscipline",
+    "requireDomainTrait",
+    "forbidDomainTrait",
+    "forbidDomainTraitCategory",
+    "requireDomainTraitForCategory",
+    "spendingPoolRestriction",
+    "advantageToDomainContribution",
+    "forbidDomainToAdvantageContribution"
+  ],
+  "rules": [
+    {
+      "id": "rule_ventrue_cannot_take_farmer",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Los Ventrue no pueden adquirir el Defecto Granjero.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_alimentacion_granjero"
+      },
+      "when": {
+        "clanName": "Ventrue"
+      },
+      "effect": {
+        "type": "forbidTrait",
+        "catalog": "advantages",
+        "traitId": "flaw_alimentacion_granjero"
+      }
+    },
+    {
+      "id": "rule_illiterate_limits_academics_and_science",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Analfabeto limita Academicismo y Ciencias a un máximo de 1 punto.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_linguistica_analfabeto"
+      },
+      "when": {
+        "hasTraitId": "flaw_linguistica_analfabeto"
+      },
+      "effect": {
+        "type": "skillMaximum",
+        "skills": [
+          "Academicismo",
+          "Ciencias"
+        ],
+        "maxDots": 1
+      }
+    },
+    {
+      "id": "rule_transparent_forbids_subterfuge",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Transparente impide adquirir puntos en Subterfugio.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_aspecto_transparente"
+      },
+      "when": {
+        "hasTraitId": "flaw_aspecto_transparente"
+      },
+      "effect": {
+        "type": "skillMaximum",
+        "skills": [
+          "Subterfugio"
+        ],
+        "maxDots": 0
+      }
+    },
+    {
+      "id": "rule_archaic_forbids_technology",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Arcaico fija Tecnología en 0.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_defectos_arcaicos_arcaico"
+      },
+      "when": {
+        "hasTraitId": "flaw_defectos_arcaicos_arcaico"
+      },
+      "effect": {
+        "type": "skillMaximum",
+        "skills": [
+          "Tecnología"
+        ],
+        "maxDots": 0
+      }
+    },
+    {
+      "id": "rule_tempered_will_forbids_domination_and_presence",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Voluntad Templada sólo puede adquirirse si el personaje no tiene Dominación ni Presencia.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_otros_voluntad_templada"
+      },
+      "when": {
+        "hasTraitId": "merit_otros_voluntad_templada"
+      },
+      "effect": {
+        "type": "disciplineMaximum",
+        "disciplines": [
+          "Dominación",
+          "Presencia"
+        ],
+        "maxDots": 0
+      }
+    },
+    {
+      "id": "rule_bonds_of_fealty_requires_domination",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Vínculos de Lealtad requiere que el personaje posea Dominación.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_vinculos_vinculos_de_lealtad"
+      },
+      "when": {
+        "hasTraitId": "merit_vinculos_vinculos_de_lealtad"
+      },
+      "effect": {
+        "type": "requireDiscipline",
+        "discipline": "Dominación",
+        "minDots": 1
+      }
+    },
+    {
+      "id": "rule_groveling_worm_incompatible_with_penitence",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Gusano Servil no puede adquirirse junto con Penitencia.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_psicologicos_gusano_servil"
+      },
+      "effect": {
+        "type": "incompatibleTraitPair",
+        "catalog": "advantages",
+        "traitIds": [
+          "flaw_psicologicos_gusano_servil",
+          "merit_psicologicos_penitencia"
+        ]
+      }
+    },
+    {
+      "id": "rule_favored_blood_incompatible_with_muddled_blood",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Sangre Favorecida no puede adquirirse junto con Sangre Embarrada.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_caitiff_sangre_favorecida"
+      },
+      "effect": {
+        "type": "incompatibleTraitPair",
+        "catalog": "advantages",
+        "traitIds": [
+          "merit_caitiff_sangre_favorecida",
+          "flaw_caitiff_sangre_embarrada"
+        ]
+      }
+    },
+    {
+      "id": "rule_liquidator_incompatible_with_uncle_fangs",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Liquidador no puede adquirirse junto con Tío Colmillos.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_caitiff_liquidador"
+      },
+      "effect": {
+        "type": "incompatibleTraitPair",
+        "catalog": "advantages",
+        "traitIds": [
+          "flaw_caitiff_liquidador",
+          "merit_caitiff_tio_colmillos"
+        ]
+      }
+    },
+    {
+      "id": "rule_influencer_requires_fame_two",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Influencer requiere Fama 2 o superior.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_fama_influencer"
+      },
+      "when": {
+        "hasTraitId": "merit_fama_influencer"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_fama",
+        "minDots": 2
+      }
+    },
+    {
+      "id": "rule_enduring_fame_requires_fame_three",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Fama Duradera requiere Fama 3 o superior.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_fama_fama_duradera"
+      },
+      "when": {
+        "hasTraitId": "merit_fama_fama_duradera"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_fama",
+        "minDots": 3
+      }
+    },
+    {
+      "id": "rule_zeroed_requires_mask_two",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Borrado requiere Máscara 2.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_mascara_borrado"
+      },
+      "when": {
+        "hasTraitId": "merit_mascara_borrado"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_mascara",
+        "minDots": 2
+      }
+    },
+    {
+      "id": "rule_cobbler_requires_mask_two",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Curtidor requiere Máscara 2.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_mascara_curtidor"
+      },
+      "when": {
+        "hasTraitId": "merit_mascara_curtidor"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_mascara",
+        "minDots": 2
+      }
+    },
+    {
+      "id": "rule_secret_master_requires_mawla",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Amo Secreto requiere Mawla.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_mawla_amo_secreto"
+      },
+      "when": {
+        "hasTraitId": "flaw_mawla_amo_secreto"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_mawla",
+        "minDots": 1
+      }
+    },
+    {
+      "id": "rule_obvious_predator_blocks_herd",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Depredador Manifiesto impide mantener Rebaño.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "flaw_rebano_depredador_manifiesto"
+      },
+      "when": {
+        "hasTraitId": "flaw_rebano_depredador_manifiesto"
+      },
+      "effect": {
+        "type": "forbidTrait",
+        "catalog": "advantages",
+        "traitId": "merit_rebano"
+      }
+    },
+    {
+      "id": "rule_haven_cell_requires_haven_two",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Celda no está disponible en Refugios de 1 punto; requiere Refugio 2.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_refugio_celda"
+      },
+      "when": {
+        "hasTraitId": "merit_refugio_celda"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_refugio",
+        "minDots": 2
+      }
+    },
+    {
+      "id": "rule_haven_laboratory_requires_haven_two",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Laboratorio no está disponible en Refugios de 1 punto; requiere Refugio 2.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_refugio_laboratorio"
+      },
+      "when": {
+        "hasTraitId": "merit_refugio_laboratorio"
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_refugio",
+        "minDots": 2
+      }
+    },
+    {
+      "id": "rule_mobile_haven_addons_require_mobile_haven",
+      "scope": "character",
+      "origin": "official",
+      "severity": "error",
+      "description": "Los rasgos Blindado, Alijo de Contrabandistas, Matrículas de Repuesto, Sobre Raíles y Temperamental requieren Refugio Móvil.",
+      "source": {
+        "kind": "advantageText",
+        "traitId": "merit_refugio_movil"
+      },
+      "when": {
+        "hasAnyTraitId": [
+          "merit_refugio_blindado",
+          "merit_refugio_alijo_de_contrabandistas",
+          "merit_refugio_matriculas_de_repuesto",
+          "flaw_refugio_sobre_railes",
+          "flaw_refugio_temperamental"
+        ]
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_refugio_movil",
+        "minDots": 1
+      }
+    },
+    {
+      "id": "rule_nosferatu_cannot_take_appearance_merits",
+      "scope": "character",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Por la Maldición de clan, los Nosferatu no pueden adquirir Méritos de Aspecto positivos.",
+      "source": {
+        "kind": "logicalInference",
+        "basis": "Los Méritos positivos de Aspecto contradicen la lógica de creación para Nosferatu."
+      },
+      "when": {
+        "clanName": "Nosferatu"
+      },
+      "effect": {
+        "type": "forbidTraitCategory",
+        "catalog": "advantages",
+        "traitType": "merit",
+        "category": "Aspecto"
+      }
+    },
+    {
+      "id": "rule_no_haven_blocks_haven_traits",
+      "scope": "character",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Sin Refugio bloquea Refugio y cualquier rasgo dependiente de Refugio.",
+      "source": {
+        "kind": "logicalInference",
+        "basis": "No puede existir una característica de Refugio si el personaje tiene Sin Refugio."
+      },
+      "when": {
+        "hasTraitId": "flaw_refugio_sin_refugio"
+      },
+      "effect": {
+        "type": "forbidTraitCategory",
+        "catalog": "advantages",
+        "category": "Refugio",
+        "exceptTraitIds": [
+          "flaw_refugio_sin_refugio"
+        ]
+      }
+    },
+    {
+      "id": "rule_haven_traits_require_haven",
+      "scope": "character",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Todo rasgo de Refugio distinto de Refugio y Sin Refugio requiere Refugio 1.",
+      "source": {
+        "kind": "logicalInference",
+        "basis": "Los rasgos de Refugio son características de un Refugio existente."
+      },
+      "when": {
+        "hasTraitCategory": "Refugio",
+        "exceptTraitIds": [
+          "merit_refugio",
+          "flaw_refugio_sin_refugio"
+        ]
+      },
+      "effect": {
+        "type": "requireTrait",
+        "catalog": "advantages",
+        "traitId": "merit_refugio",
+        "minDots": 1
+      }
+    },
+    {
+      "id": "rule_domain_personal_backgrounds_spend_domain_pool",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Los trasfondos de Dominio personal sólo pueden comprarse con el pool de Dominio personal. Ese pool puede incluir puntos base, puntos concedidos, defectos de Dominio y contribuciones actuales desde Ventajas individuales.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "La crónica usa Dominio personal en lugar de coterías reales."
+      },
+      "effect": {
+        "type": "spendingPoolRestriction",
+        "catalog": "domain",
+        "traitTypes": [
+          "domainBackground",
+          "domainBackgroundFlaw",
+          "domainTrait"
+        ],
+        "allowedPool": "domain",
+        "allowedPoolComponents": [
+          "domain.pool.baseDots",
+          "domain.pool.contributedAdvantageDots",
+          "domain.pool.flawDots",
+          "domain.pool.grantedDots"
+        ]
+      }
+    },
+    {
+      "id": "rule_advantage_points_reallocatable_to_domain_during_creation",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Los puntos de Ventajas individuales pueden moverse hacia o desde Dominio personal durante la creación. Mientras estén asignados a Dominio, deben descontarse del presupuesto normal de Ventajas.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "La crónica usa Dominio personal; se permite planificación flexible antes de finalizar el personaje sin duplicar puntos."
+      },
+      "effect": {
+        "type": "advantageToDomainContribution",
+        "fromPool": "advantages.budget.totalMeritDots",
+        "trackingField": "advantages.budget.contributedToDomainDots",
+        "toPool": "domain.pool.contributedAdvantageDots",
+        "contributionList": "domain.contributions",
+        "source": "characterAdvantages",
+        "sourceBudget": "advantages.meritDots",
+        "reversibleDuringCreation": true,
+        "locksWhen": "character.finalized"
+      }
+    },
+    {
+      "id": "rule_domain_native_points_cannot_fund_character_advantages",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Los puntos nativos de Dominio personal no pueden moverse al presupuesto de Ventajas ni comprar Ventajas individuales.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "Dominio personal adapta una reserva separada; sólo las contribuciones desde Ventajas son reversibles durante la creación."
+      },
+      "effect": {
+        "type": "forbidDomainToAdvantageContribution",
+        "fromPools": [
+          "domain.pool.baseDots",
+          "domain.pool.flawDots",
+          "domain.pool.grantedDots"
+        ],
+        "forbiddenTargetPools": [
+          "advantages.budget.totalMeritDots",
+          "advantages.budget.availableMeritDots",
+          "advantages.budget.spentMeritDots"
+        ],
+        "allowedTargetPool": "domain.pool"
+      }
+    },
+    {
+      "id": "rule_domain_no_haven_blocks_domain_haven_traits",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Sin Refugio de Dominio personal bloquea Refugio de Dominio personal y sus defectos asociados.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "Adaptación individual de la lógica de Refugio."
+      },
+      "when": {
+        "hasDomainTraitId": "domain_background_flaw_refugio_sin_refugio"
+      },
+      "effect": {
+        "type": "forbidDomainTrait",
+        "catalog": "domain",
+        "traitIds": [
+          "domain_background_refugio",
+          "domain_background_flaw_refugio_espeluznante",
+          "domain_background_flaw_refugio_embrujado",
+          "domain_background_flaw_refugio_comprometido"
+        ],
+        "exceptTraitIds": [
+          "domain_background_flaw_refugio_sin_refugio"
+        ]
+      }
+    },
+    {
+      "id": "rule_domain_haven_flaws_require_domain_haven",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Los defectos de Refugio adaptados al Dominio personal requieren Refugio de Dominio personal.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "Espeluznante, Embrujado y Comprometido son rasgos de un Refugio existente."
+      },
+      "when": {
+        "hasAnyDomainTraitId": [
+          "domain_background_flaw_refugio_espeluznante",
+          "domain_background_flaw_refugio_embrujado",
+          "domain_background_flaw_refugio_comprometido"
+        ]
+      },
+      "effect": {
+        "type": "requireDomainTrait",
+        "catalog": "domain",
+        "traitId": "domain_background_refugio",
+        "minDots": 1
+      }
+    },
+    {
+      "id": "rule_domain_obvious_predator_blocks_domain_herd",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Depredador Manifiesto también bloquea Rebaño comprado como trasfondo de Dominio personal.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "Extiende la restricción de Rebaño al modo de Dominio personal."
+      },
+      "when": {
+        "hasTraitId": "flaw_rebano_depredador_manifiesto"
+      },
+      "effect": {
+        "type": "forbidDomainTrait",
+        "catalog": "domain",
+        "traitId": "domain_background_rebano"
+      }
+    },
+    {
+      "id": "rule_domain_haven_incompatible_with_domain_no_haven",
+      "scope": "domain",
+      "origin": "logical",
+      "severity": "error",
+      "description": "Refugio de Dominio personal y Sin Refugio de Dominio personal son incompatibles.",
+      "source": {
+        "kind": "projectAdaptation",
+        "basis": "Adaptación individual de la incompatibilidad entre Refugio y Sin Refugio."
+      },
+      "effect": {
+        "type": "incompatibleTraitPair",
+        "catalog": "domain",
+        "traitIds": [
+          "domain_background_refugio",
+          "domain_background_flaw_refugio_sin_refugio"
+        ]
+      }
+    }
+  ]
+}

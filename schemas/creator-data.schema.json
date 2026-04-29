@@ -1,0 +1,762 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://santiago-nocturno.local/schemas/creator-data.schema.json",
+  "title": "Santiago Nocturno Creator Data",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "clans",
+    "generations",
+    "attributes",
+    "attributeCreationModel",
+    "skills",
+    "skillCreationModel",
+    "predatorTypes",
+    "advantagesCatalog",
+    "disciplineCatalog",
+    "domainCatalog",
+    "domainCatalogModel",
+    "disabledCoterieContent",
+    "advantageBudgetModel",
+    "domainContributionModel"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "creator-data-v2"
+    },
+    "clans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "generations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 9,
+      "maxItems": 9
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 27,
+      "maxItems": 27
+    },
+    "predatorTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/predator"
+      },
+      "minItems": 1
+    },
+    "advantagesCatalog": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "disciplineCatalog": {
+      "type": "object"
+    },
+    "domainCatalog": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/domainCatalogItem"
+      },
+      "minItems": 1
+    },
+    "domainCatalogModel": {
+      "type": "object"
+    },
+    "disabledCoterieContent": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/disabledCoterieItem"
+      }
+    },
+    "advantageBudgetModel": {
+      "type": "object"
+    },
+    "domainContributionModel": {
+      "type": "object"
+    },
+    "attributeCreationModel": {
+      "type": "object",
+      "required": [
+        "initialDots",
+        "minimumDots",
+        "maximumDots",
+        "requiredAttributeCount",
+        "finalDistribution",
+        "sequenceLength",
+        "sequenceMustContainUniqueAttributes",
+        "sequencePositionValues",
+        "unselectedAttributeValue",
+        "validationMode"
+      ],
+      "properties": {
+        "initialDots": {
+          "type": "integer",
+          "const": 2
+        },
+        "minimumDots": {
+          "type": "integer",
+          "const": 1
+        },
+        "maximumDots": {
+          "type": "integer",
+          "const": 5
+        },
+        "requiredAttributeCount": {
+          "type": "integer",
+          "const": 9
+        },
+        "finalDistribution": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 4
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 1
+            }
+          ],
+          "minItems": 9,
+          "maxItems": 9
+        },
+        "sequenceLength": {
+          "type": "integer",
+          "const": 5
+        },
+        "sequenceMustContainUniqueAttributes": {
+          "const": true
+        },
+        "sequencePositionValues": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 4
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            }
+          ],
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "unselectedAttributeValue": {
+          "type": "integer",
+          "const": 2
+        },
+        "validationMode": {
+          "const": "exactFinalDistribution"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "skillCreationModel": {
+      "type": "object",
+      "required": [
+        "initialDots",
+        "minimumDots",
+        "maximumDots",
+        "requiredSkillCount",
+        "finalDistribution",
+        "sequenceLength",
+        "sequenceMustContainUniqueSkills",
+        "sequencePositionValues",
+        "unselectedSkillValue",
+        "validationMode",
+        "specialtyRequiredSkills",
+        "freeSpecialtyRule",
+        "specialtyRules"
+      ],
+      "properties": {
+        "initialDots": {
+          "type": "integer",
+          "const": 0
+        },
+        "minimumDots": {
+          "type": "integer",
+          "const": 0
+        },
+        "maximumDots": {
+          "type": "integer",
+          "const": 4
+        },
+        "requiredSkillCount": {
+          "type": "integer",
+          "const": 27
+        },
+        "finalDistribution": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 4
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            },
+            {
+              "const": 0
+            }
+          ],
+          "minItems": 27,
+          "maxItems": 27
+        },
+        "sequenceLength": {
+          "type": "integer",
+          "const": 10
+        },
+        "sequenceMustContainUniqueSkills": {
+          "const": true
+        },
+        "sequencePositionValues": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 4
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 3
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 1
+            }
+          ],
+          "minItems": 10,
+          "maxItems": 10
+        },
+        "unselectedSkillValue": {
+          "type": "integer",
+          "const": 0
+        },
+        "validationMode": {
+          "const": "exactFinalDistribution"
+        },
+        "specialtyRequiredSkills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 4
+        },
+        "freeSpecialtyRule": {
+          "type": "object",
+          "required": [
+            "required",
+            "skillMustBeTrained",
+            "nameMustBeNonEmpty",
+            "mustExistInSpecialtiesWithSource",
+            "exactlyOneFreeSpecialty"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "skillMustBeTrained": {
+              "const": true
+            },
+            "nameMustBeNonEmpty": {
+              "const": true
+            },
+            "mustExistInSpecialtiesWithSource": {
+              "const": "free"
+            },
+            "exactlyOneFreeSpecialty": {
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "notes": {
+          "type": "string"
+        },
+        "specialtyRules": {
+          "type": "object",
+          "required": [
+            "skillMustBeKnown",
+            "skillMustBeTrained",
+            "nameMode",
+            "nameMustBeNonEmpty",
+            "sourceRequired",
+            "sourceOptions",
+            "duplicateDetection",
+            "duplicateNormalization",
+            "maxSpecialtiesPerSkill",
+            "predatorSpecialtyRequiresTrainedSkill",
+            "semanticDuplicateDetection"
+          ],
+          "properties": {
+            "skillMustBeKnown": {
+              "const": true
+            },
+            "skillMustBeTrained": {
+              "const": true
+            },
+            "nameMode": {
+              "const": "freeText"
+            },
+            "nameMustBeNonEmpty": {
+              "const": true
+            },
+            "sourceRequired": {
+              "const": true
+            },
+            "sourceOptions": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "free",
+                  "predator",
+                  "advantage",
+                  "manual",
+                  "other"
+                ]
+              },
+              "minItems": 5,
+              "maxItems": 5,
+              "uniqueItems": true
+            },
+            "duplicateDetection": {
+              "const": "normalizedExactBySkill"
+            },
+            "duplicateNormalization": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "casefold",
+                  "stripDiacritics",
+                  "trim",
+                  "collapseWhitespace"
+                ]
+              },
+              "minItems": 4,
+              "maxItems": 4,
+              "uniqueItems": true
+            },
+            "maxSpecialtiesPerSkill": {
+              "const": "skillDots"
+            },
+            "predatorSpecialtyRequiresTrainedSkill": {
+              "const": true
+            },
+            "semanticDuplicateDetection": {
+              "const": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "clanCatalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^clan_[a-z0-9_]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "generationCatalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^generation_[a-z0-9_]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "characterStateModel": {
+      "type": "object",
+      "required": [
+        "status",
+        "usesIdsForMajorSelections",
+        "requiredNarrativeFields",
+        "domainRequired",
+        "derivedDataIsPersisted",
+        "creationProgressIsUiMetadata"
+      ],
+      "properties": {
+        "status": {
+          "const": "completeExportOnly"
+        },
+        "usesIdsForMajorSelections": {
+          "const": true
+        },
+        "requiredNarrativeFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "domainRequired": {
+          "const": true
+        },
+        "derivedDataIsPersisted": {
+          "const": true
+        },
+        "creationProgressIsUiMetadata": {
+          "const": true
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "award": {
+      "type": "object",
+      "required": [
+        "kind",
+        "type"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "fixedTrait",
+            "choiceGroup",
+            "allocationGroup",
+            "domainGrant"
+          ]
+        },
+        "type": {
+          "enum": [
+            "merit",
+            "flaw"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "dots": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "totalDots": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "options": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "predator": {
+      "type": "object",
+      "required": [
+        "name",
+        "disciplineChoices",
+        "specialtyChoices",
+        "automaticAwards",
+        "pendingFlawChoice"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "automaticAwards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/award"
+          }
+        },
+        "pendingFlawChoice": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "domainCatalogItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "scope",
+        "type",
+        "name",
+        "dotOptions",
+        "spendPool"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^domain_[a-z0-9_]+$"
+        },
+        "scope": {
+          "const": "domain"
+        },
+        "type": {
+          "enum": [
+            "traitGroup",
+            "domainTrait",
+            "domainMerit",
+            "domainFlaw",
+            "domainBackground",
+            "domainBackgroundFlaw"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "dotOptions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "minItems": 1
+        },
+        "spendPool": {
+          "const": "domain"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceTraitId": {
+          "type": "string",
+          "pattern": "^(merit|flaw)_[a-z0-9_]+$"
+        },
+        "sourceTraitType": {
+          "enum": [
+            "merit",
+            "flaw"
+          ]
+        },
+        "purchaseScope": {
+          "const": "domain"
+        },
+        "storeIn": {
+          "type": "string"
+        },
+        "notStoredIn": {
+          "type": "string"
+        },
+        "adaptedFrom": {
+          "type": "string"
+        },
+        "addsToPool": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "disabledCoterieItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "status",
+        "disabledReason"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^disabled_[a-z0-9_]+$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sourceFile": {
+          "type": "string"
+        },
+        "status": {
+          "const": "disabled"
+        },
+        "disabledReason": {
+          "type": "string"
+        },
+        "replacement": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,684 @@
+{
+  "$schema": "../schemas/amalgam-index.schema.json",
+  "schemaVersion": "amalgam-index-v2",
+  "generated": true,
+  "sourceCatalog": "data/disciplinas_v5_catalogo.json",
+  "sourceCatalogChecksum": {
+    "algorithm": "sha256",
+    "value": "58c135359c8148b18da57a34de6e7c8df46a2ec0bd73d8672a2ea8dff0e18f13"
+  },
+  "entries": [
+    {
+      "requiredDiscipline": "Animalismo",
+      "requiredLevel": 1,
+      "recordId": "fortaleza_2_enduring_beasts",
+      "recordKind": "power",
+      "recordDiscipline": "Fortaleza",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Enduring Beasts",
+        "es": "Bestias Resistentes"
+      }
+    },
+    {
+      "requiredDiscipline": "Animalismo",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_2_ghost_s_passing",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Ghost's Passing",
+        "es": "Paso del Fantasma"
+      }
+    },
+    {
+      "requiredDiscipline": "Animalismo",
+      "requiredLevel": 2,
+      "recordId": "auspex_3_vermin_vision",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Vermin Vision",
+        "es": "Visión de Alimañas"
+      }
+    },
+    {
+      "requiredDiscipline": "Animalismo",
+      "requiredLevel": 2,
+      "recordId": "protean_5_one_with_the_land",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 5,
+      "recordName": {
+        "en": "One with the Land",
+        "es": "Uno con la Tierra"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "animalismo_2_animal_messenger",
+      "recordKind": "power",
+      "recordDiscipline": "Animalismo",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Animal Messenger",
+        "es": "Mensajero Animal"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "animalismo_3_augury",
+      "recordKind": "power",
+      "recordDiscipline": "Animalismo",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Augury",
+        "es": "Augurio"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "fortaleza_2_invigorating_vitae",
+      "recordKind": "power",
+      "recordDiscipline": "Fortaleza",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Invigorating Vitae",
+        "es": "Vitae Vigorizante"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "fortaleza_3_valeren",
+      "recordKind": "power",
+      "recordDiscipline": "Fortaleza",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Valeren",
+        "es": "Valeren"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_2_doubletalk",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Doubletalk",
+        "es": "Doble Habla"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "olvido_3_shadow_servant",
+      "recordKind": "power",
+      "recordDiscipline": "Olvido",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Shadow Servant",
+        "es": "Sirviente Sombrío"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 1,
+      "recordId": "presencia_3_thrown_voice",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Thrown Voice",
+        "es": "Voz Arrojada"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 2,
+      "recordId": "celeridad_4_unerring_aim",
+      "recordKind": "power",
+      "recordDiscipline": "Celeridad",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Unerring Aim",
+        "es": "Puntería Certera"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 2,
+      "recordId": "ofuscacion_2_ventriloquism",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Ventriloquism",
+        "es": "Ventriloquía"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 2,
+      "recordId": "olvido_2_fatal_precognition",
+      "recordKind": "power",
+      "recordDiscipline": "Olvido",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Fatal Precognition",
+        "es": "Premonición Fatal"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 2,
+      "recordId": "olvido_2_fatal_prediction",
+      "recordKind": "power",
+      "recordDiscipline": "Olvido",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Fatal Prediction",
+        "es": "Predicción Fatal"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 2,
+      "recordId": "presencia_3_passion_leech",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Passion Leech",
+        "es": "Sanguijuela de Pasiones"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 3,
+      "recordId": "ofuscacion_4_conceal",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Conceal",
+        "es": "Ocultar"
+      }
+    },
+    {
+      "requiredDiscipline": "Auspex",
+      "requiredLevel": 3,
+      "recordId": "presencia_4_magnum_opus",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Magnum Opus",
+        "es": "Magnum Opus"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 1,
+      "recordId": "animalismo_3_messenger_s_command",
+      "recordKind": "power",
+      "recordDiscipline": "Animalismo",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Messenger's Command",
+        "es": "Orden del Mensajero"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 1,
+      "recordId": "auspex_2_unerring_pursuit",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Unerring Pursuit",
+        "es": "Búsqueda Infalible"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_3_mask_of_isolation",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Mask of Isolation",
+        "es": "Máscara de Aislamiento"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_3_mental_maze",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Mental Maze",
+        "es": "Laberinto Mental"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_4_seclusion",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Seclusion",
+        "es": "Reclusión"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 1,
+      "recordId": "presencia_4_irresistible_voice",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Irresistible Voice",
+        "es": "Voz Irresistible"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 2,
+      "recordId": "ofuscacion_3_mind_masque",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Mind Masque",
+        "es": "Mascarada Mental"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 2,
+      "recordId": "protean_2_vicissitude",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Vicissitude",
+        "es": "Vicisitud"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 2,
+      "recordId": "protean_3_fleshcrafting",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Fleshcrafting",
+        "es": "Moldear Carne"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 2,
+      "recordId": "protean_4_horrid_form",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Horrid Form",
+        "es": "Forma Horrenda"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 3,
+      "recordId": "auspex_5_possession",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 5,
+      "recordName": {
+        "en": "Possession",
+        "es": "Posesión"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 3,
+      "recordId": "auspex_5_unburdening_the_bestial_soul",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 5,
+      "recordName": {
+        "en": "Unburdening the Bestial Soul",
+        "es": "Alivio del Alma Bestial"
+      }
+    },
+    {
+      "requiredDiscipline": "Dominación",
+      "requiredLevel": 3,
+      "recordId": "presencia_3_clear_the_field",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Clear the Field",
+        "es": "Despejar el Campo"
+      }
+    },
+    {
+      "requiredDiscipline": "Fortaleza",
+      "requiredLevel": 1,
+      "recordId": "animalismo_2_leash_the_beast",
+      "recordKind": "power",
+      "recordDiscipline": "Animalismo",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Leash the Beast",
+        "es": "Sujetar a la Bestia"
+      }
+    },
+    {
+      "requiredDiscipline": "Fortaleza",
+      "requiredLevel": 1,
+      "recordId": "auspex_2_panacea",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Panacea",
+        "es": "Panacea"
+      }
+    },
+    {
+      "requiredDiscipline": "Fortaleza",
+      "requiredLevel": 1,
+      "recordId": "dominacion_1_slavish_devotion",
+      "recordKind": "power",
+      "recordDiscipline": "Dominación",
+      "recordLevel": 1,
+      "recordName": {
+        "en": "Slavish Devotion",
+        "es": "Devoción Servil"
+      }
+    },
+    {
+      "requiredDiscipline": "Fortaleza",
+      "requiredLevel": 1,
+      "recordId": "protean_2_the_false_sip",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "The False Sip",
+        "es": "El Falso Sorbo"
+      }
+    },
+    {
+      "requiredDiscipline": "Fortaleza",
+      "requiredLevel": 2,
+      "recordId": "olvido_3_passion_feast",
+      "recordKind": "power",
+      "recordDiscipline": "Olvido",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Passion Feast",
+        "es": "Festín de Pasión"
+      }
+    },
+    {
+      "requiredDiscipline": "Fortaleza",
+      "requiredLevel": 2,
+      "recordId": "protean_5_the_heart_of_darkness",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 5,
+      "recordName": {
+        "en": "The Heart of Darkness",
+        "es": "Corazón de las Tinieblas"
+      }
+    },
+    {
+      "requiredDiscipline": "Hechicería de Sangre",
+      "requiredLevel": 2,
+      "recordId": "dominacion_4_ancestral_dominion",
+      "recordKind": "power",
+      "recordDiscipline": "Dominación",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Ancestral Dominion",
+        "es": "Control Ancestral"
+      }
+    },
+    {
+      "requiredDiscipline": "Hechicería de Sangre",
+      "requiredLevel": 2,
+      "recordId": "protean_3_visceral_absorption",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Visceral Absorption",
+        "es": "Absorción Visceral"
+      }
+    },
+    {
+      "requiredDiscipline": "Hechicería de Sangre",
+      "requiredLevel": 2,
+      "recordId": "protean_5_blood_form",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 5,
+      "recordName": {
+        "en": "Blood Form",
+        "es": "Forma de Sangre"
+      }
+    },
+    {
+      "requiredDiscipline": "Ofuscación",
+      "requiredLevel": 1,
+      "recordId": "presencia_4_inflame_desire",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Inflame Desire",
+        "es": "Inflamar el Deseo"
+      }
+    },
+    {
+      "requiredDiscipline": "Ofuscación",
+      "requiredLevel": 2,
+      "recordId": "animalismo_3_unliving_hive",
+      "recordKind": "power",
+      "recordDiscipline": "Animalismo",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Unliving Hive",
+        "es": "Colmena No-Muerta"
+      }
+    },
+    {
+      "requiredDiscipline": "Ofuscación",
+      "requiredLevel": 2,
+      "recordId": "dominacion_2_dementation",
+      "recordKind": "power",
+      "recordDiscipline": "Dominación",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Dementation",
+        "es": "Dementación"
+      }
+    },
+    {
+      "requiredDiscipline": "Ofuscación",
+      "requiredLevel": 3,
+      "recordId": "presencia_3_true_love_s_face",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "True Love's Face",
+        "es": "Rostro de Amor Verdadero"
+      }
+    },
+    {
+      "requiredDiscipline": "Ofuscación",
+      "requiredLevel": 4,
+      "recordId": "celeridad_4_unseen_strike",
+      "recordKind": "power",
+      "recordDiscipline": "Celeridad",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Unseen Strike",
+        "es": "Ataque Invisible"
+      }
+    },
+    {
+      "requiredDiscipline": "Olvido",
+      "requiredLevel": 1,
+      "recordId": "auspex_3_fatal_flaw",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Fatal Flaw",
+        "es": "Defecto Fatal"
+      }
+    },
+    {
+      "requiredDiscipline": "Olvido",
+      "requiredLevel": 1,
+      "recordId": "auspex_3_haruspex",
+      "recordKind": "power",
+      "recordDiscipline": "Auspex",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Haruspex",
+        "es": "Arúspice"
+      }
+    },
+    {
+      "requiredDiscipline": "Olvido",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_3_guise_of_the_departed",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Guise of the Departed",
+        "es": "Apariencia del Difunto"
+      }
+    },
+    {
+      "requiredDiscipline": "Olvido",
+      "requiredLevel": 2,
+      "recordId": "protean_3_masque_of_death",
+      "recordKind": "power",
+      "recordDiscipline": "Protean",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Masque of Death",
+        "es": "Máscara de Muerte"
+      }
+    },
+    {
+      "requiredDiscipline": "Potencia",
+      "requiredLevel": 2,
+      "recordId": "fortaleza_2_obdurate",
+      "recordKind": "power",
+      "recordDiscipline": "Fortaleza",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Obdurate",
+        "es": "Obstinación"
+      }
+    },
+    {
+      "requiredDiscipline": "Potencia",
+      "requiredLevel": 2,
+      "recordId": "olvido_2_arms_of_ahriman",
+      "recordKind": "power",
+      "recordDiscipline": "Olvido",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Arms of Ahriman",
+        "es": "Brazos de Ahrimán"
+      }
+    },
+    {
+      "requiredDiscipline": "Presencia",
+      "requiredLevel": 1,
+      "recordId": "dominacion_4_implant_suggestion",
+      "recordKind": "power",
+      "recordDiscipline": "Dominación",
+      "recordLevel": 4,
+      "recordName": {
+        "en": "Implant Suggestion",
+        "es": "Implantar Sugestión"
+      }
+    },
+    {
+      "requiredDiscipline": "Presencia",
+      "requiredLevel": 1,
+      "recordId": "ofuscacion_2_chimerstry",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 2,
+      "recordName": {
+        "en": "Chimerstry",
+        "es": "Quimerismo"
+      }
+    },
+    {
+      "requiredDiscipline": "Presencia",
+      "requiredLevel": 2,
+      "recordId": "ofuscacion_3_fata_morgana",
+      "recordKind": "power",
+      "recordDiscipline": "Ofuscación",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Fata Morgana",
+        "es": "Fata Morgana"
+      }
+    },
+    {
+      "requiredDiscipline": "Presencia",
+      "requiredLevel": 3,
+      "recordId": "potencia_3_spark_of_rage",
+      "recordKind": "power",
+      "recordDiscipline": "Potencia",
+      "recordLevel": 3,
+      "recordName": {
+        "en": "Spark of Rage",
+        "es": "Chispa de Ira"
+      }
+    },
+    {
+      "requiredDiscipline": "Protean",
+      "requiredLevel": 1,
+      "recordId": "presencia_1_eyes_of_the_serpent",
+      "recordKind": "power",
+      "recordDiscipline": "Presencia",
+      "recordLevel": 1,
+      "recordName": {
+        "en": "Eyes of the Serpent",
+        "es": "Ojos de la Serpiente"
+      }
+    }
+  ]
+}

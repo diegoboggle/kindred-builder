@@ -1,0 +1,1415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://santiago-nocturno.local/schemas/character-state.schema.json",
+  "title": "Character Creator State - Exportable Complete Character",
+  "type": "object",
+  "description": "Estado de personaje completo y exportable. Los borradores internos de UI no deben exportarse con este schema.",
+  "required": [
+    "schemaVersion",
+    "exportStatus",
+    "creationStatus",
+    "metadata",
+    "discordId",
+    "basics",
+    "clan",
+    "generation",
+    "sire",
+    "predator",
+    "attrSequence",
+    "attributes",
+    "skillSequence",
+    "skills",
+    "freeSpecialtySkill",
+    "freeSpecialtyName",
+    "specialties",
+    "disciplines",
+    "advantages",
+    "domain",
+    "convictions",
+    "touchstones",
+    "profile",
+    "derived",
+    "creationProgress"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exportStatus": {
+      "const": "complete"
+    },
+    "creationStatus": {
+      "const": "finalized"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "characterId",
+        "createdAt",
+        "updatedAt",
+        "appVersion"
+      ],
+      "properties": {
+        "characterId": {
+          "type": "string",
+          "pattern": "^character_[a-zA-Z0-9_-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "appVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exportedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": true
+    },
+    "discordId": {
+      "type": "string",
+      "pattern": "^[0-9]{17,20}$"
+    },
+    "basics": {
+      "type": "object",
+      "required": [
+        "name",
+        "concept",
+        "ambition",
+        "desire"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ambition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "desire": {
+          "type": "string",
+          "minLength": 1
+        },
+        "chronicle": {
+          "type": "string"
+        },
+        "player": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "clan": {
+      "type": "object",
+      "required": [
+        "clanId"
+      ],
+      "properties": {
+        "clanId": {
+          "type": "string",
+          "pattern": "^clan_[a-z0-9_]+$"
+        },
+        "lineageId": {
+          "type": "string",
+          "pattern": "^lineage_[a-z0-9_]+$"
+        },
+        "baneNotes": {
+          "type": "string"
+        },
+        "compulsionNotes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "generation": {
+      "type": "object",
+      "required": [
+        "generationId"
+      ],
+      "properties": {
+        "generationId": {
+          "type": "string",
+          "pattern": "^generation_[a-z0-9_]+$"
+        },
+        "bloodPotencyBase": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        }
+      },
+      "additionalProperties": true
+    },
+    "sire": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "known",
+            "unknown",
+            "none",
+            "unrecorded"
+          ]
+        },
+        "sireId": {
+          "type": "string",
+          "pattern": "^character_[a-zA-Z0-9_-]+$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "clanId": {
+          "type": "string",
+          "pattern": "^clan_[a-z0-9_]+$"
+        },
+        "relationship": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "predator": {
+      "type": "object",
+      "required": [
+        "predatorId",
+        "selectedDisciplineId",
+        "selectedSpecialty"
+      ],
+      "properties": {
+        "predatorId": {
+          "type": "string",
+          "pattern": "^predator_[a-z0-9_]+$"
+        },
+        "selectedDisciplineId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "selectedSpecialty": {
+          "type": "object",
+          "required": [
+            "skill",
+            "name"
+          ],
+          "properties": {
+            "skill": {
+              "type": "string",
+              "enum": [
+                "Academicismo",
+                "Armas de Fuego",
+                "Artesanía",
+                "Atletismo",
+                "Callejeo",
+                "Ciencias",
+                "Conducir",
+                "Consciencia",
+                "Etiqueta",
+                "Finanzas",
+                "Interpretación",
+                "Intimidación",
+                "Investigación",
+                "Latrocinio",
+                "Liderazgo",
+                "Medicina",
+                "Ocultismo",
+                "Pelea",
+                "Pelea con Armas",
+                "Perspicacia",
+                "Persuasión",
+                "Política",
+                "Sigilo",
+                "Subterfugio",
+                "Supervivencia",
+                "Tecnología",
+                "Trato con Animales"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "automaticAwardsApplied": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "attrSequence": {
+      "type": "array",
+      "description": "Orden de los 5 atributos modificados durante la creación. Posición 1 = 4, posición 2 = 1, posiciones 3-5 = 3; los no elegidos quedan en 2.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Fuerza",
+          "Destreza",
+          "Resistencia",
+          "Carisma",
+          "Manipulación",
+          "Compostura",
+          "Inteligencia",
+          "Astucia",
+          "Resolución"
+        ]
+      },
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Mapa final de atributos. En creación inicial debe cumplir la distribución 4/3/3/3/2/2/2/2/1.",
+      "required": [
+        "Fuerza",
+        "Destreza",
+        "Resistencia",
+        "Carisma",
+        "Manipulación",
+        "Compostura",
+        "Inteligencia",
+        "Astucia",
+        "Resolución"
+      ],
+      "properties": {
+        "Fuerza": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Destreza": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Resistencia": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Carisma": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Manipulación": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Compostura": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Inteligencia": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Astucia": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "Resolución": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      },
+      "additionalProperties": false
+    },
+    "skillSequence": {
+      "type": "array",
+      "description": "Orden de las 10 habilidades modificadas durante la creación. Posición 1 = 4, posiciones 2-4 = 3, posiciones 5-7 = 2, posiciones 8-10 = 1; las no elegidas quedan en 0.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Academicismo",
+          "Armas de Fuego",
+          "Artesanía",
+          "Atletismo",
+          "Callejeo",
+          "Ciencias",
+          "Conducir",
+          "Consciencia",
+          "Etiqueta",
+          "Finanzas",
+          "Interpretación",
+          "Intimidación",
+          "Investigación",
+          "Latrocinio",
+          "Liderazgo",
+          "Medicina",
+          "Ocultismo",
+          "Pelea",
+          "Pelea con Armas",
+          "Perspicacia",
+          "Persuasión",
+          "Política",
+          "Sigilo",
+          "Subterfugio",
+          "Supervivencia",
+          "Tecnología",
+          "Trato con Animales"
+        ]
+      },
+      "minItems": 10,
+      "maxItems": 10,
+      "uniqueItems": true
+    },
+    "skills": {
+      "type": "object",
+      "description": "Mapa final de habilidades. En creación inicial debe cumplir la distribución 4/3/3/3/2/2/2/1/1/1 y el resto en 0.",
+      "required": [
+        "Academicismo",
+        "Armas de Fuego",
+        "Artesanía",
+        "Atletismo",
+        "Callejeo",
+        "Ciencias",
+        "Conducir",
+        "Consciencia",
+        "Etiqueta",
+        "Finanzas",
+        "Interpretación",
+        "Intimidación",
+        "Investigación",
+        "Latrocinio",
+        "Liderazgo",
+        "Medicina",
+        "Ocultismo",
+        "Pelea",
+        "Pelea con Armas",
+        "Perspicacia",
+        "Persuasión",
+        "Política",
+        "Sigilo",
+        "Subterfugio",
+        "Supervivencia",
+        "Tecnología",
+        "Trato con Animales"
+      ],
+      "properties": {
+        "Academicismo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Armas de Fuego": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Artesanía": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Atletismo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Callejeo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Ciencias": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Conducir": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Consciencia": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Etiqueta": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Finanzas": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Interpretación": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Intimidación": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Investigación": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Latrocinio": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Liderazgo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Medicina": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Ocultismo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Pelea": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Pelea con Armas": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Perspicacia": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Persuasión": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Política": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Sigilo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Subterfugio": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Supervivencia": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Tecnología": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "Trato con Animales": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "additionalProperties": false
+    },
+    "freeSpecialtySkill": {
+      "description": "Habilidad de la especialidad gratuita obligatoria. Debe estar entrenada y coincidir con una entrada de specialties con source='free'.",
+      "type": "string",
+      "enum": [
+        "Academicismo",
+        "Armas de Fuego",
+        "Artesanía",
+        "Atletismo",
+        "Callejeo",
+        "Ciencias",
+        "Conducir",
+        "Consciencia",
+        "Etiqueta",
+        "Finanzas",
+        "Interpretación",
+        "Intimidación",
+        "Investigación",
+        "Latrocinio",
+        "Liderazgo",
+        "Medicina",
+        "Ocultismo",
+        "Pelea",
+        "Pelea con Armas",
+        "Perspicacia",
+        "Persuasión",
+        "Política",
+        "Sigilo",
+        "Subterfugio",
+        "Supervivencia",
+        "Tecnología",
+        "Trato con Animales"
+      ]
+    },
+    "freeSpecialtyName": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Nombre de la especialidad gratuita obligatoria. Debe coincidir con una entrada de specialties con source='free'."
+    },
+    "specialties": {
+      "type": "array",
+      "description": "Especialidades manuales y automáticas con origen explícito. Sólo pueden apuntar a habilidades entrenadas; el total por habilidad no puede superar sus puntos.",
+      "items": {
+        "type": "object",
+        "required": [
+          "skill",
+          "name",
+          "source"
+        ],
+        "properties": {
+          "skill": {
+            "type": "string",
+            "enum": [
+              "Academicismo",
+              "Armas de Fuego",
+              "Artesanía",
+              "Atletismo",
+              "Callejeo",
+              "Ciencias",
+              "Conducir",
+              "Consciencia",
+              "Etiqueta",
+              "Finanzas",
+              "Interpretación",
+              "Intimidación",
+              "Investigación",
+              "Latrocinio",
+              "Liderazgo",
+              "Medicina",
+              "Ocultismo",
+              "Pelea",
+              "Pelea con Armas",
+              "Perspicacia",
+              "Persuasión",
+              "Política",
+              "Sigilo",
+              "Subterfugio",
+              "Supervivencia",
+              "Tecnología",
+              "Trato con Animales"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "free",
+              "predator",
+              "advantage",
+              "manual",
+              "other"
+            ]
+          },
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "description": "Una especialidad. El campo source es obligatorio para distinguir especialidad gratuita, depredador, ventaja, manual u otro origen."
+      }
+    },
+    "disciplines": {
+      "type": "object",
+      "required": [
+        "ratings",
+        "powers"
+      ],
+      "properties": {
+        "ratings": {
+          "type": "object",
+          "description": "Mapa de disciplineId a puntos.",
+          "propertyNames": {
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5
+          }
+        },
+        "powers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "recordId"
+            ],
+            "properties": {
+              "recordId": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "disciplineId": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "creation",
+                  "predator",
+                  "experience",
+                  "other"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "advantages": {
+      "type": "object",
+      "required": [
+        "merits",
+        "flaws",
+        "budget"
+      ],
+      "properties": {
+        "merits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "traitId",
+              "dots",
+              "source"
+            ],
+            "properties": {
+              "traitId": {
+                "type": "string",
+                "pattern": "^(merit|flaw)_[a-z0-9_]+$"
+              },
+              "dots": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "predator",
+                  "advantage",
+                  "domain",
+                  "other"
+                ]
+              },
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string"
+              },
+              "detailDefault": {
+                "type": "string"
+              },
+              "purchaseScope": {
+                "type": "string",
+                "enum": [
+                  "character",
+                  "domain"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "flaws": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "traitId",
+              "dots",
+              "source"
+            ],
+            "properties": {
+              "traitId": {
+                "type": "string",
+                "pattern": "^(merit|flaw)_[a-z0-9_]+$"
+              },
+              "dots": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "predator",
+                  "advantage",
+                  "domain",
+                  "other"
+                ]
+              },
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string"
+              },
+              "detailDefault": {
+                "type": "string"
+              },
+              "purchaseScope": {
+                "type": "string",
+                "enum": [
+                  "character",
+                  "domain"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "budget": {
+          "type": "object",
+          "required": [
+            "totalMeritDots",
+            "spentMeritDots",
+            "contributedToDomainDots",
+            "availableMeritDots"
+          ],
+          "properties": {
+            "totalMeritDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "spentMeritDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "contributedToDomainDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "availableMeritDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "totalFlawDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "spentFlawDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "receivedFromDomainDots": {
+              "const": 0
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "domain": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "pool",
+        "traits",
+        "merits",
+        "flaws",
+        "contributions",
+        "backgrounds"
+      ],
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "pool": {
+          "type": "object",
+          "required": [
+            "baseDots",
+            "contributedAdvantageDots",
+            "flawDots",
+            "grantedDots",
+            "spentDots"
+          ],
+          "properties": {
+            "baseDots": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "contributedAdvantageDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "flawDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "grantedDots": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "spentDots": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "traits": {
+          "type": "object",
+          "required": [
+            "chasse",
+            "lien",
+            "portillon"
+          ],
+          "properties": {
+            "chasse": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "lien": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "portillon": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "additionalProperties": true
+        },
+        "merits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "domainTraitId",
+              "dots",
+              "purchaseScope"
+            ],
+            "properties": {
+              "domainTraitId": {
+                "type": "string",
+                "pattern": "^domain_[a-z0-9_]+$"
+              },
+              "sourceTraitId": {
+                "type": "string",
+                "pattern": "^(merit|flaw)_[a-z0-9_]+$"
+              },
+              "dots": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "purchaseScope": {
+                "const": "domain"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "predator",
+                  "contribution",
+                  "flaw",
+                  "other"
+                ]
+              },
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "flaws": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "domainTraitId",
+              "dots",
+              "purchaseScope"
+            ],
+            "properties": {
+              "domainTraitId": {
+                "type": "string",
+                "pattern": "^domain_[a-z0-9_]+$"
+              },
+              "sourceTraitId": {
+                "type": "string",
+                "pattern": "^(merit|flaw)_[a-z0-9_]+$"
+              },
+              "dots": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "purchaseScope": {
+                "const": "domain"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "predator",
+                  "contribution",
+                  "flaw",
+                  "other"
+                ]
+              },
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "backgrounds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "domainTraitId",
+              "dots",
+              "purchaseScope"
+            ],
+            "properties": {
+              "domainTraitId": {
+                "type": "string",
+                "pattern": "^domain_[a-z0-9_]+$"
+              },
+              "sourceTraitId": {
+                "type": "string",
+                "pattern": "^(merit|flaw)_[a-z0-9_]+$"
+              },
+              "dots": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "purchaseScope": {
+                "const": "domain"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "predator",
+                  "contribution",
+                  "flaw",
+                  "other"
+                ]
+              },
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "source",
+              "sourceBudget",
+              "dots",
+              "reason"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^domain_contribution_[a-z0-9_]+$"
+              },
+              "source": {
+                "const": "characterAdvantages"
+              },
+              "sourceBudget": {
+                "const": "advantages.meritDots"
+              },
+              "dots": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "reason": {
+                "type": "string"
+              },
+              "targetPool": {
+                "const": "domain.pool.contributedAdvantageDots"
+              },
+              "reversibleDuringCreation": {
+                "const": true
+              },
+              "lockedAfterFinalization": {
+                "const": true
+              },
+              "allocationStatus": {
+                "enum": [
+                  "planned",
+                  "active",
+                  "committed"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "convictions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^conviction_[a-zA-Z0-9_-]+$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "touchstoneId": {
+            "type": "string",
+            "pattern": "^touchstone_[a-zA-Z0-9_-]+$"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "touchstones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "relationship",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^touchstone_[a-zA-Z0-9_-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relationship": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "linkedConvictionId": {
+            "type": "string",
+            "pattern": "^conviction_[a-zA-Z0-9_-]+$"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "profile": {
+      "type": "object",
+      "required": [
+        "biography",
+        "appearance"
+      ],
+      "properties": {
+        "biography": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appearance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "portrait": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "birth": {
+          "type": "string"
+        },
+        "death": {
+          "type": "string"
+        },
+        "publicDeath": {
+          "type": "string"
+        },
+        "extraBio": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "derived": {
+      "type": "object",
+      "required": [
+        "health",
+        "willpower",
+        "humanity",
+        "bloodPotency",
+        "budgets",
+        "validation"
+      ],
+      "properties": {
+        "health": {
+          "type": "object",
+          "required": [
+            "max"
+          ],
+          "properties": {
+            "max": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "current": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "willpower": {
+          "type": "object",
+          "required": [
+            "max"
+          ],
+          "properties": {
+            "max": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "current": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "humanity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "bloodPotency": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "budgets": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "validation": {
+          "type": "object",
+          "required": [
+            "valid",
+            "errors",
+            "warnings"
+          ],
+          "properties": {
+            "valid": {
+              "type": "boolean"
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "code",
+                  "message"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "message": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "ruleId": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "error",
+                      "warning",
+                      "info"
+                    ]
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "code",
+                  "message"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "message": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "ruleId": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "error",
+                      "warning",
+                      "info"
+                    ]
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "lastValidatedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "creationProgress": {
+      "type": "object",
+      "description": "Metadata de UI. No es regla de juego.",
+      "required": [
+        "currentStep",
+        "completedSteps"
+      ],
+      "properties": {
+        "currentStep": {
+          "type": "string",
+          "minLength": 1
+        },
+        "completedSteps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uiOnly": {
+          "const": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

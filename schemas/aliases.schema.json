@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://santiago-nocturno.local/schemas/aliases.schema.json",
+  "title": "Santiago Nocturno Alias Registry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "version",
+    "sourceOfTruth",
+    "policy",
+    "disciplineRecordAliases",
+    "advantageTraitAliases",
+    "domainTraitAliases",
+    "rejectedAliases"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "alias-registry-v1"
+    },
+    "version": {
+      "type": "string"
+    },
+    "sourceOfTruth": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "canonicalReferencesUseIds",
+        "aliasesAreNotCanonicalData",
+        "preserveRawWhenAvailable",
+        "rejectedAliasesMustNotResolveAutomatically",
+        "namesAreDisplayOnly"
+      ],
+      "properties": {
+        "canonicalReferencesUseIds": {
+          "type": "boolean"
+        },
+        "aliasesAreNotCanonicalData": {
+          "type": "boolean"
+        },
+        "preserveRawWhenAvailable": {
+          "type": "boolean"
+        },
+        "rejectedAliasesMustNotResolveAutomatically": {
+          "type": "boolean"
+        },
+        "namesAreDisplayOnly": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "disciplineRecordAliases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/activeAlias"
+      }
+    },
+    "advantageTraitAliases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/activeAlias"
+      }
+    },
+    "domainTraitAliases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/activeAlias"
+      }
+    },
+    "rejectedAliases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rejectedAlias"
+      }
+    }
+  },
+  "$defs": {
+    "localizedName": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "es": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es"
+      ],
+      "additionalProperties": false
+    },
+    "activeAlias": {
+      "type": "object",
+      "required": [
+        "raw",
+        "scope",
+        "canonicalId",
+        "targetFile",
+        "targetCollection",
+        "reason",
+        "status"
+      ],
+      "properties": {
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "enum": [
+            "disciplineRecord",
+            "advantageTrait",
+            "domainTrait"
+          ]
+        },
+        "canonicalId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonicalName": {
+          "$ref": "#/$defs/localizedName"
+        },
+        "targetFile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetCollection": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "const": "active"
+        }
+      },
+      "additionalProperties": false
+    },
+    "rejectedAlias": {
+      "type": "object",
+      "required": [
+        "raw",
+        "scope",
+        "reason",
+        "status"
+      ],
+      "properties": {
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "enum": [
+            "disciplineRecord",
+            "advantageTrait",
+            "domainTrait"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "rejected",
+            "scope_mismatch"
+          ]
+        },
+        "replacement": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

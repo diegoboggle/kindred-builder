@@ -1,0 +1,302 @@
+{
+  "$schema": "../schemas/aliases.schema.json",
+  "schemaVersion": "alias-registry-v1",
+  "version": "2026-04-28",
+  "sourceOfTruth": "Registro formal de aliases, migraciones editoriales y rechazos de extracción. Los catálogos canónicos siguen siendo data/creator-data.json y data/disciplinas_v5_catalogo.json.",
+  "policy": {
+    "canonicalReferencesUseIds": true,
+    "aliasesAreNotCanonicalData": true,
+    "preserveRawWhenAvailable": true,
+    "rejectedAliasesMustNotResolveAutomatically": true,
+    "namesAreDisplayOnly": true
+  },
+  "disciplineRecordAliases": [
+    {
+      "raw": "Oblivion's Sight",
+      "scope": "disciplineRecord",
+      "canonicalId": "olvido_1_oblivion_sight",
+      "canonicalName": {
+        "en": "Oblivion Sight",
+        "es": "Vista de Olvido"
+      },
+      "targetFile": "data/disciplinas_v5_catalogo.json",
+      "targetCollection": "records",
+      "reason": "Alias editorial de prerrequisito; se conserva el raw original y se valida por candidateIds.",
+      "status": "active"
+    },
+    {
+      "raw": "Where the Shroud Thins",
+      "scope": "disciplineRecord",
+      "canonicalId": "olvido_2_where_the_veil_thins",
+      "canonicalName": {
+        "en": "Where the Veil Thins",
+        "es": "Donde el Velo se Adelgaza"
+      },
+      "targetFile": "data/disciplinas_v5_catalogo.json",
+      "targetCollection": "records",
+      "reason": "Alias editorial de prerrequisito; se conserva el raw original y se valida por candidateIds.",
+      "status": "active"
+    }
+  ],
+  "advantageTraitAliases": [
+    {
+      "raw": "Exclusión de Presa: mortales",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_alimentacion_exclusion_de_presa",
+      "canonicalName": {
+        "es": "Exclusión de Presa",
+        "en": "Exclusión de Presa: mortales"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias con detalle; la variante no crea rasgo nuevo y debe mover 'mortales' a detailDefault.",
+      "status": "active"
+    },
+    {
+      "raw": "Prey Exclusion: mortals",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_alimentacion_exclusion_de_presa",
+      "canonicalName": {
+        "es": "Exclusión de Presa",
+        "en": "Prey Exclusion: mortals"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias con detalle en inglés; la variante no crea rasgo nuevo y debe mover 'mortals' a detailDefault.",
+      "status": "active"
+    },
+    {
+      "raw": "Haunted",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_embrujado",
+      "canonicalName": {
+        "es": "Embrujado",
+        "en": "Haunted"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Haven: Haunted",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_embrujado",
+      "canonicalName": {
+        "es": "Embrujado",
+        "en": "Haven: Haunted"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias compuesto inglés; Haven es categoría, Haunted es el defecto.",
+      "status": "active"
+    },
+    {
+      "raw": "Refugio: Embrujado",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_embrujado",
+      "canonicalName": {
+        "es": "Embrujado",
+        "en": "Refugio: Embrujado"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias compuesto usado por extracción anterior; Refugio es categoría, Embrujado es el defecto.",
+      "status": "active"
+    },
+    {
+      "raw": "Creepy",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_espeluznante",
+      "canonicalName": {
+        "es": "Espeluznante",
+        "en": "Creepy"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Haven: Creepy",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_espeluznante",
+      "canonicalName": {
+        "es": "Espeluznante",
+        "en": "Haven: Creepy"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias compuesto inglés; Haven es categoría, Creepy es el defecto.",
+      "status": "active"
+    },
+    {
+      "raw": "Refugio: Espeluznante",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_espeluznante",
+      "canonicalName": {
+        "es": "Espeluznante",
+        "en": "Refugio: Espeluznante"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias compuesto usado por extracción anterior; Refugio es categoría, Espeluznante es el defecto.",
+      "status": "active"
+    },
+    {
+      "raw": "No Haven",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_sin_refugio",
+      "canonicalName": {
+        "es": "Sin Refugio",
+        "en": "No Haven"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "On the Rails",
+      "scope": "advantageTrait",
+      "canonicalId": "flaw_refugio_sobre_railes",
+      "canonicalName": {
+        "es": "Sobre Raíles",
+        "en": "On the Rails"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Herd",
+      "scope": "advantageTrait",
+      "canonicalId": "merit_rebano",
+      "canonicalName": {
+        "es": "Rebaño",
+        "en": "Herd"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Haven",
+      "scope": "advantageTrait",
+      "canonicalId": "merit_refugio",
+      "canonicalName": {
+        "es": "Refugio",
+        "en": "Haven"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Smugglers Stash",
+      "scope": "advantageTrait",
+      "canonicalId": "merit_refugio_alijo_de_contrabandistas",
+      "canonicalName": {
+        "es": "Alijo de Contrabandistas",
+        "en": "Smugglers Stash"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Armored",
+      "scope": "advantageTrait",
+      "canonicalId": "merit_refugio_blindado",
+      "canonicalName": {
+        "es": "Blindado",
+        "en": "Armored"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Spare Plates",
+      "scope": "advantageTrait",
+      "canonicalId": "merit_refugio_matriculas_de_repuesto",
+      "canonicalName": {
+        "es": "Matrículas de Repuesto",
+        "en": "Spare Plates"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    },
+    {
+      "raw": "Mobile",
+      "scope": "advantageTrait",
+      "canonicalId": "merit_refugio_movil",
+      "canonicalName": {
+        "es": "Móvil",
+        "en": "Mobile"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "advantagesCatalog",
+      "reason": "Alias de fuente o nombre inglés usado para resolver el rasgo sin depender del nombre visible.",
+      "status": "active"
+    }
+  ],
+  "domainTraitAliases": [
+    {
+      "raw": "Domain",
+      "scope": "domainTrait",
+      "canonicalId": "domain_dominio",
+      "canonicalName": {
+        "es": "Dominio",
+        "en": "Domain"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "domainCatalog",
+      "reason": "Alias inglés de Dominio personal; no debe resolverse contra advantagesCatalog individual.",
+      "status": "active"
+    },
+    {
+      "raw": "Dominio",
+      "scope": "domainTrait",
+      "canonicalId": "domain_dominio",
+      "canonicalName": {
+        "es": "Dominio",
+        "en": "Domain"
+      },
+      "targetFile": "data/creator-data.json",
+      "targetCollection": "domainCatalog",
+      "reason": "Entrada canónica de Dominio personal; se registra para impedir que se trate como ventaja individual.",
+      "status": "active"
+    }
+  ],
+  "rejectedAliases": [
+    {
+      "raw": "Rebaño migrante",
+      "scope": "advantageTrait",
+      "reason": "No aparece como rasgo independiente en Ventajas y Desventajas.txt; no debe autocorregirse como ventaja válida.",
+      "status": "rejected",
+      "replacement": {
+        "canonicalId": "merit_rebano",
+        "useOnlyIfRuleExplicitlyGrants": "Rebaño",
+        "detailPolicy": "No conservar 'migrante' como mecánica salvo nota narrativa externa."
+      }
+    },
+    {
+      "raw": "Dominio",
+      "scope": "advantageTrait",
+      "reason": "Existe como mecánica de Dominio personal, pero no como ventaja individual de advantagesCatalog.",
+      "status": "scope_mismatch",
+      "replacement": {
+        "canonicalId": "domain_dominio",
+        "scope": "domainTrait"
+      }
+    }
+  ]
+}

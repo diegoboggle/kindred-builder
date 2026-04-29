@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://santiago-nocturno.local/schemas/validation-rules.schema.json",
+  "title": "Santiago Nocturno Validation Rules",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "policy",
+    "effectTypes",
+    "rules"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "validation-rules-v1"
+    },
+    "sourceOfTruth": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "defaultSeverity",
+        "allowedOrigins",
+        "allRulesAreBlocking"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "defaultSeverity": {
+          "const": "error"
+        },
+        "allowedOrigins": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "official",
+              "logical"
+            ]
+          },
+          "contains": {
+            "const": "official"
+          }
+        },
+        "allRulesAreBlocking": {
+          "const": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "effectTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "scope",
+          "origin",
+          "severity",
+          "description",
+          "source",
+          "effect"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^rule_[a-z0-9_]+$"
+          },
+          "scope": {
+            "enum": [
+              "character",
+              "domain"
+            ]
+          },
+          "origin": {
+            "enum": [
+              "official",
+              "logical"
+            ]
+          },
+          "severity": {
+            "const": "error"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "when": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "effect": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "catalog": {
+                "enum": [
+                  "advantages",
+                  "domain"
+                ]
+              },
+              "traitId": {
+                "type": "string"
+              },
+              "traitIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "category": {
+                "type": "string"
+              },
+              "traitType": {
+                "type": "string"
+              },
+              "skills": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "disciplines": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "discipline": {
+                "type": "string"
+              },
+              "maxDots": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minDots": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "allowedPool": {
+                "type": "string"
+              },
+              "traitTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "exceptTraitIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "additionalForbiddenTraitIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fromPool": {
+                "type": "string"
+              },
+              "toPool": {
+                "type": "string"
+              },
+              "trackingField": {
+                "type": "string"
+              },
+              "contributionList": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "sourceBudget": {
+                "type": "string"
+              },
+              "reversibleDuringCreation": {
+                "type": "boolean"
+              },
+              "locksWhen": {
+                "type": "string"
+              },
+              "fromPools": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "forbiddenTargetPools": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "allowedTargetPool": {
+                "type": "string"
+              },
+              "allowedPoolComponents": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
