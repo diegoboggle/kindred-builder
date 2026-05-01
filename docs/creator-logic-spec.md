@@ -2,7 +2,7 @@
 
 ## 1. Catálogos base
 
-Los datos generales están en `data/creator-data.json`. El catálogo mecánico de Disciplinas está separado en `data/disciplinas_v5_catalogo.json`, generado desde `Disciplinas-error-corregido.xlsx`. El registro de aliases está en `data/aliases.json` y sólo se usa para migración, resolución editorial y validación de nombres alternativos.
+Los datos generales están en `data/creator-data.json`. El catálogo mecánico de Disciplinas está separado en `data/disciplinas_v5_catalogo.json` y es la fuente autoritativa del proyecto base. El registro de aliases está en `data/aliases.json` y sólo se usa para migración, resolución editorial y validación de nombres alternativos.
 
 Esta especificación usa estos nombres lógicos:
 
@@ -496,7 +496,7 @@ DisciplineRecord
 
 Los registros con `kind = "power"` se usan para la selección normal de poderes. Los registros con `kind = "ritual"` se usan para rituales de Hechicería de Sangre. Los registros con `kind = "ceremony"` se usan para ceremonias de Olvido. Los registros con `kind = "thin_blood_formula"` no se usan en personajes vampiros estándar salvo que se implemente creación de Sangre Débil.
 
-Las filas editoriales `Other Amalgams` del Excel no se importan como registros mecánicos. Cualquier vista de amalgamas debe generarse desde `amalgamRequirement`.
+Las filas editoriales `Other Amalgams` del origen de extracción no se importan como registros mecánicos. Cualquier vista de amalgamas debe generarse desde `amalgamRequirement`.
 
 ### 11.1 Validaciones de disciplinas principales
 
@@ -1241,7 +1241,7 @@ Estas reglas están acopladas a decisiones de mesa o a interpretación del proye
 - Los Ventrue no pueden escoger `Granjero` como defecto ni como tipo de depredador asociado.
 - La lista de clanes no incluye Hécata, pero algunos tipos de depredador tienen restricciones históricas que mencionan Hécata; en esta implementación, eso deja esas opciones inaccesibles para los clanes disponibles.
 - La exportación HTML original era visual; para independencia total, conserva sólo el payload lógico.
-- Las filas `Other Amalgams` del Excel no forman parte del catálogo mecánico; el índice de amalgamas se deriva desde `amalgamRequirement`.
+- Las filas `Other Amalgams` del origen de extracción no forman parte del catálogo mecánico; el índice de amalgamas se deriva desde `amalgamRequirement`.
 
 
 ### Corrección del paso 9: Exclusión de Presa

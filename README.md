@@ -1,6 +1,6 @@
 # Santiago Nocturno — Creador de Personajes V5
 
-Paquete formalizado en JSON. El JSON manda para Disciplinas; el Excel queda como referencia editorial.
+Paquete formalizado en JSON. Los datos canónicos viven en `data/`, `schemas/` y `derived/`.
 
 ## Archivos de producción
 
@@ -10,10 +10,6 @@ Paquete formalizado en JSON. El JSON manda para Disciplinas; el Excel queda como
 - `derived/amalgamas_v5_index_derivado.json`: índice generado desde `records[].amalgamRequirement`; no se edita a mano.
 - `schemas/*.schema.json`: esquemas JSON formales, incluido `aliases.schema.json`.
 - `docs/creator-logic-spec.md`: especificación lógica actualizada sin nombres legacy.
-
-## Fuente editorial
-
-- `source/Disciplinas-error-corregido.xlsx`: respaldo editorial. No manda en producción.
 
 ## Herramientas
 
@@ -35,7 +31,7 @@ python3 tools/generate_amalgama_index.py
 
 ## Decisión sobre el script
 
-No es necesario para ejecutar la app, pero sí es recomendable para mantener reproducibilidad. Por eso queda en `tools/`, no en `data/`.
+No es necesario para consumir los datos, pero sí es recomendable para mantener reproducibilidad. Por eso queda en `tools/`, no en `data/`.
 
 ## Conteos actuales
 

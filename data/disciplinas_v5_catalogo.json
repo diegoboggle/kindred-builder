@@ -3,10 +3,6 @@
   "schemaVersion": "discipline-catalog-v2",
   "version": "discipline-db-v5-normalized-1",
   "sourceOfTruth": "data/disciplinas_v5_catalogo.json",
-  "sourceWorkbook": {
-    "path": "source/Disciplinas-error-corregido.xlsx",
-    "role": "editorial reference only"
-  },
   "policy": {
     "jsonIsAuthoritative": true,
     "otherAmalgamsImported": false,
