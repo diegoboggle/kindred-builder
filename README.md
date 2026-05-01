@@ -52,3 +52,20 @@ No es necesario para ejecutar la app, pero sí es recomendable para mantener rep
 - Aliases rechazados o con cambio de scope: 2
 - Errata: 32
 - Nombres visibles sin traducción pendiente: 0
+
+## Interfaz local de prueba lógica
+
+Se añadió una UI mínima para probar el flujo lógico contra los validadores reales del proyecto.
+
+```bash
+pip install -r requirements.txt
+python3 web/app.py
+```
+
+Luego abre:
+
+```text
+http://127.0.0.1:8765
+```
+
+La interfaz genera un `CharacterCreatorState` exportable desde el formulario, permite editar el JSON directamente, ejecuta `validate_character(...)` y muestra errores, módulos y derivados.

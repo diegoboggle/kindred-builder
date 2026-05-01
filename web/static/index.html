@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kindred Builder — UI de prueba lógica</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">Santiago Nocturno V5</p>
+      <h1>Creador lógico de personaje</h1>
+      <p class="muted">Interfaz mínima para probar estado, derivaciones y validación de exportación.</p>
+    </div>
+    <div id="status" class="status neutral">Sin validar</div>
+  </header>
+
+  <main>
+    <section class="panel controls">
+      <button id="buildBtn">Generar estado desde formulario</button>
+      <button id="validateBtn">Validar</button>
+      <button id="finalizeBtn">Validar + derivar</button>
+      <button id="downloadBtn" class="secondary">Descargar JSON</button>
+    </section>
+
+    <section class="grid two">
+      <form id="creatorForm" class="panel stack">
+        <h2>1. Identidad</h2>
+        <label>Discord ID<input name="discordId" value="123456789012345678" pattern="[0-9]{17,20}" /></label>
+        <label>Nombre<input name="name" value="Ejemplo" /></label>
+        <label>Concepto<input name="concept" value="Investigador nocturno" /></label>
+        <label>Ambición<input name="ambition" value="Descubrir la verdad" /></label>
+        <label>Deseo<input name="desire" value="Encontrar una pista" /></label>
+
+        <h2>2. Sangre</h2>
+        <label>Clan<select name="clanId" id="clanSelect"></select></label>
+        <label>Generación<select name="generationId" id="generationSelect"></select></label>
+        <label>Sire<select name="sireStatus">
+          <option value="unknown">Desconocido</option>
+          <option value="known">Conocido</option>
+          <option value="none">Sin sire</option>
+          <option value="unrecorded">No registrado</option>
+        </select></label>
+
+        <h2>3. Depredador</h2>
+        <label>Tipo<select name="predatorId" id="predatorSelect"></select></label>
+        <label>Disciplina de depredador<select name="predatorDiscipline" id="predatorDisciplineSelect"></select></label>
+        <label>Especialidad de depredador<select name="predatorSpecialty" id="predatorSpecialtySelect"></select></label>
+
+        <h2>4. Atributos</h2>
+        <p class="hint">Orden aplicado: 4, 1, 3, 3, 3. El resto queda en 2.</p>
+        <div id="attributeSequence" class="sequence"></div>
+
+        <h2>5. Habilidades</h2>
+        <p class="hint">Orden aplicado: 4, 3, 3, 3, 2, 2, 2, 1, 1, 1. El resto queda en 0.</p>
+        <div id="skillSequence" class="sequence"></div>
+
+        <h2>6. Especialidad libre</h2>
+        <label>Habilidad<select name="freeSpecialtySkill" id="freeSpecialtySkill"></select></label>
+        <label>Nombre<input name="freeSpecialtyName" value="Historia" /></label>
+
+        <h2>7. Disciplina inicial</h2>
+        <label>Poder inicial<select name="powerId" id="powerSelect"></select></label>
+
+        <h2>8. Dominio personal</h2>
+        <div class="mini-grid">
+          <label>Chasse<input name="chasse" type="number" min="0" max="5" value="1" /></label>
+          <label>Lien<input name="lien" type="number" min="0" max="5" value="0" /></label>
+          <label>Portillon<input name="portillon" type="number" min="0" max="5" value="0" /></label>
+        </div>
+
+        <h2>9. Convicción, Piedra de Toque y Perfil</h2>
+        <label>Convicción<input name="conviction" value="Protege a quienes no pueden defenderse." /></label>
+        <label>Piedra de Toque<input name="touchstoneName" value="Lucía" /></label>
+        <label>Relación<input name="touchstoneRelationship" value="Hermana" /></label>
+        <label>Descripción de Piedra de Toque<input name="touchstoneDescription" value="Recuerda al personaje su humanidad." /></label>
+        <label>Biografía<textarea name="biography">Biografía suficiente para exportar.</textarea></label>
+        <label>Apariencia<textarea name="appearance">Apariencia suficiente para exportar.</textarea></label>
+      </form>
+
+      <section class="panel stack">
+        <h2>Estado JSON exportable</h2>
+        <textarea id="stateJson" spellcheck="false"></textarea>
+      </section>
+    </section>
+
+    <section class="grid two">
+      <section class="panel stack">
+        <h2>Errores</h2>
+        <div id="errors" class="result-list muted">Aún no hay resultados.</div>
+      </section>
+      <section class="panel stack">
+        <h2>Derivados</h2>
+        <pre id="derived" class="code">{}</pre>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
