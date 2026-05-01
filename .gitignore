@@ -18,4 +18,11 @@ env/
 
 # OS cruft
 .DS_Store
+._*
 Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Windows alternate data stream exports
+*:Zone.Identifier
+Zone.Identifier
