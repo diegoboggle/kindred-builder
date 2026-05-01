@@ -57,6 +57,10 @@ def _error(code: str, message: str, **extra: Any) -> dict[str, Any]:
     return payload
 
 
+def _sort_for_error(values: Iterable[Any]) -> list[Any]:
+    return sorted(values, key=lambda value: (type(value).__name__, repr(value)))
+
+
 def _skill_dots(skills: Mapping[str, Any], skill: str) -> int:
     value = skills.get(skill, 0)
     if isinstance(value, bool) or not isinstance(value, int):
@@ -152,8 +156,8 @@ def validate_initial_skills(
         ]
 
     skill_names = set(skills.keys())
-    missing = sorted(valid_skills - skill_names)
-    unknown = sorted(skill_names - valid_skills)
+    missing = _sort_for_error(valid_skills - skill_names)
+    unknown = _sort_for_error(skill_names - valid_skills)
 
     if missing:
         errors.append(_error("skills_missing", "The skill map is missing skills.", skills=missing))
@@ -247,7 +251,7 @@ def validate_specialties(
 
     errors: list[dict[str, Any]] = []
     valid_skills = set(all_skills)
-    required = set(special_required_skills)
+    required = {skill for skill in special_required_skills if isinstance(skill, str)}
 
     if not isinstance(skills, Mapping):
         return [

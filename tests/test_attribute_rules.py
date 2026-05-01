@@ -110,6 +110,14 @@ class AttributeRuleTests(unittest.TestCase):
         errors = validate_initial_attributes(invalid, self.attributes)
         self.assertIn("attributes_unknown", {error["code"] for error in errors})
 
+    def test_mixed_unknown_attribute_keys_do_not_crash(self):
+        invalid = dict(self.valid_map)
+        invalid["Suerte"] = 1
+        invalid[1] = 1
+
+        errors = validate_initial_attributes(invalid, self.attributes)
+        self.assertIn("attributes_unknown", {error["code"] for error in errors})
+
     def test_attribute_below_minimum_is_blocking(self):
         invalid = dict(self.valid_map)
         invalid["Resolución"] = 0

@@ -27,6 +27,10 @@ def _error(code: str, message: str, **extra: Any) -> dict[str, Any]:
     return payload
 
 
+def _sort_for_error(values):
+    return sorted(values, key=lambda value: (type(value).__name__, repr(value)))
+
+
 def sorted_attribute_values(attributes):
     """Return final attribute values sorted from highest to lowest."""
     return sorted(attributes.values(), reverse=True)
@@ -53,8 +57,8 @@ def validate_attribute_names(attributes, expected_attribute_names):
     actual = set(attributes.keys())
 
     errors = []
-    missing = sorted(expected - actual)
-    extra = sorted(actual - expected)
+    missing = _sort_for_error(expected - actual)
+    extra = _sort_for_error(actual - expected)
 
     if missing:
         errors.append({

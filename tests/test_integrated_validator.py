@@ -194,6 +194,15 @@ class IntegratedCharacterValidatorTests(unittest.TestCase):
         self.assertIn("attributes_not_object", codes)
         self.assertIn("skills_not_object", codes)
 
+    def test_integrated_validator_reports_mixed_object_keys_without_crashing(self):
+        state = _load_complete_state_fixture()
+        state["attributes"] = {"Fuerza": 4, "Suerte": 1, 1: 1}
+        result = self.validate(state)
+        codes = {error["code"] for error in result["errors"]}
+        self.assertFalse(result["valid"])
+        self.assertIn("character_state_schema_error", codes)
+        self.assertIn("attributes_unknown", codes)
+
     def test_integrated_validator_rejects_non_object_state_without_crashing(self):
         result = self.validate([])
         self.assertFalse(result["valid"])

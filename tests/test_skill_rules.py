@@ -166,6 +166,13 @@ class SkillRuleTests(unittest.TestCase):
         errors = validate_initial_skills(invalid, self.skills)
         self.assertIn("skills_unknown", {error["code"] for error in errors})
 
+    def test_mixed_unknown_skill_keys_do_not_crash(self):
+        invalid = dict(self.valid_map)
+        invalid["Astrología"] = 1
+        invalid[1] = 1
+        errors = validate_initial_skills(invalid, self.skills)
+        self.assertIn("skills_unknown", {error["code"] for error in errors})
+
     def test_skill_below_minimum_is_blocking(self):
         invalid = dict(self.valid_map)
         invalid["Consciencia"] = -1
@@ -227,6 +234,17 @@ class SkillRuleTests(unittest.TestCase):
             self.valid_map,
             self.valid_specialties,
             self.skills,
+            free_specialty_skill="Pelea",
+            free_specialty_name="Mordidas",
+        )
+        self.assertEqual(errors, [])
+
+    def test_non_string_required_specialty_skills_do_not_crash(self):
+        errors = validate_specialties(
+            self.valid_map,
+            self.valid_specialties,
+            self.skills,
+            special_required_skills=[["Academicismo"]],
             free_specialty_skill="Pelea",
             free_specialty_name="Mordidas",
         )
