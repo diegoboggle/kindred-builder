@@ -4894,7 +4894,115 @@
     "notes": [
       "El estado exportable representa un personaje completo; los borradores internos de la app no deben exportarse con este schema.",
       "Las selecciones principales se guardan por ID. Los nombres visibles se derivan desde los catálogos.",
-      "Dominio personal es obligatorio y parte con 1 punto base salvo que una regla posterior lo modifique."
+      "Dominio personal es obligatorio y parte con 1 punto base salvo que una regla posterior lo modifique.",
+      "El schema exportable rechaza propiedades no declaradas en objetos estructurados; sólo se conservan mapas dinámicos documentados."
+    ],
+    "strictAdditionalProperties": true,
+    "dynamicMaps": [
+      {
+        "path": "disciplines.ratings",
+        "keyPattern": "^[a-z0-9_]+$",
+        "valueType": "integer",
+        "reason": "Las claves son disciplineId del catálogo y no pueden enumerarse de forma fija sin duplicar el catálogo."
+      }
+    ]
+  },
+  "validatorArchitectureModel": {
+    "version": "validator-modules-v1",
+    "moduleDirectory": "tools/validators",
+    "entrypointPolicy": "Each module exposes validate(...). Step 20 orchestrates the modules through tools/character_validator.py.",
+    "integratedValidatorDeferredToStep": null,
+    "modules": [
+      {
+        "id": "attributes",
+        "path": "tools/validators/attributes.py",
+        "responsibility": "Distribución y secuencia de atributos."
+      },
+      {
+        "id": "skills",
+        "path": "tools/validators/skills.py",
+        "responsibility": "Distribución y secuencia de habilidades."
+      },
+      {
+        "id": "specialties",
+        "path": "tools/validators/specialties.py",
+        "responsibility": "Especialidad gratuita, orígenes, duplicados y máximo por habilidad."
+      },
+      {
+        "id": "budget",
+        "path": "tools/validators/budget.py",
+        "responsibility": "Presupuesto de Ventajas y Dominio personal."
+      },
+      {
+        "id": "advantages",
+        "path": "tools/validators/advantages.py",
+        "responsibility": "Ventajas y defectos individuales contra advantagesCatalog."
+      },
+      {
+        "id": "domain",
+        "path": "tools/validators/domain.py",
+        "responsibility": "Dominio personal y rasgos comprados con su pool."
+      },
+      {
+        "id": "disciplines",
+        "path": "tools/validators/disciplines.py",
+        "responsibility": "Puntuaciones y poderes de disciplinas contra el catálogo."
+      },
+      {
+        "id": "predator",
+        "path": "tools/validators/predator.py",
+        "responsibility": "Tipo de depredador y selecciones directas."
+      },
+      {
+        "id": "validation_rules",
+        "path": "tools/validators/validation_rules.py",
+        "responsibility": "Registro declarativo de reglas bloqueantes."
+      },
+      {
+        "id": "character_state",
+        "path": "tools/validators/character_state.py",
+        "responsibility": "Validación JSON Schema del estado exportable."
+      }
+    ],
+    "notes": [
+      "Los módulos son importables y testeables de forma aislada.",
+      "El paso 19 no aplica todavía reglas condicionales como pipeline integral.",
+      "La orquestación y salida única valid/errors/warnings corresponde al paso 20."
+    ],
+    "integratedValidatorImplementedInStep": 20
+  },
+  "integratedValidatorModel": {
+    "version": "integrated-validator-v1",
+    "path": "tools/character_validator.py",
+    "entrypoints": [
+      "validate_character",
+      "validateCharacter"
+    ],
+    "moduleOrder": [
+      "character_state",
+      "attributes",
+      "skills",
+      "specialties",
+      "budget",
+      "advantages",
+      "domain",
+      "disciplines",
+      "predator",
+      "validation_rules",
+      "rule_engine"
+    ],
+    "returns": {
+      "valid": "boolean",
+      "errors": "array of blocking validation errors",
+      "warnings": "array; currently empty because validation is inflexible",
+      "derived": "stable derived values and derived.validation",
+      "moduleResults": "per-module validation summary"
+    },
+    "policies": [
+      "All validation-rules.json entries are treated as blocking errors.",
+      "The integrated validator runs modular validators and then applies the declarative rule engine.",
+      "Errors are deduplicated by code, path, ruleId, and message.",
+      "Derived values are recomputed from explicit character choices and can be persisted back into character_state.derived."
     ]
   }
 }

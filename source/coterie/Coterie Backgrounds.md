@@ -28,7 +28,7 @@ These merits are based on landmarks and features of the Domain, increasing the e
 ! style="width: 70%;" |Description
 |- id="Apartment Towers"
 |'''Apartment Towers'''
-|'''••''' 
+|'''••'''
 |All
 |Extortionist Predator Type vampires receives one bonus die on their hunts in the domain. Subtract one die from the domain's Portillion pools.
 |- id="Back Alleys"
@@ -148,7 +148,7 @@ Being the Domain's security and early warning system against intruders these Mer
 
 This mechanic is used to factors in different parts of a city or region. How their access to services or resources shape that location or reputation. This can confer different benefits for operation in different parts of the play area as determined by the ST and players. As the story develops the rating may change as the Kindred and Coterie interact with the city and affect the status quo. When utilizing this system it is recommended players and STs work together on their system when implementing. <ref>[[Vampire: The Masquerade Chicago by Night]], page 54-59</ref>
 
-'''Homesteads:''' The areas of gameplay divided up in smaller areas as determined by the ST: single havens, a city’s neighborhood, a region’s cities, a town’s blocks, etc. Each homestead is divided by four aspects and they reflect how Kindred or coterie sees the city, depending on the STs application of the city. Homestead rating is the accumulative of the four homestead traits. 
+'''Homesteads:''' The areas of gameplay divided up in smaller areas as determined by the ST: single havens, a city’s neighborhood, a region’s cities, a town’s blocks, etc. Each homestead is divided by four aspects and they reflect how Kindred or coterie sees the city, depending on the STs application of the city. Homestead rating is the accumulative of the four homestead traits.
 
 Examples: havens, city blocks, neighborhoods, divisions of a city, metropolitan areas of a region
 
@@ -156,7 +156,7 @@ Examples: havens, city blocks, neighborhoods, divisions of a city, metropolitan 
 
 ==== Homestead Traits====
 
-Each is rated on a scale of 0-5 and all add up for that homestead’s score. The score affects how the homestead is affected in rolls and areas of import. 
+Each is rated on a scale of 0-5 and all add up for that homestead’s score. The score affects how the homestead is affected in rolls and areas of import.
 
 *0-5 - Provides -2 to area of import and +1 to a skill
 *6-10 - provides a -1 and +1 to area of import
@@ -165,7 +165,7 @@ Each is rated on a scale of 0-5 and all add up for that homestead’s score. The
 
 '''Affair:''' The financial situation of the homestead; the property value, taxes spent, and revenue. The financial sector or section of the city filled with the workforce may rank high, while neglected or underemployed portions of the city may rank lower.
 
-'''Association:''' How that part of the city is integrated into the wider city. How infrastructure, public services, and shops connect the people to the homestead. Subways, highways, trendy restaurants, cultural locations, etc. are things to consider. 
+'''Association:''' How that part of the city is integrated into the wider city. How infrastructure, public services, and shops connect the people to the homestead. Subways, highways, trendy restaurants, cultural locations, etc. are things to consider.
 
 '''Clout:''' The security physical embodiment of the locations and how it can be interacted with by Kindred. A major landmark with a security force may rank high in this trait, while a sleepy neighborhood where they leave their doors unlocked could sit at 0.
 
@@ -184,7 +184,7 @@ These can only be taken with coterie dots or by taking coterie Flaws to offset t
 |'''Bolt Holes'''
 |'''• - •••'''
 |Every dot of this Merit gives the coterie a bonus die when attempting to escape pursuit or avoid detection. This may also play into dice pools at the Storytellers discretion.
-| id="Bullies" | 
+| id="Bullies" |
 '''Bullies'''
 |'''(•)'''
 |Due to a bad reputation from their past, the coterie suffers a one-die penalty on all Social dice pools except Intimidation when dealing with other vampires. This Flaw does not apply to dealing with their old master's henchmen.
@@ -305,7 +305,7 @@ Kindred can also purchase Coterie Merits at Character Creation, these are merits
 |'''•••'''
 |'''Restraint'''
 | Once per session, the Salubri can allow another member of their group to reroll all of their Hunger dice in a test for free.
-| 
+|
 *{{icon|v5 renegade}}[[Vampire: The Masquerade Players Guide|Players Guide]], page 187
 |- id="All Access"
 |[[File: Toreador Symbol.png|42px]]

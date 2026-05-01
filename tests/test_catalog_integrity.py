@@ -1,4 +1,4 @@
-import json, sys, unittest
+import json, subprocess, sys, unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -106,6 +106,20 @@ class CatalogIntegrityTests(unittest.TestCase):
         self.assertEqual(self.index['entries'], generated)
         self.assertEqual(len(generated), 56)
         self.assertEqual(self.index['sourceCatalogChecksum']['value'], catalog_record_checksum(self.catalog))
+
+    def test_amalgam_generator_imports_as_package_module(self):
+        result = subprocess.run(
+            [
+                sys.executable,
+                '-B',
+                '-c',
+                "import runpy; runpy.run_module('tools.generate_amalgama_index', run_name='not_main')",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_creator_predator_awards_are_structured(self):
         for predator in self.creator['predatorTypes']:

@@ -1,9 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://santiago-nocturno.local/schemas/character-state.schema.json",
-  "title": "Character Creator State - Exportable Complete Character",
+  "title": "Character Creator State - Exportable Complete Character (Strict)",
   "type": "object",
-  "description": "Estado de personaje completo y exportable. Los borradores internos de UI no deben exportarse con este schema.",
+  "description": "Estado de personaje completo y exportable. Los borradores internos de UI no deben exportarse con este schema. Los objetos estructurados rechazan propiedades adicionales; sólo los mapas dinámicos documentados aceptan claves variables.",
   "required": [
     "schemaVersion",
     "exportStatus",
@@ -72,7 +72,7 @@
           "format": "date-time"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "discordId": {
       "type": "string",
@@ -110,7 +110,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "clan": {
       "type": "object",
@@ -133,7 +133,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "generation": {
       "type": "object",
@@ -151,7 +151,7 @@
           "maximum": 10
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "sire": {
       "type": "object",
@@ -186,7 +186,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "predator": {
       "type": "object",
@@ -248,7 +248,7 @@
               "minLength": 1
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "automaticAwardsApplied": {
           "type": "boolean"
@@ -257,7 +257,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "attrSequence": {
       "type": "array",
@@ -702,11 +702,11 @@
                 ]
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "advantages": {
       "type": "object",
@@ -763,7 +763,7 @@
                 ]
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "flaws": {
@@ -813,7 +813,7 @@
                 ]
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "budget": {
@@ -853,10 +853,10 @@
               "const": 0
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "domain": {
       "type": "object",
@@ -904,7 +904,7 @@
               "minimum": 0
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "traits": {
           "type": "object",
@@ -930,7 +930,7 @@
               "maximum": 5
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "merits": {
           "type": "array",
@@ -979,7 +979,7 @@
                 "type": "string"
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "flaws": {
@@ -1029,7 +1029,7 @@
                 "type": "string"
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "backgrounds": {
@@ -1079,7 +1079,7 @@
                 "type": "string"
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         },
         "contributions": {
@@ -1128,11 +1128,11 @@
                 ]
               }
             },
-            "additionalProperties": true
+            "additionalProperties": false
           }
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "convictions": {
       "type": "array",
@@ -1158,7 +1158,7 @@
             "pattern": "^touchstone_[a-zA-Z0-9_-]+$"
           }
         },
-        "additionalProperties": true
+        "additionalProperties": false
       }
     },
     "touchstones": {
@@ -1194,7 +1194,7 @@
             "pattern": "^conviction_[a-zA-Z0-9_-]+$"
           }
         },
-        "additionalProperties": true
+        "additionalProperties": false
       }
     },
     "profile": {
@@ -1234,7 +1234,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "derived": {
       "type": "object",
@@ -1262,7 +1262,7 @@
               "minimum": 0
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "willpower": {
           "type": "object",
@@ -1279,7 +1279,7 @@
               "minimum": 0
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "humanity": {
           "type": "integer",
@@ -1293,7 +1293,82 @@
         },
         "budgets": {
           "type": "object",
-          "additionalProperties": true
+          "required": [
+            "advantages",
+            "domain"
+          ],
+          "properties": {
+            "advantages": {
+              "type": "object",
+              "required": [
+                "availableMeritDots"
+              ],
+              "properties": {
+                "totalMeritDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "spentMeritDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "contributedToDomainDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "availableMeritDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "totalFlawDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "spentFlawDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "receivedFromDomainDots": {
+                  "const": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "domain": {
+              "type": "object",
+              "required": [
+                "availableDots"
+              ],
+              "properties": {
+                "baseDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "contributedAdvantageDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "flawDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "grantedDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "spentDots": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "availableDots": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
         },
         "validation": {
           "type": "object",
@@ -1338,7 +1413,7 @@
                     ]
                   }
                 },
-                "additionalProperties": true
+                "additionalProperties": false
               }
             },
             "warnings": {
@@ -1373,7 +1448,7 @@
                     ]
                   }
                 },
-                "additionalProperties": true
+                "additionalProperties": false
               }
             },
             "lastValidatedAt": {
@@ -1381,10 +1456,10 @@
               "format": "date-time"
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "creationProgress": {
       "type": "object",
@@ -1408,8 +1483,8 @@
           "const": true
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

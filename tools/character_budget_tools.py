@@ -1,17 +1,34 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Mapping
 
 
-def _dots(selection: dict[str, Any]) -> int:
-    return int(selection.get("dots", 0) or 0)
+def _dots(selection: Mapping[str, Any]) -> int:
+    if not isinstance(selection, Mapping):
+        return 0
+    return _int(selection.get("dots"))
 
 
 def _int(value: Any) -> int:
-    return int(value or 0)
+    if isinstance(value, bool):
+        return 0
+    try:
+        return int(value or 0)
+    except (TypeError, ValueError):
+        return 0
 
 
-def is_advantage_to_domain_contribution(contribution: dict[str, Any]) -> bool:
+def _mapping(value: Any) -> Mapping[str, Any]:
+    return value if isinstance(value, Mapping) else {}
+
+
+def _items(value: Any) -> list[Any]:
+    return value if isinstance(value, list) else []
+
+
+def is_advantage_to_domain_contribution(contribution: Mapping[str, Any]) -> bool:
+    if not isinstance(contribution, Mapping):
+        return False
     return (
         contribution.get("source") == "characterAdvantages"
         and contribution.get("sourceBudget") == "advantages.meritDots"
@@ -27,36 +44,36 @@ def domain_contribution_dots(character_state: dict[str, Any]) -> int:
     a contribution returns those dots to the individual advantage budget because all budget fields are
     recomputed from the current allocation state.
     """
-    domain = character_state.get("domain", {})
+    domain = _mapping(character_state.get("domain", {}))
     return sum(
         _dots(contribution)
-        for contribution in domain.get("contributions", [])
+        for contribution in _items(domain.get("contributions", []))
         if is_advantage_to_domain_contribution(contribution)
     )
 
 
 def domain_native_pool_dots(character_state: dict[str, Any]) -> int:
     """Dots that originate in personal Domain and can never fund individual Advantages."""
-    pool = character_state.get("domain", {}).get("pool", {})
+    pool = _mapping(_mapping(character_state.get("domain", {})).get("pool", {}))
     return sum(_int(pool.get(key)) for key in ("baseDots", "flawDots", "grantedDots"))
 
 
 def domain_pool_available(character_state: dict[str, Any]) -> int:
-    pool = character_state.get("domain", {}).get("pool", {})
+    pool = _mapping(_mapping(character_state.get("domain", {})).get("pool", {}))
     return sum(_int(pool.get(key)) for key in ("baseDots", "contributedAdvantageDots", "flawDots", "grantedDots"))
 
 
 def domain_pool_spent(character_state: dict[str, Any]) -> int:
-    domain = character_state.get("domain", {})
-    traits = domain.get("traits", {})
+    domain = _mapping(character_state.get("domain", {}))
+    traits = _mapping(domain.get("traits", {}))
     trait_total = sum(_int(traits.get(key)) for key in ("chasse", "lien", "portillon"))
-    background_total = sum(_dots(item) for item in domain.get("backgrounds", []))
-    merit_total = sum(_dots(item) for item in domain.get("merits", []))
+    background_total = sum(_dots(item) for item in _items(domain.get("backgrounds", [])))
+    merit_total = sum(_dots(item) for item in _items(domain.get("merits", [])))
     return trait_total + background_total + merit_total
 
 
 def advantage_available_merit_dots(character_state: dict[str, Any]) -> int:
-    budget = character_state.get("advantages", {}).get("budget", {})
+    budget = _mapping(_mapping(character_state.get("advantages", {})).get("budget", {}))
     total = _int(budget.get("totalMeritDots"))
     spent = _int(budget.get("spentMeritDots"))
     contributed = domain_contribution_dots(character_state)
@@ -71,25 +88,29 @@ def validate_budget_integrity(character_state: dict[str, Any]) -> list[str]:
     - Domain-native dots (base, flaw, granted) never become individual Advantage dots.
     """
     errors: list[str] = []
-    budget = character_state.get("advantages", {}).get("budget", {})
-    domain = character_state.get("domain", {})
-    pool = domain.get("pool", {})
+    budget = _mapping(_mapping(character_state.get("advantages", {})).get("budget", {}))
+    domain = _mapping(character_state.get("domain", {}))
+    pool = _mapping(domain.get("pool", {}))
 
     contribution_sum = domain_contribution_dots(character_state)
     if _int(pool.get("contributedAdvantageDots")) != contribution_sum:
         errors.append(
-            "domain.pool.contributedAdvantageDots must equal the sum of current domain.contributions from characterAdvantages"
+            "domain.pool.contributedAdvantageDots must equal the sum of current "
+            "domain.contributions from characterAdvantages"
         )
 
     if _int(budget.get("contributedToDomainDots")) != contribution_sum:
         errors.append(
-            "advantages.budget.contributedToDomainDots must equal the sum of current domain.contributions from characterAdvantages"
+            "advantages.budget.contributedToDomainDots must equal the sum of current "
+            "domain.contributions from characterAdvantages"
         )
 
     if _int(budget.get("receivedFromDomainDots")) != 0:
         errors.append("Domain-native dots cannot be transferred into the individual Advantage budget")
 
-    for contribution in domain.get("contributions", []):
+    for contribution in _items(domain.get("contributions", [])):
+        if not isinstance(contribution, Mapping):
+            continue
         if is_advantage_to_domain_contribution(contribution):
             if contribution.get("reversibleDuringCreation") is False:
                 errors.append("Advantage-to-Domain contributions must remain reversible during character creation")

@@ -20,6 +20,12 @@ Paquete formalizado en JSON. El JSON manda para Disciplinas; el Excel queda como
 - `tools/generate_amalgama_index.py`: regenera el índice derivado.
 - `tests/*.py`: pruebas unitarias con `unittest`.
 
+## Dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Verificación rápida
 
 ```bash
@@ -40,7 +46,9 @@ No es necesario para ejecutar la app, pero sí es recomendable para mantener rep
 - Fórmulas de Alquimia de Sangre Débil: 60
 - Amalgamas derivadas: 56
 - Aliases activos de disciplinas: 2
-- Aliases activos de ventajas/dominio: 18
+- Aliases activos de ventajas (individuales): 16
+- Aliases activos de dominio: 2
+- Total aliases activos de ventajas/dominio: 18
 - Aliases rechazados o con cambio de scope: 2
 - Errata: 32
 - Nombres visibles sin traducción pendiente: 0

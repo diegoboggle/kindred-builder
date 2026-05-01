@@ -43,7 +43,7 @@
         "traitId": "flaw_alimentacion_granjero"
       },
       "when": {
-        "clanName": "Ventrue"
+        "clanId": "clan_ventrue"
       },
       "effect": {
         "type": "forbidTrait",
@@ -409,7 +409,7 @@
         "basis": "Los Méritos positivos de Aspecto contradicen la lógica de creación para Nosferatu."
       },
       "when": {
-        "clanName": "Nosferatu"
+        "clanId": "clan_nosferatu"
       },
       "effect": {
         "type": "forbidTraitCategory",

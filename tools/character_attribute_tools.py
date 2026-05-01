@@ -11,6 +11,7 @@ unselected attributes -> 2
 """
 
 from collections import Counter
+from typing import Any, Mapping
 
 ATTRIBUTE_DISTRIBUTION = [4, 3, 3, 3, 2, 2, 2, 2, 1]
 ATTRIBUTE_SEQUENCE_VALUES = [4, 1, 3, 3, 3]
@@ -18,6 +19,12 @@ UNSELECTED_ATTRIBUTE_VALUE = 2
 ATTRIBUTE_SEQUENCE_LENGTH = 5
 MIN_ATTRIBUTE_DOTS = 1
 MAX_ATTRIBUTE_DOTS = 5
+
+
+def _error(code: str, message: str, **extra: Any) -> dict[str, Any]:
+    payload: dict[str, Any] = {"code": code, "message": message}
+    payload.update(extra)
+    return payload
 
 
 def sorted_attribute_values(attributes):
@@ -168,6 +175,9 @@ def validate_initial_attributes(attributes, expected_attribute_names, attr_seque
 
     Returns a list of blocking error dictionaries. An empty list means valid.
     """
+    if not isinstance(attributes, Mapping):
+        return [_error("attributes_not_object", "attributes debe ser un objeto con nombres de atributo y puntos.")]
+
     errors = []
     errors.extend(validate_attribute_names(attributes, expected_attribute_names))
     errors.extend(validate_attribute_values(attributes))

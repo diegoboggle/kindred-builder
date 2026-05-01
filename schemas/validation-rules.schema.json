@@ -108,7 +108,39 @@
           },
           "when": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": true,
+            "properties": {
+              "clanId": {
+                "type": "string"
+              },
+              "hasTraitId": {
+                "type": "string"
+              },
+              "hasAnyTraitId": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "hasDomainTraitId": {
+                "type": "string"
+              },
+              "hasAnyDomainTraitId": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "hasTraitCategory": {
+                "type": "string"
+              },
+              "exceptTraitIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "effect": {
             "type": "object",

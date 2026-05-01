@@ -241,5 +241,65 @@ class CharacterStateSchemaTests(unittest.TestCase):
         self.assertEqual(set(validation["required"]), {"valid", "errors", "warnings"})
 
 
+    def test_export_schema_closes_structured_objects(self):
+        dynamic_map_paths = {"$.properties.disciplines.properties.ratings"}
+        found_dynamic_maps = set()
+
+        def walk(node, path="$"):
+            if isinstance(node, dict):
+                if node.get("type") == "object" or "properties" in node:
+                    self.assertIn("additionalProperties", node, f"{path} must declare additionalProperties")
+                    additional = node["additionalProperties"]
+                    if path in dynamic_map_paths:
+                        self.assertIsInstance(additional, dict, f"{path} is the documented dynamic map")
+                        found_dynamic_maps.add(path)
+                    else:
+                        self.assertIs(additional, False, f"{path} must reject unknown properties")
+                for key, value in node.items():
+                    walk(value, f"{path}.{key}")
+            elif isinstance(node, list):
+                for index, value in enumerate(node):
+                    walk(value, f"{path}[{index}]")
+
+        walk(self.schema)
+        self.assertEqual(found_dynamic_maps, dynamic_map_paths)
+
+    def test_root_rejects_unknown_properties(self):
+        state = complete_character_state()
+        state["unexpectedRootField"] = True
+        with self.assertRaises(jsonschema.ValidationError):
+            jsonschema.validate(state, self.schema)
+
+    def test_nested_objects_reject_unknown_properties(self):
+        state = complete_character_state()
+        state["basics"]["nameTypo"] = "Campo no permitido"
+        with self.assertRaises(jsonschema.ValidationError):
+            jsonschema.validate(state, self.schema)
+
+    def test_array_items_reject_unknown_properties(self):
+        state = complete_character_state()
+        state["advantages"]["merits"].append(
+            {
+                "traitId": "merit_refugio",
+                "dots": 1,
+                "source": "manual",
+                "typo": "no permitido"
+            }
+        )
+        with self.assertRaises(jsonschema.ValidationError):
+            jsonschema.validate(state, self.schema)
+
+    def test_derived_budgets_reject_unknown_properties(self):
+        state = complete_character_state()
+        state["derived"]["budgets"]["advantages"]["shadowBudget"] = 1
+        with self.assertRaises(jsonschema.ValidationError):
+            jsonschema.validate(state, self.schema)
+
+    def test_creator_data_marks_character_state_as_strict(self):
+        model = self.creator["characterStateModel"]
+        self.assertTrue(model["strictAdditionalProperties"])
+        self.assertEqual(model["dynamicMaps"][0]["path"], "disciplines.ratings")
+
+
 if __name__ == "__main__":
     unittest.main()

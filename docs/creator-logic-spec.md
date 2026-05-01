@@ -1359,7 +1359,7 @@ Cada regla declara:
   "severity": "error",
   "description": "Los Ventrue no pueden adquirir el Defecto Granjero.",
   "when": {
-    "clanName": "Ventrue"
+    "clanId": "clan_ventrue"
   },
   "effect": {
     "type": "forbidTrait",
@@ -1508,7 +1508,7 @@ tests/test_skill_rules.py
 ```
 
 
-## Paso 17 — Estado de personaje exportable
+## 25. Estado de personaje exportable
 
 `schemas/character-state.schema.json` representa un personaje completo y exportable. Los borradores internos de la interfaz pueden existir durante la creación, pero no deben pasar validación de exportación hasta completar todos los campos obligatorios.
 
@@ -1550,5 +1550,201 @@ La estructura principal del estado exportable queda organizada así:
 }
 ```
 
-El paso 18 cerrará progresivamente `additionalProperties` para bloquear campos inventados o errores de tipeo. El paso 17 se concentra en definir la estructura completa, obligatoria y exportable.
+El paso 17 define la estructura completa, obligatoria y exportable. El paso 18 cierra los objetos estructurados con `additionalProperties: false`.
 
+
+
+## 26. Cierre de propiedades adicionales
+
+`schemas/character-state.schema.json` rechaza propiedades no declaradas en los objetos estructurados del estado exportable. Esto evita errores silenciosos por campos mal escritos, datos basura o extensiones no acordadas.
+
+Regla general:
+
+```json
+{
+  "additionalProperties": false
+}
+```
+
+Se aplica a los objetos estructurados del estado exportable, incluyendo:
+
+- raíz del personaje;
+- `metadata`;
+- `basics`;
+- `clan`;
+- `generation`;
+- `sire`;
+- `predator`;
+- elementos de `specialties`;
+- `disciplines`;
+- elementos de poderes;
+- `advantages`;
+- elementos de méritos y defectos;
+- `domain`;
+- pool, rasgos, méritos, defectos, contribuciones y trasfondos de Dominio;
+- convicciones;
+- toques;
+- perfil;
+- derivados;
+- errores y advertencias de validación;
+- `creationProgress`.
+
+Excepción documentada:
+
+```text
+disciplines.ratings
+```
+
+Este objeto se mantiene como mapa dinámico porque sus claves son `disciplineId` del catálogo. La restricción no es libre: las claves deben cumplir el patrón `^[a-z0-9_]+$` y los valores deben ser enteros entre 0 y 5.
+
+`derived.budgets` también quedó estructurado. Debe usar las claves conocidas `advantages` y `domain`; no acepta presupuestos inventados.
+
+`data/creator-data.json` marca esta decisión en `characterStateModel.strictAdditionalProperties = true` y enumera los mapas dinámicos permitidos en `characterStateModel.dynamicMaps`.
+
+Pruebas agregadas:
+
+```text
+test_export_schema_closes_structured_objects
+test_root_rejects_unknown_properties
+test_nested_objects_reject_unknown_properties
+test_array_items_reject_unknown_properties
+test_derived_budgets_reject_unknown_properties
+test_creator_data_marks_character_state_as_strict
+```
+
+## 27. Validadores modulares
+
+El paquete separa los validadores de reglas en módulos independientes bajo `tools/validators/`.
+
+Este paso no crea todavía un validador integral. La orquestación completa queda reservada para el paso 20. El objetivo de este paso es que cada área del personaje pueda validarse de forma aislada, testeable y mantenible.
+
+### 27.1 Archivos agregados
+
+```text
+tools/__init__.py
+tools/validators/__init__.py
+tools/validators/common.py
+tools/validators/registry.py
+tools/validators/attributes.py
+tools/validators/skills.py
+tools/validators/specialties.py
+tools/validators/budget.py
+tools/validators/advantages.py
+tools/validators/domain.py
+tools/validators/disciplines.py
+tools/validators/predator.py
+tools/validators/validation_rules.py
+tools/validators/character_state.py
+tests/test_validator_modules.py
+```
+
+### 27.2 Módulos
+
+| Módulo | Responsabilidad |
+|---|---|
+| `attributes` | Valida `attrSequence`, nombres, valores y distribución final de atributos. |
+| `skills` | Valida `skillSequence`, nombres, valores y distribución final de habilidades. |
+| `specialties` | Valida especialidad gratuita, origen, duplicados normalizados y máximo por habilidad. |
+| `budget` | Valida presupuesto de Ventajas y Dominio personal, incluyendo contribuciones reversibles desde Ventajas. |
+| `advantages` | Valida méritos y defectos individuales contra `advantagesCatalog`. |
+| `domain` | Valida rasgos, trasfondos, méritos, defectos y presupuesto de Dominio personal contra `domainCatalog`. |
+| `disciplines` | Valida ratings y poderes seleccionados contra `disciplinas_v5_catalogo.json`. |
+| `predator` | Valida el tipo de depredador y sus selecciones directas. |
+| `validation_rules` | Valida la estructura declarativa de reglas bloqueantes. |
+| `character_state` | Valida el estado exportable contra `character-state.schema.json`. |
+
+### 27.3 Interfaz común
+
+Cada módulo expone una función:
+
+```python
+validate(character_state, creator_data, **context) -> list[dict]
+```
+
+El resultado siempre es una lista de errores. Una lista vacía significa que ese módulo no encontró errores.
+
+### 27.4 Registro
+
+`tools/validators/registry.py` expone:
+
+```python
+list_validators()
+get_validator(name)
+VALIDATOR_MODULES
+```
+
+Este registro permite descubrir los módulos sin convertirlos todavía en un pipeline único.
+
+### 27.5 Límites del paso 27
+
+Los módulos no aplican todavía reglas condicionales como sistema integral. Por ejemplo, el módulo `skills` puede recibir efectos de reglas ya resueltas, pero no decide por sí solo si una regla como `Analfabeto` está activa. Esa evaluación pertenece al validador integral del paso 20.
+
+### 27.6 Metadata en creator-data
+
+`data/creator-data.json` incluye `validatorArchitectureModel`, que documenta qué módulos existen, dónde están y qué responsabilidad tiene cada uno.
+
+
+## 28. Validador integral de personaje
+
+El validador integral vive en `tools/character_validator.py` y expone dos entradas públicas:
+
+```python
+validate_character(character_state, creator_data, **context)
+validateCharacter(character_state, creator_data, **context)
+```
+
+`validateCharacter` es un alias camelCase para integraciones de interfaz. La función principal recibe el estado completo del personaje, los catálogos base y, opcionalmente, el catálogo de disciplinas, `validation-rules.json` y `character-state.schema.json`.
+
+La salida estable es:
+
+```json
+{
+  "valid": false,
+  "errors": [],
+  "warnings": [],
+  "derived": {},
+  "moduleResults": []
+}
+```
+
+El pipeline ejecuta los validadores modulares del paso 19 en este orden:
+
+```text
+character_state
+attributes
+skills
+specialties
+budget
+advantages
+domain
+disciplines
+predator
+validation_rules
+rule_engine
+```
+
+`rule_engine` no es un módulo del registro del paso 19. Es la capa integral que aplica `data/validation-rules.json` contra el personaje concreto. Esto separa dos responsabilidades:
+
+```text
+validation_rules.py      valida que el archivo de reglas esté bien formado.
+character_validator.py   aplica las reglas al estado del personaje.
+```
+
+Todas las reglas son bloqueantes. Si una regla se incumple, el validador devuelve `valid: false`.
+
+El validador también recompone `derived` desde las elecciones explícitas del personaje:
+
+```text
+derived.health
+derived.willpower
+derived.humanity
+derived.bloodPotency
+derived.budgets
+derived.validation
+```
+
+`derived.validation` guarda una versión sanitizada de errores y advertencias compatible con `character-state.schema.json`. Los errores completos del resultado principal pueden incluir campos adicionales como `module`, `origin`, `traitId`, `domainTraitId` o `actualDots`.
+
+La función acepta `update_derived=True`. En ese modo, el validador escribe los derivados recalculados dentro de `character_state["derived"]`. Esto permite persistir el resultado final antes de exportar.
+
+Regla de diseño: el estado exportable debe validarse mediante `validate_character` antes de ser importado por otra herramienta, bot o plataforma.

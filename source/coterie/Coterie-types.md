@@ -27,11 +27,11 @@ A coterie that entices mortals into supernatural rituals or schemes. Take their 
 '''Common Coterie Advantages:''' On Tap •, Cursed (varies), Targeted (•)<ref name=":10">[[Vampire: The Masquerade Players Guide]], page 158</ref>
 
 == Carnival ==
-A coterie that moves from place to place, this does not mean they always bring entertainment, instead they might share theater tales, politics, Cainite rites or be hidden in plain sight. 
+A coterie that moves from place to place, this does not mean they always bring entertainment, instead they might share theater tales, politics, Cainite rites or be hidden in plain sight.
 
 * Domain: None
 * Cointacts: ••• (Fans)
-* Fame ••• 
+* Fame •••
 * Retainers • (Daylight help)
 
 '''Possible extras:''' Allies, Herd (Fans), Resources <ref name=":0">[[Vampire: The Masquerade Chicago by Night]], page 260</ref>
@@ -236,7 +236,7 @@ A Coterie type formed by those kept down in life or unlife, they exist to ruin t
 '''Possible extras:''' Herd (Survivors), Retainers (Survivors)<ref>[[Vampire: The Masquerade Cults of the Blood Gods]], page 55</ref>
 
 ==Nomad==
-A coterie that travels together. 
+A coterie that travels together.
 *Domain: None
 *Contacts ••• (Audience, promoters, travel brokers, etc)
 *Retainers •• (At least one adult to handle daytime travel problems)
@@ -282,7 +282,7 @@ A coterie formed to watch over a traveling elder's domain and use their politica
 *Mawla •• (Major-domo or Zampolit)
 *Status •••• (or ••• for Anarch regencies)<ref name=":4" />
 *Advantages: Select up to 10 dots shared between Haven, Herd, Influence, Resources, Retainers, Status: City Secrets, and/or Coterie Advantages.
-*Flaws: Select the same amount of dots worth of Flaws (Adversaries, Compromised Haven, Despised, Enemies, Stalkers, and/or Coterie Flaws) 
+*Flaws: Select the same amount of dots worth of Flaws (Adversaries, Compromised Haven, Despised, Enemies, Stalkers, and/or Coterie Flaws)
 '''Preferred Resonances:''' Phlegmatic
 
 '''Common Coterie Advantages:''' Bolt Holes, Bullies (•), Targeted (•)<ref name=":17" />
@@ -323,7 +323,7 @@ A coterie that serves an elder vampire.
 
 * Domain: Chasse •, Portillon ••
 * Loresheet •• (Their master who teaches them)
-* Mawla ••• 
+* Mawla •••
 
 '''Possible Extras:''' Allies, Retainers, Status<ref>[[Vampire: The Masquerade Chicago by Night]], page 261</ref>
 
@@ -344,7 +344,7 @@ A coterie that may tap into dark magic or may just be theological researchers of
 '''Possible extras:''' Allies, Contacts, Suspect <ref name=":5" />
 
 ==Think Tank==
-A coterie type created from advisors, strategists, and researchers for a given cult. 
+A coterie type created from advisors, strategists, and researchers for a given cult.
 *Domain: Chasse •, Lien •••
 *Allies ••• (Analysts, bureaucrats, soldiers, etc)
 *Haven • (Small office to work in)
@@ -354,7 +354,7 @@ A coterie type created from advisors, strategists, and researchers for a given c
 A coterie that develops it's base behind enemy lines.
 
 * Domain: Chasse ••, Portillon •••
-* Status • 
+* Status •
 * Enemies (•)
 
 '''Possible extras:''' Adversary, Mawla<ref>[[Vampire: The Masquerade Chicago by Night]], page 236</ref>
@@ -395,7 +395,7 @@ Comprised of the Primogen Council, this type of coterie is constantly engaging i
 * Haven: ••• A shared space for meeting and emergency shelter. This Advantage starts at 3 dots, but it is expected that members donate personal Advantage dots to the shared pool. This should be akin to a supervillain lair.<ref name=":8" />
 
 == Prince's Court ==
-This coterie has risen to power to rule a smaller city or major domain within a larger megacity. 
+This coterie has risen to power to rule a smaller city or major domain within a larger megacity.
 
 * Domain: Typically comprised of ••• Chasse and ••• Portillon, with only members of the court able to hunt there.
 * Haven: Typically starts at ••• or ••••

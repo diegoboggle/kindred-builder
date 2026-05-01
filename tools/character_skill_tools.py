@@ -57,6 +57,13 @@ def _error(code: str, message: str, **extra: Any) -> dict[str, Any]:
     return payload
 
 
+def _skill_dots(skills: Mapping[str, Any], skill: str) -> int:
+    value = skills.get(skill, 0)
+    if isinstance(value, bool) or not isinstance(value, int):
+        return 0
+    return value
+
+
 def build_skills_from_sequence(skill_sequence: Sequence[str], all_skills: Sequence[str]) -> dict[str, int]:
     """Build the final skill map from a valid skill sequence.
 
@@ -108,7 +115,11 @@ def validate_skill_sequence(skill_sequence: Any, all_skills: Sequence[str]) -> l
             )
         )
 
-    duplicates = sorted(skill for skill, count in Counter(skill_sequence).items() if count > 1 and isinstance(skill, str))
+    duplicates = sorted(
+        skill
+        for skill, count in Counter(skill_sequence).items()
+        if count > 1 and isinstance(skill, str)
+    )
     if duplicates:
         errors.append(
             _error(
@@ -125,13 +136,18 @@ def validate_initial_skills(
     skills: Any,
     all_skills: Sequence[str],
     *,
-    skill_sequence: Sequence[str] | None = None,
+    skill_sequence: Any | None = None,
 ) -> list[dict[str, Any]]:
     errors: list[dict[str, Any]] = []
     valid_skills = set(all_skills)
 
     if not isinstance(skills, Mapping):
-        return [_error("skills_not_object", "skills must be an object mapping skill names to dots.")]
+        return [
+            _error(
+                "skills_not_object",
+                "skills must be an object mapping skill names to dots.",
+            )
+        ]
 
     skill_names = set(skills.keys())
     missing = sorted(valid_skills - skill_names)
@@ -163,7 +179,11 @@ def validate_initial_skills(
                 )
             )
 
-    if not missing and not unknown and all(isinstance(value, int) and not isinstance(value, bool) for value in skills.values()):
+    if (
+        not missing
+        and not unknown
+        and all(isinstance(value, int) and not isinstance(value, bool) for value in skills.values())
+    ):
         distribution = sorted((int(skills[skill]) for skill in all_skills), reverse=True)
         if distribution != SKILL_DISTRIBUTION:
             errors.append(
@@ -176,7 +196,7 @@ def validate_initial_skills(
             )
 
     if skill_sequence is not None:
-        seq_errors = validate_skill_sequence(list(skill_sequence), all_skills)
+        seq_errors = validate_skill_sequence(skill_sequence, all_skills)
         errors.extend(seq_errors)
         if not seq_errors:
             expected = build_skills_from_sequence(skill_sequence, all_skills)
@@ -227,6 +247,14 @@ def validate_specialties(
     valid_skills = set(all_skills)
     required = set(special_required_skills)
 
+    if not isinstance(skills, Mapping):
+        return [
+            _error(
+                "skills_not_object",
+                "skills must be an object mapping skill names to dots.",
+            )
+        ]
+
     if not isinstance(specialties, list):
         return [_error("specialties_not_list", "specialties must be a list.")]
 
@@ -249,11 +277,25 @@ def validate_specialties(
         source_is_valid = isinstance(source, str) and source in SPECIALTY_SOURCE_VALUES
 
         if not skill_is_valid:
-            errors.append(_error("specialty_skill_invalid", "Specialty skill must be known.", index=index, skill=skill))
+            errors.append(
+                _error(
+                    "specialty_skill_invalid",
+                    "Specialty skill must be known.",
+                    index=index,
+                    skill=skill,
+                )
+            )
             continue
 
         if not name_is_valid:
-            errors.append(_error("specialty_name_missing", "Specialty name must not be empty.", index=index, skill=skill))
+            errors.append(
+                _error(
+                    "specialty_name_missing",
+                    "Specialty name must not be empty.",
+                    index=index,
+                    skill=skill,
+                )
+            )
             continue
 
         if not source_is_valid:
@@ -269,7 +311,7 @@ def validate_specialties(
             )
             continue
 
-        if skills.get(skill, 0) <= 0:
+        if _skill_dots(skills, skill) <= 0:
             errors.append(
                 _error(
                     "specialty_skill_untrained",
@@ -293,8 +335,8 @@ def validate_specialties(
             free_specialty_entries.append(specialty)
 
     for skill, specialty_count in sorted(specialty_count_by_skill.items()):
-        skill_dots = skills.get(skill, 0)
-        if isinstance(skill_dots, int) and specialty_count > skill_dots:
+        skill_dots = _skill_dots(skills, skill)
+        if specialty_count > skill_dots:
             errors.append(
                 _error(
                     "specialty_count_exceeds_skill_dots",
@@ -305,7 +347,11 @@ def validate_specialties(
                 )
             )
 
-    missing_required = sorted(skill for skill in required if skills.get(skill, 0) > 0 and skill not in specialty_skills_with_named_specialty)
+    missing_required = sorted(
+        skill
+        for skill in required
+        if _skill_dots(skills, skill) > 0 and skill not in specialty_skills_with_named_specialty
+    )
     if missing_required:
         errors.append(
             _error(
@@ -316,10 +362,21 @@ def validate_specialties(
         )
 
     if not isinstance(free_specialty_skill, str) or not free_specialty_skill:
-        errors.append(_error("free_specialty_skill_missing", "Every character must select one free specialty."))
+        errors.append(
+            _error(
+                "free_specialty_skill_missing",
+                "Every character must select one free specialty.",
+            )
+        )
     elif free_specialty_skill not in valid_skills:
-        errors.append(_error("free_specialty_skill_unknown", "The free specialty skill must be known.", skill=free_specialty_skill))
-    elif skills.get(free_specialty_skill, 0) <= 0:
+        errors.append(
+            _error(
+                "free_specialty_skill_unknown",
+                "The free specialty skill must be known.",
+                skill=free_specialty_skill,
+            )
+        )
+    elif _skill_dots(skills, free_specialty_skill) <= 0:
         errors.append(
             _error(
                 "free_specialty_skill_untrained",
@@ -341,7 +398,11 @@ def validate_specialties(
         )
     elif isinstance(free_specialty_skill, str) and isinstance(free_specialty_name, str):
         free_entry = free_specialty_entries[0]
-        if free_entry.get("skill") != free_specialty_skill or normalize_specialty_name(str(free_entry.get("name", ""))) != normalize_specialty_name(free_specialty_name):
+        if (
+            free_entry.get("skill") != free_specialty_skill
+            or normalize_specialty_name(str(free_entry.get("name", "")))
+            != normalize_specialty_name(free_specialty_name)
+        ):
             errors.append(
                 _error(
                     "free_specialty_entry_mismatch",

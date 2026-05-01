@@ -22,7 +22,7 @@ class ValidationRulesTests(unittest.TestCase):
         cls.domain_ids = {item["id"] for item in cls.creator["domainCatalog"]}
         cls.advantage_categories = {item["category"] for item in cls.creator["advantagesCatalog"]}
         cls.domain_categories = {item["category"] for item in cls.creator["domainCatalog"]}
-        cls.clans = set(cls.creator["clans"])
+        cls.clans = {clan["id"] for clan in cls.creator["clanCatalog"]}
         cls.skills = set(cls.creator["skills"])
         cls.discipline_names = {record["discipline"] for record in cls.disciplines["records"]}
         cls.effect_types = set(cls.rules["effectTypes"])
@@ -56,8 +56,8 @@ class ValidationRulesTests(unittest.TestCase):
     def test_when_clan_references_exist(self):
         for rule in self.rules["rules"]:
             when = rule.get("when", {})
-            if "clanName" in when:
-                self.assertIn(when["clanName"], self.clans, rule["id"])
+            if "clanId" in when:
+                self.assertIn(when["clanId"], self.clans, rule["id"])
 
     def test_when_trait_references_exist(self):
         for rule in self.rules["rules"]:
