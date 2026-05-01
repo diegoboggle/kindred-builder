@@ -37,7 +37,11 @@ def build_attributes_from_sequence(attr_sequence, expected_attribute_names):
     attributes = {name: UNSELECTED_ATTRIBUTE_VALUE for name in expected_attribute_names}
 
     for index, attribute in enumerate(attr_sequence):
-        if index < len(ATTRIBUTE_SEQUENCE_VALUES) and attribute in attributes:
+        if (
+            index < len(ATTRIBUTE_SEQUENCE_VALUES)
+            and isinstance(attribute, str)
+            and attribute in attributes
+        ):
             attributes[attribute] = ATTRIBUTE_SEQUENCE_VALUES[index]
 
     return attributes
@@ -133,7 +137,16 @@ def validate_attr_sequence(attr_sequence, expected_attribute_names, required_len
             "actualLength": len(attr_sequence),
         })
 
-    duplicates = sorted([name for name, count in Counter(attr_sequence).items() if count > 1])
+    non_strings = [name for name in attr_sequence if not isinstance(name, str)]
+    if non_strings:
+        errors.append({
+            "code": "attr_sequence_non_string",
+            "message": "attrSequence sólo puede contener nombres de atributo como texto.",
+            "values": non_strings,
+        })
+
+    string_items = [name for name in attr_sequence if isinstance(name, str)]
+    duplicates = sorted([name for name, count in Counter(string_items).items() if count > 1])
     if duplicates:
         errors.append({
             "code": "attr_sequence_duplicates",
@@ -141,7 +154,7 @@ def validate_attr_sequence(attr_sequence, expected_attribute_names, required_len
             "attributes": duplicates,
         })
 
-    unknown = sorted(set(attr_sequence) - expected_set)
+    unknown = sorted(set(string_items) - expected_set)
     if unknown:
         errors.append({
             "code": "attr_sequence_unknown_attributes",

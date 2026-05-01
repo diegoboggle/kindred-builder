@@ -205,6 +205,12 @@ class SkillRuleTests(unittest.TestCase):
         errors = validate_skill_sequence(invalid_sequence, self.skills)
         self.assertIn("skill_sequence_unknown_skills", {error["code"] for error in errors})
 
+    def test_skill_sequence_non_string_is_blocking_without_crashing(self):
+        invalid_sequence = list(self.valid_sequence)
+        invalid_sequence[-1] = ["Sigilo"]
+        errors = validate_skill_sequence(invalid_sequence, self.skills)
+        self.assertIn("skill_sequence_non_string", {error["code"] for error in errors})
+
     def test_skill_sequence_wrong_length_is_blocking(self):
         errors = validate_skill_sequence(self.valid_sequence[:-1], self.skills)
         self.assertIn("skill_sequence_wrong_length", {error["code"] for error in errors})
@@ -414,6 +420,13 @@ class SkillRuleTests(unittest.TestCase):
         self.assertTrue(any(error["skill"] == "Academicismo" and error["maxDots"] == 1 for error in errors))
         self.assertTrue(any(error["skill"] == "Ciencias" and error["maxDots"] == 1 for error in errors))
         self.assertTrue(any(error["skill"] == "Subterfugio" and error["maxDots"] == 0 for error in errors))
+
+    def test_skill_maximum_rules_ignore_non_integer_values_without_crashing(self):
+        errors = apply_skill_maximum_rules(
+            {"Academicismo": "4", "Ciencias": True},
+            [{"type": "skillMaximum", "skills": ["Academicismo", "Ciencias"], "maxDots": 1}],
+        )
+        self.assertEqual(errors, [])
 
     def test_documentation_mentions_step_16_skill_rules(self):
         spec = (ROOT / "docs" / "creator-logic-spec.md").read_text(encoding="utf-8")

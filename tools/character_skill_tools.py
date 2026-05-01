@@ -74,7 +74,8 @@ def build_skills_from_sequence(skill_sequence: Sequence[str], all_skills: Sequen
 
     result = {skill: 0 for skill in all_skills}
     for skill, value in zip(skill_sequence, SKILL_SEQUENCE_VALUES):
-        result[skill] = value
+        if isinstance(skill, str):
+            result[skill] = value
     return result
 
 
@@ -105,7 +106,8 @@ def validate_skill_sequence(skill_sequence: Any, all_skills: Sequence[str]) -> l
             )
         )
 
-    unknown = sorted({skill for skill in skill_sequence if isinstance(skill, str) and skill not in valid_skills})
+    string_items = [skill for skill in skill_sequence if isinstance(skill, str)]
+    unknown = sorted({skill for skill in string_items if skill not in valid_skills})
     if unknown:
         errors.append(
             _error(
@@ -117,8 +119,8 @@ def validate_skill_sequence(skill_sequence: Any, all_skills: Sequence[str]) -> l
 
     duplicates = sorted(
         skill
-        for skill, count in Counter(skill_sequence).items()
-        if count > 1 and isinstance(skill, str)
+        for skill, count in Counter(string_items).items()
+        if count > 1
     )
     if duplicates:
         errors.append(
@@ -430,7 +432,13 @@ def apply_skill_maximum_rules(
         max_dots = effect.get("maxDots")
         for skill in effect.get("skills", []):
             value = skills.get(skill, 0)
-            if isinstance(max_dots, int) and value > max_dots:
+            if (
+                isinstance(max_dots, int)
+                and not isinstance(max_dots, bool)
+                and isinstance(value, int)
+                and not isinstance(value, bool)
+                and value > max_dots
+            ):
                 errors.append(
                     _error(
                         "skill_maximum_rule_violation",

@@ -155,6 +155,13 @@ class AttributeRuleTests(unittest.TestCase):
         errors = validate_attr_sequence(invalid_sequence, self.attributes)
         self.assertIn("attr_sequence_unknown_attributes", {error["code"] for error in errors})
 
+    def test_attr_sequence_non_string_is_blocking_without_crashing(self):
+        invalid_sequence = list(self.valid_sequence)
+        invalid_sequence[-1] = ["Resolución"]
+
+        errors = validate_attr_sequence(invalid_sequence, self.attributes)
+        self.assertIn("attr_sequence_non_string", {error["code"] for error in errors})
+
     def test_attr_sequence_wrong_length_is_blocking(self):
         errors = validate_attr_sequence(self.valid_sequence[:-1], self.attributes)
         self.assertIn("attr_sequence_wrong_length", {error["code"] for error in errors})

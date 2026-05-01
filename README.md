@@ -29,8 +29,8 @@ pip install -r requirements.txt
 ## Verificación rápida
 
 ```bash
-python -m unittest discover -s tests
-python tools/generate_amalgama_index.py
+python3 -m unittest discover -s tests
+python3 tools/generate_amalgama_index.py
 ```
 
 ## Decisión sobre el script
